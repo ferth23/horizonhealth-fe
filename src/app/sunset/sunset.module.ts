@@ -2,16 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainpageComponent } from './pages/mainpage/mainpage.component';
 import { BannerComponent } from './components/banner/banner.component';
-
-
+import { SunsetRoutingModule } from './sunset-routing.module';
+import { HorizonModule } from '../horizon/horizon.module';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 @NgModule({
   declarations: [
     MainpageComponent,
-    BannerComponent
+    BannerComponent,
+    NavBarComponent,
+    SobreNosotrosComponent,
+    ContactoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SunsetRoutingModule,
+    HorizonModule
   ]
 })
 export class SunsetModule { }
