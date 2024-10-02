@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "horizonhealth-fe:build:production"
+              "buildTarget": "horizonhealth-fe:build:production"
             },
             "development": {
-              "browserTarget": "horizonhealth-fe:build:development"
+              "buildTarget": "horizonhealth-fe:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "horizonhealth-fe:build"
+            "buildTarget": "horizonhealth-fe:build"
           }
         },
         "test": {
