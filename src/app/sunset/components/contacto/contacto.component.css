@@ -1,0 +1,82 @@
+.contacto-background {
+    background: linear-gradient(45deg, #020024, #090979, #ff0099);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .row {
+    width: 100%;
+    display: flex;
+  }
+
+  .contacto-info {
+    background-color: #021f53;
+    color: white;
+    padding: 30px;
+    width: 35%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+
+  .contacto-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .contact-list li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .social-media {
+    margin-top: 20px;
+  }
+  
+  .social-media i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .contacto-form {
+    background-color: white;
+    padding: 30px;
+    width: 35%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  
+  .contacto-form h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .contacto-form p {
+    color: #555;
+  }
+  
+  button {
+    background-color: #021f53;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #00183b;
+  }
+  
