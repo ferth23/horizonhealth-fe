@@ -1,5 +1,6 @@
 <div class = "contacto-background">
   <h1 class = "contact-title"> ¡Contáctanos! </h1>
+  <p class = "contact-subtitle"> Déjanos saber cómo podemos ayudarte </p>
 
   <div class = "row">
       
@@ -19,31 +20,32 @@
     </div>
 
     <div class = "col-md-6 contacto-form">
-      
       <form [formGroup] = "contactForm" (ngSubmit) = "onSubmit()">
-        <div class = "mb-3">
-          <label for = "firstName" class = "form-label"> Nombre </label>
-          <input type = "text" class = "form-control" id = "firstName" formControlName = "firstName">
-        </div>
+        <div class = "mb-3 name-container">
+          <div class = "name-field">
+            <label for = "firstName" class = "form-label"> Nombre </label>
+            <input type = "text" class = "form-control" id = "firstName" formControlName = "firstName" placeholder = "Nombre(s)">
+          </div>
 
-        <div class = "mb-3">
-          <label for = "lastName" class = "form-label"> Apellido </label>
-          <input type = "text" class = "form-control" id = "lastName" formControlName = "lastName">
+          <div class = "name-field">
+            <label for = "lastName" class = "form-label"> Apellido </label>
+            <input type = "text" class = "form-control" id = "lastName" formControlName = "lastName" placeholder = "Apellido(s)">
+          </div>
         </div>
         
         <div class = "mb-3">
-          <label for = "correo" class = "form-label"> Correo Electrónico </label>
-          <input type = "email" class = "form-control" id = "correo" formControlName = "correo">
+          <label for = "correo" class = "form-label"> Correo </label>
+          <input type = "email" class = "form-control" id = "correo" formControlName = "correo"  placeholder = "Correo Electrónico">
         </div>
 
         <div class = "mb-3">
-          <label for = "celular" class = "form-label"> Número de Teléfono </label>
-          <input type = "tel" class = "form-control" id = "celular" formControlName = "celular">
+          <label for = "celular" class = "form-label"> Teléfono </label>
+          <input type = "tel" class = "form-control" id = "celular" formControlName = "celular"  placeholder = "Número de Teléfono">
         </div>
 
         <div class = "mb-3">
           <label for = "mensaje" class = "form-label"> Mensaje </label>
-          <textarea class="form-control" id = "mensaje" rows = "3" formControlName = "mensaje"> </textarea>
+          <textarea class="form-control" id = "mensaje" rows = "3" formControlName = "mensaje"  placeholder = "Escribe tu mensaje"> </textarea>
         </div>
 
         <button type = "submit" class = "btn btn-primary"> Enviar </button>
