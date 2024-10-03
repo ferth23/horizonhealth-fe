@@ -1,4 +1,15 @@
-<nav-bar/>
-<banner/>
-<sobre-nosotros/>
-<contacto/>
+<div class="nav" id="nav">
+  <nav-bar (onScrollToSection)="scrollToSection($event)"/>
+</div>
+
+<div class="inicio" id="inicio">
+  <banner/>
+</div>
+
+<div class="acerca" id="acerca">
+  <sobre-nosotros/>
+</div>
+
+<div class="contacto" id="contacto">
+  <contacto/>
+</div>
