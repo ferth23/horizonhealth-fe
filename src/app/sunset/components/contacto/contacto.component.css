@@ -1,186 +1,184 @@
-
 .contact-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 .contact-title {
-    font-size: 3rem;
-    color: white;
-    text-align: center;
-    margin-bottom: 0;
-  }
-  
-  .contact-subtitle {
-    font-size: 1.2rem;
-    color: white;
-    text-align: center;
-    margin-top: 10px;
-  }
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
 
-  .contacto-background {
-    height: 1000px;
-    background: linear-gradient( to right,
-                                #26258F 0%, 
-                                #50236E 34%, 
-                                #99107D 69%, 
-                                #D9008A 100%);
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;  /* justify-content: center; */
-    align-items: center;
-    padding-top: 50px;
-  }
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
 
-  .row {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 1200px; /* Tamaño máximo del contenedor */
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    gap: 20px; /* Espaciado entre el formulario y la información de contacto */
-  }
+.contacto-background {
+  height: 1000px;
+  background: linear-gradient( to right,
+                              #26258F 0%, 
+                              #50236E 34%, 
+                              #99107D 69%, 
+                              #D9008A 100%);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  /* justify-content: center; */
+  align-items: center;
+  padding-top: 50px;
+}
 
-  .contacto-info {
-    background-color: #021f53;
-    color: white;
-    padding: 20px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    /*justify-content: center;*/
-    justify-content: flex-start;
-    border-radius: 15px;
-  }
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px; /* Tamaño máximo del contenedor */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  gap: 20px; /* Espaciado entre el formulario y la información de contacto */
+}
 
-  .contacto-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 50px;
-  }  
-  
-  .contact-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 50px;
-  }
-  
-  .contact-list li {
-    font-size: 1rem;
-    margin-bottom: 30px;
-  }
+.contacto-info {
+  background-color: #021f53;
+  color: white;
+  padding: 20px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  justify-content: flex-start;
+  border-radius: 15px;
+}
 
-  .contact-list li i {
-    margin-right: 10px;
-  }
-  
-  .social-media {
-    /*margin-top: 20px;*/
-    margin-top: auto;
-  }
-  
-  .social-media i {
-    font-size: 1.5rem;
-    margin-right: 10px;
-    cursor: pointer;
-    
-  }
-  
-  .contacto-form {
-    background-color: white;
-    padding: 30px;
-    width: 60%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-  }
+.contacto-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 50px;
+}  
 
-  .contacto-form label {
-    font-size: 1.2rem;
-    color: #333; 
-    margin-bottom: 5px;
-    display: block; 
-  }
-  
-  .contacto-form input, 
-  .contacto-form textarea {
-    width: 100%; 
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 1rem; 
-  }
-  
-  .contacto-form input:focus,
-  .contacto-form textarea:focus {
-    border-color: #021f53; 
-    outline: none;
-  }
-  
-  .contacto-form h2 {
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .contacto-form p {
-    color: #555;
-  }
-  
-  button {
-    background-color: #021f53;
-    color: white;
-    border: none;
-    padding: 10px 40px;
-    border-radius: 30px;
-    cursor: pointer;
-    display: block; 
-    margin: 0 auto; 
-    font-size: 1rem;
-  }
-  
-  button:hover {
-    background-color: #00183b;
-  }
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 50px;
+}
 
-  .name-container {
-    display: flex; 
-    justify-content: space-between; 
-    gap: 10px; 
-  }
-  
-  .name-field {
-    flex: 1; 
-  }
-  
-  .name-field input {
-    width: 100%; 
-  }
-  
-  input {
-    box-sizing: border-box; 
-  }
+.contact-list li {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
 
-  textarea {
-    width: 100%;
-    box-sizing: border-box; 
-    font-family: "Inter";
-  }
+.contact-list li i {
+  margin-right: 10px;
+}
 
-  h1, h3, button {
-    font-family: "Lato", sans-serif;
-  }
+.social-media {
+  /*margin-top: 20px;*/
+  margin-top: auto;
+}
 
-  p, li {
-    font-family: "Catamaran", sans-serif;
-  }
+.social-media i {
+  font-size: 1.5rem;
+  margin-right: 25px;
+  cursor: pointer;
   
-  label, textarea {
-    font-family: "Inter", sans-serif;
-  }
+}
 
+.contacto-form {
+  background-color: white;
+  padding: 30px;
+  width: 60%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.contacto-form label {
+  font-size: 1.2rem;
+  color: #333; 
+  margin-bottom: 5px;
+  display: block; 
+}
+
+.contacto-form input, 
+.contacto-form textarea {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1rem; 
+}
+
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+  border-color: #021f53; 
+  outline: none;
+}
+
+.contacto-form h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.contacto-form p {
+  color: #555;
+}
+
+button {
+  background-color: #021f53;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: block; 
+  margin: 0 auto; 
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #00183b;
+}
+
+.name-container {
+  display: flex; 
+  justify-content: space-between; 
+  gap: 10px; 
+}
+
+.name-field {
+  flex: 1; 
+}
+
+.name-field input {
+  width: 100%; 
+}
+
+input {
+  box-sizing: border-box; 
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box; 
+  font-family: "Inter";
+}
+
+h1, h3, button {
+  font-family: "Lato", sans-serif;
+}
+
+p, li {
+  font-family: "Catamaran", sans-serif;
+}
+
+label, textarea {
+  font-family: "Inter", sans-serif;
+}
