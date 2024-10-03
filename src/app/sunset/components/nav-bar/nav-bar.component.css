@@ -1,0 +1,96 @@
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  background: transparent;
+  box-shadow: 0 .5px 10px black;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
+.toggle-nav {
+  background-image: url(../../../../../public/toggleNavBar.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.sw-logo {
+  cursor: pointer;
+  height: 6rem;
+  width: 12rem;
+}
+
+.icon {
+  height: 2rem;
+  width: 3rem;
+  margin: 32px auto;
+  display: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  align-items: center;
+  margin-top: 0;
+  padding-left: 0;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 1s ease, max-height 1s ease;
+}
+
+.link {
+  cursor: pointer;
+  color: black;
+  padding: 1rem;
+  font-family: "Lato", sans serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  width: 80%;
+}
+
+@media ( min-width: 460px ) {
+  nav {
+    flex-direction: row;
+    padding: 0 4rem;
+    justify-content: space-between;
+    height: 6rem;
+  }
+
+  .toggle-nav { display: none; }
+
+  .links {
+    flex-direction: row;
+    margin-top: 16px;
+    justify-content: space-between;
+    width: 20rem;
+  }
+
+  .link {
+    width: auto;
+  }
+
+  .icon { display: block; }
+}
+
+@media ( max-width: 460px ) {
+  .hidden {
+    opacity: 0;
+    max-height: 0;
+  }
+}
