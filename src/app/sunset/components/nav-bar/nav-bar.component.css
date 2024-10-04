@@ -30,14 +30,14 @@ nav {
 
 .sw-logo {
   cursor: pointer;
-  height: 6rem;
+  height: 4.5rem;
   width: 12rem;
 }
 
 .icon {
   height: 2rem;
   width: 3rem;
-  margin: 32px auto;
+  margin: 24px auto;
   display: none;
 }
 
@@ -55,7 +55,7 @@ nav {
 
 .link {
   cursor: pointer;
-  color: black;
+  color: #2F041C;
   padding: 1rem;
   font-family: "Lato", sans serif;
   font-weight: 700;
@@ -67,25 +67,35 @@ nav {
 @media ( min-width: 460px ) {
   nav {
     flex-direction: row;
-    padding: 0 4rem;
     justify-content: space-between;
-    height: 6rem;
+    padding: 0 2rem;
+    height: 5rem;
   }
 
   .toggle-nav { display: none; }
-
-  .links {
-    flex-direction: row;
-    margin-top: 16px;
-    justify-content: space-between;
-    width: 20rem;
-  }
+  .icon { display: block; }
 
   .link {
+    height: 5rem;
+    padding: 0 1rem;
+    display: grid;
+    place-content: center;
     width: auto;
   }
 
-  .icon { display: block; }
+  .links {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0;
+    width: 17rem;
+  }
+
+  /* .link:hover {
+    background-color: black;
+    color: white;
+    opacity: 0.1;
+    transition: 0.1s ease-in-out;
+  } */
 }
 
 @media ( max-width: 460px ) {
@@ -93,4 +103,9 @@ nav {
     opacity: 0;
     max-height: 0;
   }
+}
+
+@media ( min-width: 768px ) {
+  nav { padding: 0 4rem; }
+  .links { width: 20rem; }
 }
