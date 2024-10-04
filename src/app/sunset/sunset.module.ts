@@ -7,6 +7,7 @@ import { HorizonModule } from '../horizon/horizon.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ContactoComponent } from './components/contacto/contacto.component';
   imports: [
     CommonModule,
     SunsetRoutingModule,
-    HorizonModule
+    HorizonModule,
+    ReactiveFormsModule
   ]
 })
 export class SunsetModule { }

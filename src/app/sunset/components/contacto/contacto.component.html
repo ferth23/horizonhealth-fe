@@ -1,1 +1,57 @@
-<p>contacto works!</p>
+<div class = "contacto-background">
+  <h1 class = "contact-title"> ¡Contáctanos! </h1>
+  <p class = "contact-subtitle"> Déjanos saber cómo podemos ayudarte </p>
+
+  <div class = "row">
+      
+    <div class = "col-md-6 contacto-info">
+      <h3> Información de Contacto </h3>
+      <ul class = "contact-list">
+        <li> <i class = "fas fa-phone"> </i> 9999999999 </li>
+        <li> <i class = "fas fa-envelope"> </i> ejemplo&#64;correo.com </li>
+        <li> <i class = "fas fa-map-marker-alt"> </i> Av. Allende 892 Ote. Colonia Centro, CP 27000. </li>
+      </ul>
+
+      <div class = "social-media">
+        <i class = "fab fa-facebook-square"> </i>
+        <i class = "fab fa-instagram"> </i>
+        <i class = "fab fa-twitter"> </i>
+      </div>
+    </div>
+
+    <div class = "col-md-6 contacto-form">
+      <form [formGroup] = "contactForm" (ngSubmit) = "onSubmit()">
+        <div class = "mb-3 name-container">
+          
+          <div class = "name-field">
+            <input type = "text" class = "form-control" id = "firstName" formControlName = "firstName" placeholder = "Nombre(s)">
+            <label for = "firstName" class = "form-label"> Nombre </label>
+          </div>
+
+          <div class = "name-field">
+            <input type = "text" class = "form-control" id = "lastName" formControlName = "lastName" placeholder = "Apellido(s)">
+            <label for = "lastName" class = "form-label"> Apellido </label>
+          </div>
+          
+        </div>
+        
+        <div class = "mb-3">
+          <input type = "email" class = "form-control" id = "correo" formControlName = "correo"  placeholder = "Correo Electrónico">
+          <label for = "correo" class = "form-label"> Correo </label>
+        </div>
+
+        <div class = "mb-3">
+          <input type = "tel" class = "form-control" id = "celular" formControlName = "celular"  placeholder = "Número de Teléfono">
+          <label for = "celular" class = "form-label"> Teléfono </label>
+        </div>
+
+        <div class = "mb-3">
+          <textarea class="form-control" id = "mensaje" rows = "3" formControlName = "mensaje"  placeholder = "Escribe tu mensaje"> </textarea>
+          <label for = "mensaje" class = "form-label"> Mensaje </label>
+        </div>
+
+        <button type = "submit" class = "btn btn-primary"> Enviar </button>
+      </form>
+    </div>
+  </div>
+</div>
