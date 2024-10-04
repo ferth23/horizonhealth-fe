@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { provideRouter, RouterModule, Routes, withViewTransitions } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MeditacionPageComponent } from './pages/meditacion-page/meditacion-page.component';
 import { RecomendacionesPageComponent } from './pages/recomendaciones-page/recomendaciones-page.component';
@@ -25,6 +25,15 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
+  providers: [
+    provideRouter(
+      routes,
+      withViewTransitions({
+        skipInitialTransition: true
+      })
+    )
+  ]
 })
 export class HorizonRoutingModule { }
