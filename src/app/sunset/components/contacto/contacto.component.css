@@ -4,19 +4,20 @@
 }
 
 .contact-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
   text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .contact-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: white;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
+/* todo */
 .contacto-background {
   height: 1000px;
   background: linear-gradient( to right,
@@ -30,61 +31,65 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;  /* justify-content: center; */
+  justify-content: flex-start;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 4rem;
 }
 
+/* para que estén contact info y contact forms juntos */
 .row {
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  max-width: 1200px; /* Tamaño máximo del contenedor */
+  width: 70%;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  gap: 20px; /* Espaciado entre el formulario y la información de contacto */
+  gap: 20px; 
 }
 
+/* recuadro de contact info*/
 .contacto-info {
   background-color: #021f53;
   color: white;
-  padding: 20px;
-  width: 30%;
+  padding: 15px;
+  width: 35%;
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
-  justify-content: flex-start;
   border-radius: 15px;
 }
 
+/* título "Información de Contacto" */
 .contacto-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 50px;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
 }  
 
+/* forma de lista en las viñetas de contact info */
 .contact-list {
   list-style-type: none;
   padding: 0;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 
+/* espacio entre viñetas de la lista de contact info */
 .contact-list li {
   font-size: 1rem;
   margin-bottom: 30px;
 }
 
+/* icons de teléfono, correo, ubicación */
 .contact-list li i {
   margin-right: 10px;
   font-size: 1.5rem;
 }
 
+/* alinear contenedor con los icons */
 .social-media {
-  /*margin-top: 20px;*/
   margin-top: auto;
 }
 
+/* icons de redes sociales*/
 .social-media i {
   font-size: 1.5rem;
   margin-right: 25px;
@@ -92,31 +97,35 @@
   
 }
 
+/* forms de user info */
 .contacto-form {
   background-color: white;
-  padding: 30px;
+  padding: 15px;
   width: 60%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
 }
 
+/* labels (nombres de campos) */
 .contacto-form label {
-  font-size: 1.2rem;
-  color: #333; 
-  margin-bottom: 5px;
+  font-size: 0.8rem;
+  color: #333;
   display: block; 
 }
 
+/* campos de user info */
 .contacto-form input, 
 .contacto-form textarea {
-  width: 100%; 
-  padding: 10px;
+  width: 100%;
+  padding: 8px;
+  font-size: 0.9rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 15px;
-  font-size: 1rem; 
+  margin-bottom: 5px;
+  margin-top: 25px;
 }
 
+/* color de borde focus */
 .contacto-form input:focus,
 .contacto-form textarea:focus {
   border-color: #021f53; 
@@ -136,34 +145,37 @@ button {
   background-color: #021f53;
   color: white;
   border: none;
-  padding: 10px 40px;
+  padding: 8px 30px;
+  font-size: 0.9rem;
   border-radius: 30px;
   cursor: pointer;
   display: block; 
   margin: 0 auto; 
-  font-size: 1rem;
 }
 
 button:hover {
   background-color: #00183b;
 }
 
+/* área de nombre y apellido */
 .name-container {
   display: flex; 
   justify-content: space-between; 
   gap: 10px; 
 }
 
+/* mismo espacio a campos de texto */
 .name-field {
   flex: 1; 
 }
 
+/* campo ocupa el ancho disponible */
 .name-field input {
   width: 100%; 
 }
 
 input {
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 textarea {

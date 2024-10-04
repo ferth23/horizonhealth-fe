@@ -22,30 +22,32 @@
     <div class = "col-md-6 contacto-form">
       <form [formGroup] = "contactForm" (ngSubmit) = "onSubmit()">
         <div class = "mb-3 name-container">
+          
           <div class = "name-field">
-            <label for = "firstName" class = "form-label"> Nombre </label>
             <input type = "text" class = "form-control" id = "firstName" formControlName = "firstName" placeholder = "Nombre(s)">
+            <label for = "firstName" class = "form-label"> Nombre </label>
           </div>
 
           <div class = "name-field">
-            <label for = "lastName" class = "form-label"> Apellido </label>
             <input type = "text" class = "form-control" id = "lastName" formControlName = "lastName" placeholder = "Apellido(s)">
+            <label for = "lastName" class = "form-label"> Apellido </label>
           </div>
+          
         </div>
         
         <div class = "mb-3">
-          <label for = "correo" class = "form-label"> Correo </label>
           <input type = "email" class = "form-control" id = "correo" formControlName = "correo"  placeholder = "Correo Electrónico">
+          <label for = "correo" class = "form-label"> Correo </label>
         </div>
 
         <div class = "mb-3">
-          <label for = "celular" class = "form-label"> Teléfono </label>
           <input type = "tel" class = "form-control" id = "celular" formControlName = "celular"  placeholder = "Número de Teléfono">
+          <label for = "celular" class = "form-label"> Teléfono </label>
         </div>
 
         <div class = "mb-3">
-          <label for = "mensaje" class = "form-label"> Mensaje </label>
           <textarea class="form-control" id = "mensaje" rows = "3" formControlName = "mensaje"  placeholder = "Escribe tu mensaje"> </textarea>
+          <label for = "mensaje" class = "form-label"> Mensaje </label>
         </div>
 
         <button type = "submit" class = "btn btn-primary"> Enviar </button>
