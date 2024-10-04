@@ -200,7 +200,7 @@ label, textarea {
 }
 
 /* Celulares */
-@media (max-width: 640px) {
+@media (max-width: 460px) {
   .contacto-info,
   .contacto-form {
     width: 100%;
@@ -209,7 +209,7 @@ label, textarea {
 }
 
 /* Tabletas */
-@media (max-width: 740px) {
+@media (max-width: 768px) {
   .contacto-info,
   .contacto-form {
     width: 100%;
@@ -218,7 +218,7 @@ label, textarea {
 }
 
 /* Computadoras */
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
   .row {
     width: 70%;
     margin: 0 auto; 

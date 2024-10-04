@@ -18,11 +18,11 @@ export class ContactoComponent {
   constructor ( private formBuilder:FormBuilder ) { }
 
   onSubmit() {
-    if (this.contactForm.valid) {
+    /*if (this.contactForm.valid) {
       console.log(this.contactForm.value );
     } else {
       console.log('El formulario no es válido');
-    }
+    }*/
   }
 }
 
