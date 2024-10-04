@@ -172,7 +172,7 @@ button:hover {
   flex: 1; 
 }
 
-/* campo ocupa el ancho disponible */
+/* campo de mensaje ocupa el ancho disponible */
 .name-field input {
   width: 100%; 
 }
