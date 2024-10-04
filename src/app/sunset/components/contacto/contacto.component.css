@@ -27,7 +27,7 @@
                               #D9008A 100%);
   background-size: cover;
   background-position: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,11 +41,13 @@
   display: flex;
   justify-content: space-between;
   width: 70%;
+  max-width: 1000px; /**/
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   gap: 20px; 
+  flex-wrap: wrap;  /* Permite que los elementos se envuelvan */
 }
 
 /* recuadro de contact info*/
@@ -69,7 +71,7 @@
 .contact-list {
   list-style-type: none;
   padding: 0;
-  margin-top: 35px;
+  margin-top: 50px;
 }
 
 /* espacio entre viñetas de la lista de contact info */
@@ -87,6 +89,7 @@
 /* alinear contenedor con los icons */
 .social-media {
   margin-top: auto;
+  margin-bottom: 15px;
 }
 
 /* icons de redes sociales*/
@@ -194,4 +197,41 @@ p, li {
 
 label, textarea {
   font-family: "Inter", sans-serif;
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+  .contacto-info,
+  .contacto-form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Tabletas */
+@media (max-width: 740px) {
+  .contacto-info,
+  .contacto-form {
+    width: 100%;
+    margin-bottom: 20px; 
+  }
+}
+
+/* Computadoras */
+@media (min-width: 1024px) {
+  .row {
+    width: 70%;
+    margin: 0 auto; 
+    flex-wrap: nowrap; /* Que no se ponga forms debajo de contact-info */
+    gap: 20px;
+  }
+
+  /* Mantener anchos */
+  .contacto-info {
+    width: 35%; 
+  }
+  
+  .contacto-form {
+    width: 60%;
+  }
 }
