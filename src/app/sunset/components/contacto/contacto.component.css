@@ -16,19 +16,18 @@
 .contacto-background {
   height: 1160px;
   background: linear-gradient( to right,
-                              #26258F 0%, 
-                              #50236E 34%, 
-                              #99107D 69%, 
+                              #26258F 0%,
+                              #50236E 34%,
+                              #99107D 69%,
                               #D9008A 100%);
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 160px;
+  padding: 80px 0 160px 0;
 }
 
 /* para que estén contact info y contact forms juntos */
@@ -41,7 +40,6 @@
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  gap: 20px; 
   flex-wrap: wrap;  /* Permite que los elementos se envuelvan */
 }
 
@@ -62,7 +60,7 @@
   margin-bottom: 18px;
   margin-left: 20px;
   margin-right: 20px;
-}  
+}
 
 /* forma de lista en las viñetas de contact info */
 .contact-list {
@@ -113,11 +111,11 @@
 .contacto-form label {
   font-size: 0.8rem;
   color: #333;
-  display: block; 
+  display: block;
 }
 
 /* campos de user info */
-.contacto-form input, 
+.contacto-form input,
 .contacto-form textarea {
   width: 100%;
   padding: 8px;
@@ -131,7 +129,7 @@
 /* color de borde focus */
 .contacto-form input:focus,
 .contacto-form textarea:focus {
-  border-color: #021f53; 
+  border-color: #021f53;
   outline: none;
 }
 
@@ -152,8 +150,8 @@ button {
   font-size: 0.9rem;
   border-radius: 30px;
   cursor: pointer;
-  display: block; 
-  margin: 0 auto; 
+  display: block;
+  margin: 3rem auto 0 auto;
 }
 
 button:hover {
@@ -162,19 +160,19 @@ button:hover {
 
 /* área de nombre y apellido */
 .name-container {
-  display: flex; 
-  justify-content: space-between; 
-  gap: 10px; 
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 /* mismo espacio a campos de texto */
 .name-field {
-  flex: 1; 
+  flex: 1;
 }
 
 /* campo de mensaje ocupa el ancho disponible */
 .name-field input {
-  width: 100%; 
+  width: 100%;
 }
 
 /* Fonts */
@@ -185,7 +183,7 @@ input {
 
 textarea {
   width: 100%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
 
@@ -216,11 +214,11 @@ label {
   .contacto-info,
   .contacto-form {
     width: 100%;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
 
   .contacto-background {
-    height: 1100px;
+    height: 1050px;
   }
 }
 
@@ -228,17 +226,21 @@ label {
 @media (min-width: 769px) {
   .row {
     width: 70%;
-    margin: 0 auto; 
+    margin: 0 auto;
     flex-wrap: nowrap; /* Que no se ponga forms debajo de contact-info */
     gap: 20px;
   }
 
   /* Mantener anchos */
   .contacto-info {
-    width: 35%; 
+    width: 35%;
   }
-  
+
   .contacto-form {
     width: 60%;
+  }
+
+  .contacto-background {
+    height: 600px;
   }
 }

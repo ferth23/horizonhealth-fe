@@ -1,1 +1,17 @@
-<p>sobre-nosotros works!</p>
+<div class="contenedor">
+  <h1 class="titulo-principal">Sobre Nosotros</h1>
+
+  <div class="contenido">
+    @for ( item of AcercaItems(); track item.clase ) {
+      <div [class]="item.clase">
+        <img [src]="item.img_src" [alt]="item.img_alt">
+        <div class="overlay"></div>
+
+        <div class="texto">
+          <h3> {{ item.title }} </h3>
+          <p> {{ item.text }} </p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'banner',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent {
+  private router = inject(Router);
 
+  public goToLogIn(): void {
+    this.router.navigateByUrl('horizon-health/log-in');
+  }
 }
