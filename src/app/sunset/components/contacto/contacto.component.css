@@ -1,25 +1,20 @@
-.contact-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .contact-title {
   font-size: 2.5rem;
   color: white;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .contact-subtitle {
   font-size: 1rem;
   color: white;
   text-align: center;
-  margin-top: 5px;
+  margin-bottom: 30px;
 }
 
 /* todo */
 .contacto-background {
-  height: 1000px;
+  height: 1160px;
   background: linear-gradient( to right,
                               #26258F 0%, 
                               #50236E 34%, 
@@ -33,7 +28,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 4rem;
+  padding-top: 160px;
 }
 
 /* para que estén contact info y contact forms juntos */
@@ -65,6 +60,8 @@
 .contacto-info h3 {
   font-size: 1.5rem;
   margin-bottom: 18px;
+  margin-left: 20px;
+  margin-right: 20px;
 }  
 
 /* forma de lista en las viñetas de contact info */
@@ -72,6 +69,9 @@
   list-style-type: none;
   padding: 0;
   margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 30px;
 }
 
 /* espacio entre viñetas de la lista de contact info */
@@ -90,6 +90,7 @@
 .social-media {
   margin-top: auto;
   margin-bottom: 15px;
+  margin-left: 20px;
 }
 
 /* icons de redes sociales*/
@@ -97,7 +98,6 @@
   font-size: 1.5rem;
   margin-right: 25px;
   cursor: pointer;
-  
 }
 
 /* forms de user info */
@@ -177,14 +177,16 @@ button:hover {
   width: 100%; 
 }
 
+/* Fonts */
 input {
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 textarea {
   width: 100%;
   box-sizing: border-box; 
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
 }
 
 h1, h3, button {
@@ -195,10 +197,11 @@ p, li {
   font-family: "Catamaran", sans-serif;
 }
 
-label, textarea {
+label {
   font-family: "Inter", sans-serif;
 }
 
+/* Media Queries */
 /* Celulares */
 @media (max-width: 460px) {
   .contacto-info,
@@ -214,6 +217,10 @@ label, textarea {
   .contacto-form {
     width: 100%;
     margin-bottom: 20px; 
+  }
+
+  .contacto-background {
+    height: 1100px;
   }
 }
 
