@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { provideRouter, RouterModule, Routes, withViewTransitions } from '@angular/router';
 import { MainpageComponent } from './pages/mainpage/mainpage.component';
 
 const routes: Routes = [
@@ -21,6 +21,15 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
+  providers: [
+    provideRouter(
+      routes,
+      withViewTransitions({
+        skipInitialTransition: true
+      })
+    )
+  ]
 })
 export class SunsetRoutingModule { }
