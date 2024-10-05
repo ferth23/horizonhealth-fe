@@ -7,6 +7,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
+  constructor ( private formBuilder:FormBuilder ) { }
+
   contactForm = this.formBuilder.group({
     firstName: [''],
     lastName: [''],
@@ -14,8 +16,6 @@ export class ContactoComponent {
     celular: [''],
     mensaje: ['']
   })
-
-  constructor ( private formBuilder:FormBuilder ) { }
 
   onSubmit() {
     /*if (this.contactForm.valid) {

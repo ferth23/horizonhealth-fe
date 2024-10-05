@@ -1,9 +1,11 @@
-<div class="nav" id="nav">
-  <nav-bar (onScrollToSection)="scrollToSection($event)"/>
-</div>
-
 <div class="inicio" id="inicio">
-  <banner/>
+  <div class="nav" id="nav">
+    <nav-bar (onScrollToSection)="scrollToSection($event)"/>
+  </div>
+
+  <div class="banner">
+    <banner/>
+  </div>
 </div>
 
 <div class="acerca" id="acerca">
