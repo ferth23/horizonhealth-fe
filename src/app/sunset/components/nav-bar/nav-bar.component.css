@@ -60,9 +60,14 @@ nav {
   padding: 1rem;
   font-family: "Lato", sans serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   width: 80%;
+  transition-duration: 0.4s;
+}
+
+.link:hover {
+  color: #2f041c7d;
 }
 
 @media ( min-width: 460px ) {
@@ -95,11 +100,16 @@ nav {
     width: auto;
   }
 
+  .link:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+    color: white;
+  }
+
   .links {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 0;
-    width: 17rem;
+    width: 18rem;
   }
 
   /* .link:hover {
@@ -119,5 +129,11 @@ nav {
 
 @media ( min-width: 768px ) {
   nav { padding: 0 4rem; }
-  .links { width: 20rem; }
+  .links { width: 22rem; }
+  .link { padding: 0 1.5rem; }
+
+  .link:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+    color: white;
+  }
 }

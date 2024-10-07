@@ -1,14 +1,17 @@
 .contact-title {
-  font-size: 2.5rem;
+  font-size: 64px;
   color: white;
   text-align: center;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-top: 80px;
 }
 
 .contact-subtitle {
   font-size: 1rem;
   color: white;
   text-align: center;
+  margin-top: 0;
   margin-bottom: 30px;
 }
 
@@ -27,7 +30,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 80px 0 160px 0;
+  padding: 0 0 300px 0;
 }
 
 /* para que estén contact info y contact forms juntos */
@@ -45,7 +48,7 @@
 
 /* recuadro de contact info*/
 .contacto-info {
-  background-color: #021f53;
+  background-color: #00114d;
   color: white;
   padding: 15px;
   width: 35%;
@@ -56,7 +59,7 @@
 
 /* título "Información de Contacto" */
 .contacto-info h3 {
-  font-size: 1.5rem;
+  font-size: 30px;
   margin-bottom: 18px;
   margin-left: 20px;
   margin-right: 20px;
@@ -118,8 +121,8 @@
 .contacto-form input,
 .contacto-form textarea {
   width: 100%;
-  padding: 8px;
-  font-size: 0.9rem;
+  padding: 16px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 5px;
@@ -143,19 +146,23 @@
 }
 
 button {
-  background-color: #021f53;
+  background-color: #00114d;
+  font-weight: 700;
   color: white;
   border: none;
   padding: 8px 30px;
-  font-size: 0.9rem;
+  font-size: 20px;
   border-radius: 30px;
   cursor: pointer;
   display: block;
-  margin: 3rem auto 0 auto;
+  margin: 15px auto;
+  width: 200px;
+  height: 50px;
+  transition-duration: 0.6s;
 }
 
 button:hover {
-  background-color: #00183b;
+  background-color: #000000;
 }
 
 /* área de nombre y apellido */
@@ -207,6 +214,14 @@ label {
     width: 100%;
     margin-bottom: 20px;
   }
+
+  .contact-title {
+    font-size: 48px;
+  }
+
+  .contact-subtitle {
+    font-size: 18px;
+  }
 }
 
 /* Tabletas */
@@ -215,6 +230,14 @@ label {
   .contacto-form {
     width: 100%;
     margin-bottom: 20px;
+  }
+
+  .contact-title {
+    font-size: 56px;
+  }
+
+  .contact-subtitle {
+    font-size: 20px;
   }
 
   .contacto-background {
