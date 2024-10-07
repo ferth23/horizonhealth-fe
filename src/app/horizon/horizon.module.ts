@@ -7,6 +7,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { HorizonRoutingModule } from './horizon-routing.module';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +18,11 @@ import { HorizonRoutingModule } from './horizon-routing.module';
     EnsenanzaPageComponent,
     HomePageComponent,
     LogInPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    LayoutComponent,
+    NavBarComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, AppRoutingModule],
   exports: [HorizonRoutingModule]
 })
 export class HorizonModule { }
