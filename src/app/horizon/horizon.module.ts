@@ -10,6 +10,7 @@ import { HorizonRoutingModule } from './horizon-routing.module';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from '../app-routing.module';
     LogInPageComponent,
     RegisterPageComponent,
     LayoutComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfilePageComponent
   ],
   imports: [CommonModule, AppRoutingModule],
   exports: [HorizonRoutingModule]
