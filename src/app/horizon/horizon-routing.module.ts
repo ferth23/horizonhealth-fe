@@ -4,12 +4,14 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MeditacionPageComponent } from './pages/meditacion-page/meditacion-page.component';
 import { RecomendacionesPageComponent } from './pages/recomendaciones-page/recomendaciones-page.component';
 import { EnsenanzaPageComponent } from './pages/ensenanza-page/ensenanza-page.component';
-import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
+  {
+    path: 'auth',
+    loadChildren: () => import ( '../auth/auth.module' ).then ( m => m.AuthModule )
+  },
   {
     path: '',
     component: LayoutComponent,
@@ -19,11 +21,13 @@ const routes: Routes = [
       { path: 'meditacion', title: 'Meditacion', component: MeditacionPageComponent },
       { path: 'recomendaciones', title: 'Recomendaciones', component: RecomendacionesPageComponent },
       { path: 'enseñanza', title: 'Enseñanza Del Dia', component: EnsenanzaPageComponent },
-      { path: 'log-in', title: 'Log In', component: LogInPageComponent },
-      { path: 'register', title: 'Register', component: RegisterPageComponent },
       { path: 'profile', title: 'Profile', component: ProfilePageComponent },
       { path: '**', redirectTo: '' }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'auth'
   }
 ]
 
