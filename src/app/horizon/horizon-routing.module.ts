@@ -6,10 +6,13 @@ import { RecomendacionesPageComponent } from './pages/recomendaciones-page/recom
 import { EnsenanzaPageComponent } from './pages/ensenanza-page/ensenanza-page.component';
 import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: LayoutComponent,
 
     children: [
       { path: '', title: 'Horizon Health', component: HomePageComponent },
@@ -18,6 +21,7 @@ const routes: Routes = [
       { path: 'enseñanza', title: 'Enseñanza Del Dia', component: EnsenanzaPageComponent },
       { path: 'log-in', title: 'Log In', component: LogInPageComponent },
       { path: 'register', title: 'Register', component: RegisterPageComponent },
+      { path: 'profile', title: 'Profile', component: ProfilePageComponent },
       { path: '**', redirectTo: '' }
     ]
   }
