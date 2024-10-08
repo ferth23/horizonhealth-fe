@@ -10,6 +10,6 @@ export class BannerComponent {
   private router = inject(Router);
 
   public goToLogIn(): void {
-    this.router.navigateByUrl('horizon-health/log-in');
+    this.router.navigateByUrl('horizon-health/auth/log-in');
   }
 }
