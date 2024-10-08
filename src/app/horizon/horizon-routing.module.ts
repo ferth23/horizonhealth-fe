@@ -15,6 +15,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    component: LayoutComponent,
 
     children: [
       { path: '', title: 'Horizon Health', component: HomePageComponent },
