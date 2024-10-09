@@ -96,6 +96,7 @@ nav {
     height: 5rem;
     padding: 0 1rem;
     display: grid;
+    font-size: 28px;
     place-content: center;
     width: auto;
   }
@@ -111,13 +112,6 @@ nav {
     margin-bottom: 0;
     width: 18rem;
   }
-
-  /* .link:hover {
-    background-color: black;
-    color: white;
-    opacity: 0.1;
-    transition: 0.1s ease-in-out;
-  } */
 }
 
 @media ( max-width: 460px ) {
@@ -129,7 +123,7 @@ nav {
 
 @media ( min-width: 768px ) {
   nav { padding: 0 4rem; }
-  .links { width: 22rem; }
+  .links { width: 26rem; }
   .link { padding: 0 1.5rem; }
 
   .link:hover {

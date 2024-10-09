@@ -1,1 +1,40 @@
-<p>nav-bar works!</p>
+<nav>
+  <div class="navigation">
+    <a href="horizon-health">
+      <img
+        class="hh-logo"
+        src="hh-logo.svg"
+        alt="Sunset Wellness Logo">
+    </a>
+
+    <button (click)="toggleNavBar()" class="toggle-nav"></button>
+  </div>
+
+  <ul [class.hidden]="hidden" class="links">
+    @for ( item of NavBarItems(); track item.name ) {
+      <li>
+        <a
+          class="link"
+          [href]="item.route">
+          {{ item.name }}
+        </a>
+      </li>
+    }
+
+    <li>
+      <a
+        class="link"
+        [class.nav-login-hidden]="nav_login_hidden"
+        href="horizon-health/auth/log-in">
+        Iniciar Sesión
+      </a>
+    </li>
+  </ul>
+
+  <button
+    [class.login-hidden]="login_hidden"
+    (click)="goToLogIn()"
+    class="login-button">
+    Iniciar Sesión
+  </button>
+</nav>
