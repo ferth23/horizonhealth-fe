@@ -1,0 +1,164 @@
+nav {
+  display: flex;
+  padding: 0 2rem;
+  justify-content: space-between;
+  background: white;
+  z-index: 99999;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.toggle-nav {
+  background-image: url(../../../../../public/toggleNavBar.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  align-self: center;
+  margin-top: 11px;
+  margin-bottom: 11px;
+}
+
+.hh-logo {
+  cursor: pointer;
+  height: 4rem;
+  width: 12rem;
+}
+
+.icon {
+  height: 2rem;
+  width: 3rem;
+  margin: 24px auto;
+  display: none;
+}
+
+.links {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  color: #6E214E;
+  padding: 1rem;
+  font-family: "Nunito", sans serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  transition-duration: 0.4s;
+}
+
+.nav-login-hidden {
+  opacity: 0;
+  max-height: 0;
+}
+
+@media ( min-width: 460px ) {
+  nav {
+    justify-content: space-between;
+    background-color: transparent;
+    padding: 0 2rem;
+  }
+
+  .navigation { margin: 0; }
+  .icon { display: block; }
+
+  .hh-logo {
+    height: 4rem;
+    width: 12rem;
+    margin: 8px 0;
+  }
+
+  .link {
+    height: 5rem;
+    padding: 0 1rem;
+    display: grid;
+    place-content: center;
+    width: auto;
+  }
+
+  .links {
+    width: 18rem;
+    display: grid;
+    place-self: center;
+  }
+}
+
+@media ( max-width: 768px ) {
+  .hidden, .login-hidden {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  .links {
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 1s ease, max-height 1s ease;
+  }
+
+  .link:hover { color: #2f041c7d; }
+  nav { flex-direction: column; }
+}
+
+@media ( min-width: 768px ) {
+  nav {
+    padding: 0 4rem;
+    flex-direction: row;
+    height: 5rem;
+  }
+
+  .links {
+    margin: 0;
+    padding: 0;
+    width: 48rem;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .toggle-nav { display: none; }
+
+  .link {
+    padding: 0 1.5rem;
+    font-size: 28px;
+  }
+
+  .link:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+    color: white;
+  }
+
+  .login-button {
+    cursor: pointer;
+    font-family: "Nunito", sans serif;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 50px;
+    width: 15rem;
+    height: 4rem;
+    margin: 8px 0;
+    color: #D184B9;
+    border-color: #D184B9;
+    border-style: groove;
+    border-width: 0.2rem;
+  }
+
+  .login-button:hover {
+    background-color: rgb(251, 221, 250);
+    transition: 0.4s ease-in-out;
+  }
+}
