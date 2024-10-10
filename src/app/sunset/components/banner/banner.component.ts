@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class BannerComponent {
   private router = inject(Router);
 
-  public goToLogIn(): void {
-    this.router.navigateByUrl('horizon-health/auth/log-in');
+  public goToHorizon(): void {
+    this.router.navigateByUrl('horizon-health');
   }
 }

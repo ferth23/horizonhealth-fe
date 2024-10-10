@@ -72,12 +72,7 @@ nav {
 
   .navigation { margin: 0; }
   .icon { display: block; }
-
-  .hh-logo {
-    height: 4rem;
-    width: 12rem;
-    margin: 8px 0;
-  }
+  .hh-logo { margin: 20px 0; }
 
   .link {
     height: 5rem;
@@ -118,7 +113,7 @@ nav {
   nav {
     padding: 0 4rem;
     flex-direction: row;
-    height: 5rem;
+    height: 6.5rem;
   }
 
   .links {
@@ -135,22 +130,22 @@ nav {
   .link {
     padding: 0 1.5rem;
     font-size: 28px;
+    height: 6.5rem;
   }
 
   .link:hover {
     background-color: rgba(0, 0, 0, 0.10);
-    color: white;
   }
 
   .login-button {
     cursor: pointer;
     font-family: "Nunito", sans serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 24px;
     border-radius: 50px;
     width: 15rem;
-    height: 4rem;
-    margin: 8px 0;
+    height: 58px;
+    margin: 23px 0;
     color: #D184B9;
     border-color: #D184B9;
     border-style: groove;
