@@ -1,1 +1,38 @@
-<p>home-page works!</p>
+<div class="container">
+  <img class="circles" src="circles.svg" alt="Circles">
+
+  <div class="content">
+    <h1 class="title">Tu guía diaria hacia una vida equilibrada.</h1>
+    <p class="text">Transforma tu día a día con herramientas simples para reducir el estrés, mejorar tus relaciones y tomar decisiones más conscientes. Reconecta contigo y crea hábitos que te acercan a una vida equilibrada.</p>
+
+    <div class="section-items">
+      @for ( item of SectionItems(); track item.title ) {
+        <div class="section-item" [style]="item.background_color">
+          <img
+            class="item-img"
+            [src]="item.img_src"
+            [alt]="item.img_alt">
+
+          <h3
+            class="item-title"
+            [style]="item.font_color">
+            {{ item.title }}
+          </h3>
+
+          <p
+            class="item-text"
+            [style]="item.font_color">
+            {{ item.text }}
+          </p>
+
+          <button
+            (click)="goToSection(item.section_route)"
+            class="item-button"
+            [style]="item.button_color">
+            <img src="arrow.svg" alt="Arrow">
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</div>
