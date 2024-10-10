@@ -9,6 +9,7 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { RouterModule } from '@angular/router';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     HomePageComponent,
     LayoutComponent,
     NavBarComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    PopUpComponent
   ],
   imports: [CommonModule, RouterModule],
   exports: [HorizonRoutingModule]
