@@ -1,0 +1,122 @@
+.popUp-container {
+    background: linear-gradient(160deg, #5E9ED9 0%, #73ABDE 35%, #6BCADE 65%, #82CCB5 100%);
+    position: fixed;
+
+    /**/
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 999999;
+
+    /*width: 755px;
+    height: 455px;*/
+    width: 755px;
+    height: 455px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    /* Centrar el popUp dentro del popUp-container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+  
+.popUp {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 600px; 
+    height: 300px; 
+}
+  
+.h2 {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 45px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: #60A0DA;
+}
+
+.emotions-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    padding: 0 30px;
+}
+
+.emotion-item {
+    width: 100px;
+    height: 100px;
+    cursor: pointer; /* Hace el cursos clickeable */
+    transition: transform 0.3s; /* Agrandar si pasa el cursor */
+    display: flex; /* Adapta, centra */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 20px;
+}
+  
+.emotion-item:hover { transform: scale(1.2); }
+
+.emotions-img {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* Tabletas */
+@media (max-width: 768px) {
+    .popUp-container {
+        width: 600px;
+        height: 300px;
+    }
+
+    .popUp {
+        width: 445px;
+        height: 145px;
+    }
+
+    .h2 {
+        font-size: 36px;
+        margin-top: -10px;
+    }
+
+    .emotion-item {
+        width: 75px;
+        height: 75px;
+        margin-top: 5px;
+    }
+    
+    .emotions-img {
+        width: 80px;
+        height: 80px;
+    }
+} 
+
+/* Celulares */
+@media (max-width:460px) {
+    .popUp-container {
+        width: 380px;
+        height: 204px;
+    }
+
+    .popUp {
+        width: 240px;
+        height: 64px;
+    }
+
+    .h2 {
+        font-size: 22px; 
+        margin-top: -20px;
+    }
+
+    .emotions-icons { gap: 5px; }
+    
+    .emotions-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .emotion-item { margin-top: -12px; }
+}

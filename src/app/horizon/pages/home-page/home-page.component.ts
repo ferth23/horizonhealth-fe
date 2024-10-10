@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
   private router = inject(Router);
+  public hidden: boolean = false;
 
   public SectionItems = signal <SectionItem[]> ([
     {
