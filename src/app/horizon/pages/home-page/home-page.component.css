@@ -3,6 +3,7 @@
   border-radius: 20px;
   height: 967px;
   position: relative;
+  z-index: 1;
   background: linear-gradient(45deg, rgba(255,191,229,1) 0%, rgba(255,204,214,1) 27%, rgba(255,215,191,1) 52%, rgba(255,227,178,1) 76%, rgba(255,250,191,1) 100%);
 }
 
@@ -13,6 +14,7 @@
 
 .content {
   position: absolute;
+  z-index: 1;
   margin: 80px;
   top: 0;
   bottom: 0;
@@ -81,6 +83,25 @@
   right: 32px;
   bottom: 32px;
 }
+
+.pop-up-container { z-index: 2; }
+
+.pop-up-container, .overlay, .popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.overlay {
+  background-color: black;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.popup { z-index: 3; }
+.hidden { display: none; }
 
 @media ( max-width: 768px ) {
   .container { height: 1660px; }
