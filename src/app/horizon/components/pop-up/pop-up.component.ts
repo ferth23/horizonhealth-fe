@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'pop-up',
@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './pop-up.component.css'
 })
 export class PopUpComponent {
+  public onHide = output <boolean> ();
 
   emotionSelected(emotion: string) {
     console.log("Emoción seleccionada: ", emotion);
-    // cerrar
+    this.onHide.emit(true);
   }
-
 }
