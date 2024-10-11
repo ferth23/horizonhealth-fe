@@ -88,6 +88,16 @@ form {
   border: 1px solid rgba(0, 0, 0, 0.20);
 }
 
+.invisible {
+  display: none;
+}
+
+.eye {
+  cursor: pointer;
+  display: grid;
+  align-self: center;
+}
+
 form button {
   background: linear-gradient(160deg, rgba(94,158,217,1) 0%, rgba(115,171,222,1) 30%, rgba(107,202,222,1) 70%, rgba(130,204,181,1) 100%);
   border: none;
@@ -111,10 +121,25 @@ form button:hover {
 
 .image-container {
   width: 58%;
+  height: 100%;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
 }
 
 .carousel-item img {
   filter: brightness(85%);
+  object-fit: cover;
+  height: 100%;
 }
 
 .carousel-item p {
