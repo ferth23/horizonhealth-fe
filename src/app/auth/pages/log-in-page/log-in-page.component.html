@@ -8,7 +8,7 @@
       <h1> ¡Bienvenido de nuevo! </h1>
       <p> Nos alegra verte de nuevo, sigamos avanzando juntos. </p>
 
-      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="myForm" (ngSubmit)="login()">
         <div class="field">
           <label for="email" class="field-label"> Correo Electrónico </label>
           <input type="email" class="input-field" formControlName="email" placeholder="Ingresa tu correo">
@@ -35,7 +35,12 @@
 
         </div>
 
-        <button class="login-button" type="submit"> Iniciar sesión </button>
+        <button
+          class="login-button"
+          type="submit"
+          [disabled]="myForm.invalid">
+          Iniciar sesión
+        </button>
       </form>
 
       <p> ¿No tienes una cuenta? <a href="horizon-health/auth/register"> Regístrate </a> </p>
