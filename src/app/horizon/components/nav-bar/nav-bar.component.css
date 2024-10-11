@@ -29,8 +29,9 @@ nav {
 
 .hh-logo {
   cursor: pointer;
-  height: 4rem;
+  height: 100%;
   width: 12rem;
+  margin: 3px 0;
 }
 
 .icon {
@@ -72,7 +73,11 @@ nav {
 
   .navigation { margin: 0; }
   .icon { display: block; }
-  .hh-logo { margin: 20px 0; }
+
+  .hh-logo {
+    height: 4rem;
+    margin: 20px 0 15px 0;
+  }
 
   .link {
     height: 5rem;
