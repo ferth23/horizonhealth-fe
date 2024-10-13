@@ -11,7 +11,8 @@
  * Fecha         Modificado por     Descripción
  * 07/10/2024    Layla González     Creación del método para guardar la emoción 
  *                                  seleccionada.
- * 10/10/2024    Layla González     Implementación de la variable para 
+ * 
+ * 10/10/2024    Humberto Medina    Implementación de la variable para 
  *                                  desaparecer el Pop Up.
  * ---------------------------------------------------------------------------- */ 
 
