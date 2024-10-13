@@ -1,3 +1,23 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : banner.component.css
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 01/10/2024
+ * Descripción   : Estilos CSS del componente Banner
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 01/10/2024    María Torres Herrera      Se crearon los estilos generales y para
+ *                                         computadora
+ *
+ * 02/10/2024    María Torres Herrera      Se añadió el estilo para la imagen del preview
+ *
+ * 04/10/2024    María Torres Herrera      Se crearon los media queries para tabletas
+ *                                         y celulares
+ * ---------------------------------------------------------------------------- */
+
+ /* * Estilos generales y para computadoras */
 .banner-container {
   background: linear-gradient(160deg, rgba(255,201,74,1) 0%, rgba(255,157,71,1) 25%, rgba(255,116,102,1) 50%, rgba(234,47,117,1) 75%, rgba(192,0,122,1) 100%);
   height: 1160px;
@@ -59,7 +79,8 @@ p {
   width: 1088px;
 }
 
-@media (max-width: 768px) {
+/* * Estilos para tableta */
+@media ( max-width: 768px ) {
   .banner-container { height: 790px; }
 
   h1 {
@@ -98,7 +119,8 @@ p {
   }
 }
 
-@media (max-width: 460px) {
+/* * Estilos para celular */
+@media ( max-width: 460px ) {
   .banner-container {
     height: 760px;
     padding: 0 3rem;
