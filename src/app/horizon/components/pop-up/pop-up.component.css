@@ -1,20 +1,35 @@
+/* ---------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : pop-up.component.css
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 07/10/2024
+ * Descripción   : Estilos para el componente Pop Up en la página de Horizon 
+ *                 Health.
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 08/10/2024    Layla González     Diseño de colores, medidas y más propiedades 
+ *                                  del popUp-container, popUp y h2.
+ * 09/10/2024    Layla González     Diseño de todas las clases relacionadas a los
+ *                                  items de las emociones, medidas de todas en
+ *                                  grupo, individual, que creciera al pasar el 
+ *                                  cursor, etc.   
+ * 10/10/2024    Layla González     Creación de los media queries para celular y
+ *                                  tablets.
+ * 11/10/2024    Layla González     Re ajustes a medidas de todo en general.
+ * ---------------------------------------------------------------------------- */ 
+
 .popUp-container {
     background: linear-gradient(160deg, #5E9ED9 0%, #73ABDE 35%, #6BCADE 65%, #82CCB5 100%);
     position: fixed;
-
-    /**/
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     z-index: 999999;
-
-    /*width: 755px;
-    height: 455px;*/
     width: 755px;
     height: 455px;
     background-color: rgba(0, 0, 0, 0.5);
-
-    /* Centrar el popUp dentro del popUp-container */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,11 +64,11 @@
 .emotion-item {
     width: 100px;
     height: 100px;
-    cursor: pointer; /* Hace el cursos clickeable */
-    transition: transform 0.3s; /* Agrandar si pasa el cursor */
-    display: flex; /* Adapta, centra */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    cursor: pointer;
+    transition: transform 0.3s; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
   
@@ -64,8 +79,6 @@
     height: 100px;
 }
 
-
-/* Tabletas */
 @media (max-width: 768px) {
     .popUp-container {
         width: 600px;
@@ -94,7 +107,6 @@
     }
 } 
 
-/* Celulares */
 @media (max-width:460px) {
     .popUp-container {
         width: 380px;

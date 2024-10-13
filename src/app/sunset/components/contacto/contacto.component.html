@@ -1,17 +1,39 @@
-<div class = "contacto-background">
+<!-- ------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : contacto.component.html
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 30/09/2024
+ * Descripción   : Archivo html de la sección de contacto. Contiene el formulario 
+ *                 para la información del cliente y la presentación de la 
+ *                 información de contacto de la empresa.
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 30/09/2024    Layla González     Se definieron las clases y se asignaron sus
+ *                                  contenidos.
+ * ---------------------------------------------------------------------------- -->
+
+ <!-- * Sección principal, contiene todo -->
+ <div class = "contact-background">
+
   <h1 class = "contact-title"> ¡Contáctanos! </h1>
   <p class = "contact-subtitle"> Déjanos saber cómo podemos ayudarte </p>
 
+  <!-- * Se agrupa contact-info-container y contact form para ordenarlos uno junto al otro -->
   <div class = "row">
       
-    <div class = "col-md-6 contacto-info">
+    <div class = "col-md-6 contact-info-container">
       <h3> Información de Contacto </h3>
-      <ul class = "contact-list">
+
+      <!-- * Lista de información sobre la empresa, con logos alusivos -->
+      <ul class = "info-sunset">
         <li> <i class = "fas fa-phone"> </i> 9999999999 </li>
         <li> <i class = "fas fa-envelope"> </i> ejemplo&#64;correo.com </li>
         <li> <i class = "fas fa-map-marker-alt"> </i> Av. Allende 892 Ote. Colonia Centro, CP 27000. </li>
       </ul>
 
+      <!-- * Logos de redes sociales -->
       <div class = "social-media">
         <i class = "fab fa-facebook-square"> </i>
         <i class = "fab fa-instagram"> </i>
@@ -19,7 +41,8 @@
       </div>
     </div>
 
-    <div class = "col-md-6 contacto-form">
+    <!-- * Formulario para los datos de los usuarios -->
+    <div class = "col-md-6 contact-form">
       <form [formGroup] = "contactForm" (ngSubmit) = "onSubmit()">
         <div class = "mb-3 name-container">
           
@@ -50,6 +73,7 @@
           <label for = "mensaje" class = "form-label"> Mensaje </label>
         </div>
 
+        <!-- * Botón para mandar los datos una vez llenado el formulario -->
         <button type = "submit" class = "btn btn-primary"> Enviar </button>
       </form>
     </div>
