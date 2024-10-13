@@ -1,18 +1,35 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : banner.component.html
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 01/10/2024
+ * Descripción   : Estructura HTML del componente Banner
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 04/10/2024    Humberto Medina Santos    Se añadió la funcionalidad al botón 'Empezar ahora'
+ * ---------------------------------------------------------------------------- -->
+
 <div class="banner-container">
+  <!-- * Título principal de la sección -->
   <h1>
     Cuidar de ti, más <br>
     fácil que nunca
   </h1>
 
+  <!-- * Párrafo breve sobre la empresa -->
   <p>
     Nuestras soluciones tecnológicas te permiten cuidar tu salud física y <br>
     mental, empoderándote a vivir mejor cada día.
   </p>
 
+  <!-- * Botón 'Empezar ahora', lleva a la página del proyecto Horizon Health al hacer click -->
   <div class="button-startnow">
     <button (click)="goToHorizon()" type="button"> Empezar ahora </button>
   </div>
 
+  <!-- * Imagen que muestra una preview del proyecto Horizon Health -->
   <div class="image-container">
     <img src="app-preview.svg" alt="HorizonHealth App Preview">
   </div>
