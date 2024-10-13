@@ -1,3 +1,17 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : nav-bar.component.css
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 07/10/2024
+ * Descripción   : Archivo de estilos del componente NavBar
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 07/10/2024    Humberto Medina Santos    Se crearon los estilos para el componente
+ * ---------------------------------------------------------------------------- */
+
+/* * Estilos para Celular y Generales */
 nav {
   display: flex;
   padding: 0 2rem;
@@ -64,6 +78,7 @@ nav {
   max-height: 0;
 }
 
+/* * Estilos para Tablet y Computadora */
 @media ( min-width: 460px ) {
   nav {
     justify-content: space-between;
@@ -94,6 +109,7 @@ nav {
   }
 }
 
+/* * Estilos para Tablet y Celular */
 @media ( max-width: 768px ) {
   .hidden, .login-hidden {
     opacity: 0;
@@ -114,6 +130,7 @@ nav {
   nav { flex-direction: column; }
 }
 
+/* * Estilos para Computadora */
 @media ( min-width: 768px ) {
   nav {
     padding: 0 4rem;
