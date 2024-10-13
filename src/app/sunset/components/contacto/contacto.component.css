@@ -11,15 +11,19 @@
  * Fecha         Modificado por     Descripción
  * 30/09/2024    Layla González     Se estilizaron el título, el subtítulo, y el
  *                                  background.
+
  * 01/10/2024    Layla González     Se creó la sección de información de contacto.
+
  * 02/10/2024    Layla González     Se creó la sección del forms para la 
  *                                  información.
+
  * 03/10/2024    Layla González     Creación de los media queries para celular y
  *                                  tablets.
+ 
  * 04/10/2024    Layla González     Re ajustes a medidas en general.
  * ---------------------------------------------------------------------------- */
- 
-.contact-title {
+
+ .contact-title {
   font-size: 64px;
   color: white;
   text-align: center;
@@ -36,7 +40,7 @@
   margin-bottom: 30px;
 }
 
-.contact-background {
+.contacto-background {
   height: 1160px;
   background: linear-gradient( to right,
                               #26258F 0%,
@@ -65,7 +69,7 @@
   flex-wrap: wrap;  
 }
 
-.contact-info-container {
+.contacto-info {
   background-color: #00114d;
   color: white;
   padding: 15px;
@@ -75,15 +79,14 @@
   border-radius: 15px;
 }
 
-.contact-info-container h3 {
+.contacto-info h3 {
   font-size: 30px;
   margin-bottom: 18px;
   margin-left: 20px;
   margin-right: 20px;
-  font-family: "Lato", sans-serif;
 }
 
-.info-sunset {
+.contact-list {
   list-style-type: none;
   padding: 0;
   margin-top: 50px;
@@ -92,12 +95,12 @@
   line-height: 30px;
 }
 
-.info-sunset li {
+.contact-list li {
   font-size: 1rem;
   margin-bottom: 30px;
 }
 
-.info-sunset i {
+.contact-list li i {
   margin-right: 10px;
   font-size: 1.5rem;
 }
@@ -106,14 +109,15 @@
   margin-top: auto;
   margin-bottom: 15px;
   margin-left: 20px;
-  font-size: 1.5rem;
-  margin-right: 100px;
-  cursor: pointer;
-  gap: 20px;
-  display: flex;
 }
 
-.contact-form {
+.social-media i {
+  font-size: 1.5rem;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.contacto-form {
   background-color: white;
   padding: 15px;
   width: 60%;
@@ -121,15 +125,14 @@
   border-radius: 15px;
 }
 
-.contact-form label {
+.contacto-form label {
   font-size: 0.8rem;
   color: #333;
   display: block;
-  font-family: "Inter", sans-serif;
 }
 
-.contact-form input,
-.contact-form textarea {
+.contacto-form input,
+.contacto-form textarea {
   width: 100%;
   padding: 16px;
   font-size: 1rem;
@@ -139,33 +142,19 @@
   margin-top: 25px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+.contacto-form input:focus,
+.contacto-form textarea:focus {
   border-color: #021f53;
   outline: none;
 }
 
-.contact-form h2 {
+.contacto-form h2 {
   font-size: 2rem;
   color: #333;
 }
 
-.contact-form p { 
-  color: #555; 
-}
-
-.name-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.name-field { 
-  flex: 1; 
-}
-
-.name-field input { 
-  width: 100%; 
+.contacto-form p {
+  color: #555;
 }
 
 button {
@@ -182,11 +171,24 @@ button {
   width: 200px;
   height: 50px;
   transition-duration: 0.6s;
-  font-family: "Lato", sans-serif;
 }
 
 button:hover {
   background-color: #000000;
+}
+
+.name-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.name-field {
+  flex: 1;
+}
+
+.name-field input {
+  width: 100%;
 }
 
 input {
@@ -200,12 +202,16 @@ textarea {
   font-family: "Inter", sans-serif;
 }
 
-h1 {
+h1, h3, button {
   font-family: "Lato", sans-serif;
 }
 
 p, li {
   font-family: "Catamaran", sans-serif;
+}
+
+label {
+  font-family: "Inter", sans-serif;
 }
 
 @media (max-width: 460px) {
@@ -248,11 +254,10 @@ p, li {
   .row {
     width: 70%;
     margin: 0 auto;
-    flex-wrap: nowrap; /* Que no se ponga forms debajo de contact-info */
+    flex-wrap: nowrap; 
     gap: 20px;
   }
 
-  /* Mantener anchos */
   .contacto-info {
     width: 35%;
   }

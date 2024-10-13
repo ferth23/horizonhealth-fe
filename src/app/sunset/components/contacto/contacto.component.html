@@ -15,7 +15,7 @@
  * ---------------------------------------------------------------------------- -->
 
  <!-- * Sección principal, contiene todo -->
- <div class = "contact-background">
+ <div class = "contacto-background">
 
   <h1 class = "contact-title"> ¡Contáctanos! </h1>
   <p class = "contact-subtitle"> Déjanos saber cómo podemos ayudarte </p>
@@ -23,11 +23,11 @@
   <!-- * Se agrupa contact-info-container y contact form para ordenarlos uno junto al otro -->
   <div class = "row">
       
-    <div class = "col-md-6 contact-info-container">
+    <div class = "col-md-6 contacto-info">
       <h3> Información de Contacto </h3>
 
       <!-- * Lista de información sobre la empresa, con logos alusivos -->
-      <ul class = "info-sunset">
+      <ul class = "contact-list">
         <li> <i class = "fas fa-phone"> </i> 9999999999 </li>
         <li> <i class = "fas fa-envelope"> </i> ejemplo&#64;correo.com </li>
         <li> <i class = "fas fa-map-marker-alt"> </i> Av. Allende 892 Ote. Colonia Centro, CP 27000. </li>
@@ -42,7 +42,7 @@
     </div>
 
     <!-- * Formulario para los datos de los usuarios -->
-    <div class = "col-md-6 contact-form">
+    <div class = "col-md-6 contacto-form">
       <form [formGroup] = "contactForm" (ngSubmit) = "onSubmit()">
         <div class = "mb-3 name-container">
           
