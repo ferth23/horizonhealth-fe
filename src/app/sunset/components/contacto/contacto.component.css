@@ -1,3 +1,24 @@
+/* ---------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : contacto.component.css
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 30/09/2024
+ * Descripción   : Estilos para la sección de contacto de la página de 
+ *                 Sunset Wellness. 
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 30/09/2024    Layla González     Se estilizaron el título, el subtítulo, y el
+ *                                  background.
+ * 01/10/2024    Layla González     Se creó la sección de información de contacto.
+ * 02/10/2024    Layla González     Se creó la sección del forms para la 
+ *                                  información.
+ * 03/10/2024    Layla González     Creación de los media queries para celular y
+ *                                  tablets.
+ * 04/10/2024    Layla González     Re ajustes a medidas en general.
+ * ---------------------------------------------------------------------------- */
+ 
 .contact-title {
   font-size: 64px;
   color: white;
@@ -15,8 +36,7 @@
   margin-bottom: 30px;
 }
 
-/* todo */
-.contacto-background {
+.contact-background {
   height: 1160px;
   background: linear-gradient( to right,
                               #26258F 0%,
@@ -33,21 +53,19 @@
   padding: 0 0 300px 0;
 }
 
-/* para que estén contact info y contact forms juntos */
 .row {
   display: flex;
   justify-content: space-between;
   width: 70%;
-  max-width: 1000px; /**/
+  max-width: 1000px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  flex-wrap: wrap;  /* Permite que los elementos se envuelvan */
+  flex-wrap: wrap;  
 }
 
-/* recuadro de contact info*/
-.contacto-info {
+.contact-info-container {
   background-color: #00114d;
   color: white;
   padding: 15px;
@@ -57,16 +75,15 @@
   border-radius: 15px;
 }
 
-/* título "Información de Contacto" */
-.contacto-info h3 {
+.contact-info-container h3 {
   font-size: 30px;
   margin-bottom: 18px;
   margin-left: 20px;
   margin-right: 20px;
+  font-family: "Lato", sans-serif;
 }
 
-/* forma de lista en las viñetas de contact info */
-.contact-list {
+.info-sunset {
   list-style-type: none;
   padding: 0;
   margin-top: 50px;
@@ -75,34 +92,28 @@
   line-height: 30px;
 }
 
-/* espacio entre viñetas de la lista de contact info */
-.contact-list li {
+.info-sunset li {
   font-size: 1rem;
   margin-bottom: 30px;
 }
 
-/* icons de teléfono, correo, ubicación */
-.contact-list li i {
+.info-sunset i {
   margin-right: 10px;
   font-size: 1.5rem;
 }
 
-/* alinear contenedor con los icons */
 .social-media {
   margin-top: auto;
   margin-bottom: 15px;
   margin-left: 20px;
-}
-
-/* icons de redes sociales*/
-.social-media i {
   font-size: 1.5rem;
-  margin-right: 25px;
+  margin-right: 100px;
   cursor: pointer;
+  gap: 20px;
+  display: flex;
 }
 
-/* forms de user info */
-.contacto-form {
+.contact-form {
   background-color: white;
   padding: 15px;
   width: 60%;
@@ -110,16 +121,15 @@
   border-radius: 15px;
 }
 
-/* labels (nombres de campos) */
-.contacto-form label {
+.contact-form label {
   font-size: 0.8rem;
   color: #333;
   display: block;
+  font-family: "Inter", sans-serif;
 }
 
-/* campos de user info */
-.contacto-form input,
-.contacto-form textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
   padding: 16px;
   font-size: 1rem;
@@ -129,20 +139,33 @@
   margin-top: 25px;
 }
 
-/* color de borde focus */
-.contacto-form input:focus,
-.contacto-form textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
   border-color: #021f53;
   outline: none;
 }
 
-.contacto-form h2 {
+.contact-form h2 {
   font-size: 2rem;
   color: #333;
 }
 
-.contacto-form p {
-  color: #555;
+.contact-form p { 
+  color: #555; 
+}
+
+.name-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.name-field { 
+  flex: 1; 
+}
+
+.name-field input { 
+  width: 100%; 
 }
 
 button {
@@ -159,30 +182,13 @@ button {
   width: 200px;
   height: 50px;
   transition-duration: 0.6s;
+  font-family: "Lato", sans-serif;
 }
 
 button:hover {
   background-color: #000000;
 }
 
-/* área de nombre y apellido */
-.name-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* mismo espacio a campos de texto */
-.name-field {
-  flex: 1;
-}
-
-/* campo de mensaje ocupa el ancho disponible */
-.name-field input {
-  width: 100%;
-}
-
-/* Fonts */
 input {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
@@ -194,7 +200,7 @@ textarea {
   font-family: "Inter", sans-serif;
 }
 
-h1, h3, button {
+h1 {
   font-family: "Lato", sans-serif;
 }
 
@@ -202,12 +208,6 @@ p, li {
   font-family: "Catamaran", sans-serif;
 }
 
-label {
-  font-family: "Inter", sans-serif;
-}
-
-/* Media Queries */
-/* Celulares */
 @media (max-width: 460px) {
   .contacto-info,
   .contacto-form {
@@ -224,7 +224,6 @@ label {
   }
 }
 
-/* Tabletas */
 @media (max-width: 768px) {
   .contacto-info,
   .contacto-form {
@@ -245,7 +244,6 @@ label {
   }
 }
 
-/* Computadoras */
 @media (min-width: 769px) {
   .row {
     width: 70%;
