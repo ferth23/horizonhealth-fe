@@ -1,3 +1,20 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : sobre-nosotros.component.css
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 03/10/2024
+ * Descripción   : Archivo de estilos del componente Sobre Nosotros
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 03/10/2024    Humberto Medina Santos    Se crearon los estilos para el componente
+ *
+ * 04/10/2024    Humberto Medina Santos    Se crearon los media queries para adaptar
+ *                                         los estilos tanto para celular como para tablet
+ * ---------------------------------------------------------------------------- */
+
+/* * Estilos para Celular y Generales */
 .contenedor { height: 2400px; }
 
 .titulo-principal {
@@ -63,6 +80,7 @@ p {
   line-height: 30px;
 }
 
+/* * Estilos para Tablet y Computadora */
 @media ( min-width: 460px ) {
   .contenedor { height: 740px; }
 
@@ -86,6 +104,7 @@ p {
   }
 }
 
+/* * Estilos para Computadora */
 @media ( min-width: 768px ) {
   .contenedor { height: 1000px; }
   .cuidado, .futuro, .innovacion { height: 45rem; }

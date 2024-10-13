@@ -1,3 +1,16 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : mainpage.component.css
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo de estilos del componente MainPage
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 04/10/2024    Humberto Medina Santos    Se crearon los estilos para el componente
+ * ---------------------------------------------------------------------------- */
+
 .banner { position: relative; }
 
 .nav {
