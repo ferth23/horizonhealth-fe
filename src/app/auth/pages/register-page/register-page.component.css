@@ -111,10 +111,25 @@ form button:hover {
 
 .image-container {
   width: 58%;
+  height: 100%;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
 }
 
 .carousel-item img {
   filter: brightness(85%);
+  object-fit: cover;
+  height: 100%;
 }
 
 .carousel-item p {

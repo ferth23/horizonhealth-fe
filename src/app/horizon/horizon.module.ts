@@ -1,3 +1,25 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : horizon.module.ts
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo principal del módulo 'horizon'
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 01/10/2024    Humberto Medina Santos    Se crearon e importaron los diferentes
+ *                                         componentes que se usan en el módulo para
+ *                                         que sean reconocidos por el mismo:
+ *                                         EnsenanzaPage, HomePage, MeditacionPage,
+ *                                         y RecomendacionesPage; además del módulo de rutas
+ *
+ * 08/10/2024    Humberto Medina Santos    Se crearon e importaron los componentes
+ *                                         ProfilePage, NavBar y Layout
+ *
+ * 12/10/2024    Humberto Medina Santos    Se añadieron espaciados
+ * ---------------------------------------------------------------------------- */
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MeditacionPageComponent } from './pages/meditacion-page/meditacion-page.component';
@@ -11,8 +33,8 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { RouterModule } from '@angular/router';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 
-@NgModule({
-  declarations: [
+@NgModule ( {
+  declarations : [
     MeditacionPageComponent,
     RecomendacionesPageComponent,
     EnsenanzaPageComponent,
@@ -22,7 +44,7 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
     ProfilePageComponent,
     PopUpComponent
   ],
-  imports: [CommonModule, RouterModule],
-  exports: [HorizonRoutingModule]
-})
+  imports : [ CommonModule, RouterModule ],
+  exports : [ HorizonRoutingModule ]
+} )
 export class HorizonModule { }
