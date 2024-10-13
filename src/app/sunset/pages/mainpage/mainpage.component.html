@@ -1,3 +1,22 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : mainpage.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo que sirve como plantilla para mostrar los componentes que
+ *                 conforman la página principal de Sunset Wellness
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 01/10/2024    Humberto Medina Santos    Se colocaron las etiquetas de los diferentes
+ *                                         componentes que conforman la página
+ *
+ * 04/10/2024    Humberto Medina Santos    Se dieron estilos y se agregó el evento
+ *                                         del NavBar para hacer scroll a una sección
+ * ---------------------------------------------------------------------------- -->
+
+ <!-- * Sección de inicio que contiene los componentes NavBar y Banner de bienvenida -->
 <div class="inicio" id="inicio">
   <div class="nav" id="nav">
     <nav-bar (onScrollToSection)="scrollToSection($event)"/>
@@ -8,10 +27,12 @@
   </div>
 </div>
 
+<!-- * Sección de acerca que contiene el componente de Sobre Nosotros -->
 <div class="acerca" id="acerca">
   <sobre-nosotros/>
 </div>
 
+<!-- * Sección de contacto que contiene el componente de Contacto -->
 <div class="contacto" id="contacto">
   <contacto/>
 </div>

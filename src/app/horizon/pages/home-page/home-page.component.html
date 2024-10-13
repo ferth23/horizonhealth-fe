@@ -1,3 +1,20 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : home-page.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo html del componente HomePage
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 10/10/2024    Humberto Medina Santos    Se creó la estructura del html
+ *
+ * 11/10/2024    Humberto Medina Santos    Se implementó el componente PopUp y su
+ *                                         funcionalidad de aparecer y desaparecer
+ * ---------------------------------------------------------------------------- -->
+
+ <!-- * Componente PopUp -->
 <div [class.hidden]="hidden" class="pop-up-container">
   <div class="overlay"></div>
 
@@ -6,6 +23,7 @@
   </div>
 </div>
 
+<!-- * Contenido de la página principal -->
 <div class="container">
   <img class="circles" src="circles.svg" alt="Circles">
 
@@ -13,6 +31,7 @@
     <h1 class="title">Tu guía diaria hacia una vida equilibrada.</h1>
     <p class="text">Transforma tu día a día con herramientas simples para reducir el estrés, mejorar tus relaciones y tomar decisiones más conscientes. Reconecta contigo y crea hábitos que te acercan a una vida equilibrada.</p>
 
+    <!-- * Items de preview de cada apartado de Horizon Health -->
     <div class="section-items">
       @for ( item of SectionItems(); track item.title ) {
         <div class="section-item" [style]="item.background_color">
