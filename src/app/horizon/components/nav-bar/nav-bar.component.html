@@ -1,4 +1,27 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : nav-bar.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 07/10/2024
+ * Descripción   : Archivo html del componente NavBar
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 07/10/2024    Humberto Medina Santos    Se creó la estructura html del componente
+ *
+ * 08/10/2024    Humberto Medina Santos    Se añadió la funcionalidad de esconder o
+ *                                         aparecer los links de la navegación asi
+ *                                         como el botón de Log In
+ *
+ * 09/10/2024    Humberto Medina Santos    Se añadió el método para navegar hacia
+ *                                         la página de Log In
+ * ---------------------------------------------------------------------------- -->
+
 <nav>
+
+  <!-- * Parte del NavBar que contiene el logo principal de Horizon Health
+  * y el botón para esconder o hacer aparecer los links -->
   <div class="navigation">
     <a href="horizon-health">
       <img
@@ -10,6 +33,7 @@
     <button (click)="toggleNavBar()" class="toggle-nav"></button>
   </div>
 
+  <!-- * Links principales que llevan a cada apartado de la página -->
   <ul [class.hidden]="hidden" class="links">
     @for ( item of NavBarItems(); track item.name ) {
       <li>
@@ -21,6 +45,7 @@
       </li>
     }
 
+    <!-- * Botón de Log In que se encuentra dentro de los links -->
     <li>
       <a
         class="link"
@@ -31,6 +56,7 @@
     </li>
   </ul>
 
+  <!-- * Botón de Log In que se encuentra fuera de los links -->
   <button
     [class.login-hidden]="login_hidden"
     (click)="goToLogIn()"
