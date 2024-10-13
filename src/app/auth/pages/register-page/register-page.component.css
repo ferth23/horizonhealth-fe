@@ -1,5 +1,30 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : register.page.component.css
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 07/10/2024
+ * Descripción   : Estilos CSS de la página de registro de Horizon Health
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 07/10/2024    María Torres Herrera      Se estructuraron los contenedores y se
+ *                                         crearon sus respectivos estilos
+ *
+ * 08/10/2024    María Torres Herrera      Se crearon los estilos para el formulario
+ *
+ * 11/10/2024    María Torres Herrera      Se crearon los media queries para tabletas
+ *                                         y celulares, también se ajustó el largo de
+ *                                         los contenedores del carrusel
+ *
+ * 11/10/2024    Humberto Medina Santos    Se añadió el import de los estilos de
+ *                                         Boostrap
+ * ---------------------------------------------------------------------------- */
+
+ /* * Import para utilizar los estilos de la biblioteca Boostrap */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+/* * Estilos generales y para computadora */
 .page-container {
   background: linear-gradient(160deg, rgba(94,158,217,1) 0%, rgba(115,171,222,1) 30%, rgba(107,202,222,1) 70%, rgba(130,204,181,1) 100%);
   height: 100vh;
@@ -140,7 +165,8 @@ form button:hover {
   text-align: justify;
 }
 
-@media (max-width: 768px) {
+/* * Estilos para tableta */
+@media ( max-width: 768px ) {
   .form-container {
     width: 100%;
   }
@@ -150,7 +176,8 @@ form button:hover {
   }
 }
 
-@media (max-width: 460px) {
+/* * Estilos para celular */
+@media ( max-width: 460px ) {
   .form-container {
     width: 100%;
   }
