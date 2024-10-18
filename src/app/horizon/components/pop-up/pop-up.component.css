@@ -83,6 +83,7 @@
     height: 100px;
 }
 
+/* * Vista para tablets*/
 @media (max-width: 768px) {
     .popUp-container {
         width: 600px;
@@ -111,6 +112,7 @@
     }
 } 
 
+/* * Vista para celulares*/
 @media (max-width:460px) {
     .popUp-container {
         width: 380px;

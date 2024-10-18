@@ -1,1 +1,85 @@
-<p>ensenanza-page works!</p>
+<!-- ------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : ensenanza-page.component.html
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 14/10/2024
+ * Descripción   : Archivo html de la sección de Enseñanza. Consta de un contenedor 
+ *                 que lleva el título de la sección, una imagen alusiva, la 
+ *                 enseñanza del día, y reacciones para saber si al usuario si le
+ *                 gustó o no la enseñanza.
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 14/10/2024    Layla González     Se definieron las clases y se asignaron sus
+ *                                  contenidos.
+ *
+ * 15/10/2024    Layla González     Se modificó el nombre de las clases para el 
+ *                                  background y el container para la enseñanza
+ *                                  en sí.
+ *
+ *               Layla González     Se añadieron y ajustaron las clases para los 
+ *                                  círculos del background y para el botón de 
+ *                                  volver.
+ *
+ *               Layla González     Se agregó el enlace de la home page al botón.
+ *
+ * 16/10/2024    Layla González     Se agregó una clase para el borde blanco.
+ *
+ * 17/10/2024    Layla González     Se eliminaron los div para las imágenes y se
+ *                                  dejaron como imágenes solamente.
+ * ---------------------------------------------------------------------------- -->
+
+<!-- * Borde blanco de toda la pantalla -->
+<div class="ensenanza-border">
+
+    <!-- * Fondo de toda la sección Enseñanza -->
+    <div class="ensenanza-background">
+
+        <!-- * Icon de la flechita para volver  -->
+        <a href="http://localhost:4200/horizon-health">
+            <button></button>
+        </a>
+
+        <!-- * Círculo esquina inferior izquierda -->
+        <img class = "circle-down" src="circle 1.svg" alt="circle 1 icon">
+
+         <!-- * Círculo esquina superior derecha -->
+        <img class = "circle-up" src="circle 2.svg" alt="circle 2 icon">
+
+        <!-- * Contenedor de la enseñanza -->
+        <div class="ensenanza-container">
+            <h1>
+                <!-- * Título de la ventana -->
+                Enseñanza del día
+            </h1>
+
+            <!-- * Imagen del contenido -->
+            <img class = "iconE" src="woman.svg" alt="woman icon">
+
+            <p>
+                <!-- * Esta será la enseñanza de cada día -->
+                Estudios indican que pasar al menos dos horas a la semana en la naturaleza 
+                puede mejorar significativamente la salud mental y reducir el estrés.
+            </p>
+
+            <!-- * Icons de like y dislike juntos -->
+            <div class="reaction">
+
+                <!-- * Like icon -->
+                <div class="reaction-item">
+                    <img 
+                        src="like.svg" 
+                        alt="like icon">
+                </div>
+
+                <!-- * Dislike icon -->
+                <div class="reaction-item">
+                    <img
+                        src="dislike.svg" 
+                        alt="dislike icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
