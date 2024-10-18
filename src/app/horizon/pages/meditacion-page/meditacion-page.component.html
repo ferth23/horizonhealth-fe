@@ -1,1 +1,59 @@
-<p>meditacion-page works!</p>
+<div class="container">
+  <div [class.hidden]="hidden" class="pop-up-container">
+    <div class="overlay"></div>
+
+    <div class="popup">
+      <meditacion-pop-up (onStart)="start($event)" (onCancel)="cancel($event)"/>
+    </div>
+  </div>
+
+  <img
+    class="wave-up"
+    src="waves_up.svg"
+    alt="Waves Up">
+
+  <img
+    class="wave-down"
+    src="waves_down.svg"
+    alt="Waves Down">
+
+  <button
+    (click)="returnToHomePage()"
+    class="button button-return">
+    <img src="arrow_left.svg" alt="Arrow">
+  </button>
+
+  <button
+    (click)="toggleStartRestart()"
+    class="button button-start">
+    {{ start_restart_text }}
+  </button>
+
+  <button
+    [class.button-hidden]="button_hidden"
+    (click)="toggleStopResume()"
+    class="button button-stop">
+    {{ isStopped ? 'Reanudar' : 'Pausar' }}
+  </button>
+
+  <div class="meditation-content">
+    <progress
+      class="progress-bar"
+      [value]="progress"
+      max="100">
+    </progress>
+
+    <div class="meditation-animation">
+      <img
+        #circle
+        class="circle-wave"
+        src="circle_wave.svg"
+        alt="Circle Wave">
+
+      <img
+        class="avatar"
+        src="woman.svg"
+        alt="Avatar">
+    </div>
+  </div>
+</div>

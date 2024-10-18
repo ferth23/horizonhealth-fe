@@ -35,6 +35,11 @@ const routes : Routes = [
     loadChildren : () => import ( '../auth/auth.module' ).then ( m => m.AuthModule )
   },
   {
+    path : 'profile',
+    title : 'Profile',
+    component : ProfilePageComponent
+  },
+  {
     path : '',
     component : LayoutComponent,
 
@@ -43,7 +48,6 @@ const routes : Routes = [
       { path : 'meditacion', title : 'Meditacion', component : MeditacionPageComponent },
       { path : 'recomendaciones', title : 'Recomendaciones', component : RecomendacionesPageComponent },
       { path : 'enseñanza', title : 'Enseñanza Del Dia', component : EnsenanzaPageComponent },
-      { path : 'profile', title : 'Profile', component : ProfilePageComponent },
       { path : '**', redirectTo : '' }
     ]
   },

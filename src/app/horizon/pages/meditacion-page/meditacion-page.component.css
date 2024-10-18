@@ -1,0 +1,189 @@
+.container {
+  margin: 0 30px 30px 30px;
+  border-radius: 20px;
+  height: 967px;
+  position: relative;
+  display: grid;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(173,241,255,1) 0%, rgba(153,206,255,1) 100%);
+}
+
+.pop-up-container { z-index: 3; }
+.pop-up-container, .overlay { border-radius: 20px; }
+
+.pop-up-container, .overlay, .popup {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.overlay {
+  background-color: black;
+  opacity: 0.5;
+  z-index: 3;
+}
+
+.popup { z-index: 4; }
+.hidden { display: none; }
+.wave-up, .wave-down { z-index: 1; }
+
+.wave-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.wave-down {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.button {
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  border-radius: 30px;
+  border-style: none;
+  padding: 1.2rem;
+  width: 150px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.01s ease-in-out;
+}
+
+.button:active { box-shadow: 0 0 0; }
+
+.button-start, .button-stop {
+  bottom: 40px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: #6E214E;
+}
+
+.button-return {
+  top: 40px;
+  left: 40px;
+}
+
+.button-start { left: 40px; }
+.button-stop { left: 210px; }
+.button-hidden { display: none; }
+
+.meditation-content {
+  display: grid;
+  place-self: center;
+  place-items: center;
+  z-index: 2;
+}
+
+.progress-bar {
+  width: 500px;
+  height: 48px;
+  justify-self: center;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 100px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.progress-bar::-webkit-progress-bar { background-color: #eee; }
+.progress-bar::-webkit-progress-value { background-color: #325192; }
+.progress-bar::-moz-progress-bar { background-color: #325192; }
+
+.meditation-animation {
+  position: relative;
+  display: grid;
+  width: 571px;
+  height: 571px;
+  margin-top: 7rem;
+}
+
+.circle-wave, .avatar {
+  position: absolute;
+  place-self: center;
+}
+
+.circle-wave {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar {
+  width: 342px;
+  height: 380px;
+}
+
+.animate { animation: meditation-animation 7s infinite; }
+
+@keyframes meditation-animation {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@media ( max-width: 768px ) {
+  .wave-up, .wave-down { height: 200px; }
+
+  .progress-bar {
+    width: 300px;
+    height: 38px;
+    margin-top: 3rem;
+  }
+
+  .meditation-animation { margin-top: 3rem; }
+
+  .circle-wave {
+    width: 450px;
+    height: 450px;
+  }
+
+  .avatar {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media ( max-width: 460px ) {
+  .container { height: 700px; }
+  .wave-up, .wave-down { height: 150px; }
+
+  .progress-bar {
+    width: 250px;
+    height: 28px;
+    margin-top: 2rem;
+  }
+
+  .meditation-content, .meditation-animation { width: 284px; }
+  .meditation-content { margin-bottom: 3rem; }
+
+  .meditation-animation {
+    margin-top: 3rem;
+    height: 300px;
+  }
+
+  .circle-wave {
+    width: 250px;
+    height: 250px;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .button {
+    width: 80px;
+    height: 40px;
+  }
+
+  .button-start, .button-stop { font-size: 15px; }
+  .button-stop { left: 140px; }
+}
