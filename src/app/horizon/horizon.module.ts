@@ -22,6 +22,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MeditacionPageComponent } from './pages/meditacion-page/meditacion-page.component';
 import { RecomendacionesPageComponent } from './pages/recomendaciones-page/recomendaciones-page.component';
 import { EnsenanzaPageComponent } from './pages/ensenanza-page/ensenanza-page.component';
@@ -32,6 +33,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { RouterModule } from '@angular/router';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { MeditacionPopUpComponent } from './components/meditacion-pop-up/meditacion-pop-up.component';
 
 @NgModule ( {
   declarations : [
@@ -42,9 +44,10 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
     LayoutComponent,
     NavBarComponent,
     ProfilePageComponent,
-    PopUpComponent
+    PopUpComponent,
+    MeditacionPopUpComponent
   ],
-  imports : [ CommonModule, RouterModule ],
+  imports : [ CommonModule, RouterModule, FormsModule ],
   exports : [ HorizonRoutingModule ]
 } )
 export class HorizonModule { }
