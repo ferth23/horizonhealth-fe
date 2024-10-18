@@ -216,4 +216,9 @@ button {
         width: 35px;
         height: 35px;
     }
+
+    .circle-up, .circle-down {
+        width: 250px;
+        height: 250px;
+    }
 }
