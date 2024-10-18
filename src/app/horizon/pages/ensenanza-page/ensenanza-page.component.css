@@ -1,0 +1,224 @@
+/* ---------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : ensenanza-page.component.css
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 14/10/2024
+ * Descripción   : Estilos para la sección de Enseñanza de la página de 
+ *                 Horizon Health. 
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 14/10/2024    Layla González     Se estilizaron las clases para el background, 
+ *                                  el container principal, el título y el texto.
+ *
+ * 15/10/2024    Layla González     Se modificó el nombre de las clases para el 
+ *                                  background y el container principal para no
+ *                                  generar problemas con la ñ.
+ *
+ *               Layla González     Se hicieron cambios a las clases para el
+ *                                  título y el texto.
+ *
+ *               Layla González     Se estilizaron las clases del botón de regreso
+ *                                  y de los círculos del background.
+ *
+ *               Layla González     Se ajustaron medidas a las clases.
+ *
+ * 16/10/2024    Layla González     Se estilizó la clase para los icons de like y
+ *                                  dislike.
+ *
+ *               Layla González     Se hicieron cambios a las clases del botón y
+ *                                  del container principal.
+ *
+ *               Layla González     Se agregó una clase para el borde de la página. 
+ *
+ *               Layla González     Se crearon los media queries para celular y
+ *                                  tablets.
+ *
+ * 17/10/2024    Layla González     Se eliminaron las clases de las imágenes para 
+ *                                  organizarlas mejor y en base a esto se 
+ *                                  realizaron más cambios.
+ * ---------------------------------------------------------------------------- */
+
+.ensenanza-border {
+    height: 987px;
+    width: 100%;
+    background: white;
+}
+
+.ensenanza-background {
+    height: 967px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: linear-gradient(
+                        160deg, 
+                        #D1B0E8 0%, 
+                        #FFB5E0 100%
+                );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    position: relative;
+}
+
+.ensenanza-container {
+    background-color: white;
+    height: 600px;
+    width: 1100px;
+    padding: 20px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-shadow: 0 4 4 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-style: "SemiBold";
+    font-size: 64px;
+    color: #6E214E;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.iconE {
+    display: flex;
+    margin: 0 auto;
+}
+
+p {
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    font-style: "Light";
+    color: #6E214E;
+    text-align: center;
+    padding: 0 100px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: white;
+    z-index: 999;
+    height: 55px;
+    width: 120px;
+    border-radius: 70px;
+    border-color: transparent;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-image: url(../../../../../public/back.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.circle-up, .circle-down {
+    position: absolute;
+    opacity: 0.75;
+    width: 400px;
+    height: 400px;
+}
+
+.circle-up {
+    top: 0;
+    right: 0;
+}
+
+.circle-down {
+    bottom: 0;
+    left: 0;
+}
+
+.reaction {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* * Vista para tablets*/
+@media (max-width: 768px) {
+    .ensenanza-container {
+        width: 500px;
+        height: auto;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 46px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 19px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .circle-up, .circle-down {
+        position: absolute;
+        opacity: 0.75;
+        width: 350px;
+        height: 350px;
+    }
+
+    .reaction img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* * Vista para celulares*/
+@media (max-width: 460px) {
+    .ensenanza-border {
+        width: 440px;
+        height: 800px;
+    }
+
+    .ensenanza-background {
+        height: 780px;
+    }
+
+    .ensenanza-container {
+        width: 300px;
+        height: 500px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-top: 18px;
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-size: 14px;
+        padding: 0 20px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        height: 40px;
+        width: 80px;
+        background-size: 50%;
+    }
+
+    .reaction {
+        gap: 20px;
+    }
+
+    .reaction img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .circle-up, .circle-down {
+        width: 250px;
+        height: 250px;
+    }
+}

@@ -20,7 +20,6 @@
  * 10/10/2024    Layla González     Creación de los media queries para celular y
  *                                  tablets.
  
- * 11/10/2024    Layla González     Re ajustes a medidas de todo en general.
  * ---------------------------------------------------------------------------- */ 
 
 .popUp-container {
@@ -75,13 +74,16 @@
     margin-top: 20px;
 }
   
-.emotion-item:hover { transform: scale(1.2); }
+.emotion-item:hover { 
+    transform: scale(1.2); 
+}
 
 .emotions-img {
     width: 100px;
     height: 100px;
 }
 
+/* * Vista para tablets*/
 @media (max-width: 768px) {
     .popUp-container {
         width: 600px;
@@ -110,6 +112,7 @@
     }
 } 
 
+/* * Vista para celulares*/
 @media (max-width:460px) {
     .popUp-container {
         width: 380px;
@@ -126,12 +129,16 @@
         margin-top: -20px;
     }
 
-    .emotions-icons { gap: 5px; }
+    .emotions-icons { 
+        gap: 5px; 
+    }
     
     .emotions-img {
         width: 50px;
         height: 50px;
     }
 
-    .emotion-item { margin-top: -12px; }
+    .emotion-item { 
+        margin-top: -12px; 
+    }
 }
