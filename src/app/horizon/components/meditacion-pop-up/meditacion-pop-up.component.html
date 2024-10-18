@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="content">
+    <p class="text">Sigue el ritmo de la ondas con tu respiración</p>
+
+    <div class="spinner-content">
+      <button (click)="changeSpinnerValue('minus')" class="spinner-item spinner-button"> - </button>
+
+      <input
+        disabled
+        class="spinner-item spinner"
+        type="number"
+        name="number"
+        id="number"
+        min="1"
+        max="10"
+        step="1"
+        [value]="value_spinner">
+
+      <button (click)="changeSpinnerValue('plus')" class="spinner-item spinner-button"> + </button>
+
+      <p class="spinner-item spinner-text" >Minutos</p>
+    </div>
+
+    <div class="buttons">
+      <button (click)="start()" class="button">Empezar</button>
+      <button (click)="cancel()" class="button">Cancelar</button>
+    </div>
+  </div>
+</div>
