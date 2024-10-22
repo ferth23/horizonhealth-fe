@@ -1,1 +1,47 @@
-<p>recomendaciones-page works!</p>
+<div class="container">
+  <img
+    src="lines.svg"
+    alt="Background Lines"
+    class="lines">
+
+  <button
+    (click)="returnToHomePage()"
+    class="button">
+    <img src="arrow-recom.svg" alt="Arrow">
+  </button>
+
+  <h1 class="main-title">Recomendaciones</h1>
+
+  <div class="tabbed-pane">
+    <div class="tab-items">
+      <div (click)="selectTab('ejercicios')" #ejercicios_item class="item">
+        <img src="brain.svg" alt="Brain Icon">
+        <div class="tab-item">Ejercicios</div>
+      </div>
+
+      <div (click)="selectTab('lectura')" #lectura_item class="item selected">
+        <img src="book.svg" alt="Book Icon">
+        <div class="tab-item">Lectura</div>
+      </div>
+
+      <div (click)="selectTab('actividades')" #actividades_item class="item">
+        <img src="game.svg" alt="Game Icon">
+        <div class="tab-item">Actividades</div>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div [class.e-visible]="e_visible" class="content">
+        <ejercicios/>
+      </div>
+
+      <div [class.l-visible]="l_visible" class="content">
+        <lectura/>
+      </div>
+
+      <div [class.a-visible]="a_visible" class="content">
+        <actividades/>
+      </div>
+    </div>
+  </div>
+</div>
