@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-cambiar-contrasena',
-  standalone: true,
-  imports: [],
+  selector: 'cambiar-contrasena',
   templateUrl: './cambiar-contrasena.component.html',
   styleUrl: './cambiar-contrasena.component.css'
 })

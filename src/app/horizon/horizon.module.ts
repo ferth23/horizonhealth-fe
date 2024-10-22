@@ -45,6 +45,9 @@ import { MeditacionPopUpComponent } from './components/meditacion-pop-up/meditac
 import { EjerciciosComponent } from './components/ejercicios/ejercicios.component';
 import { LecturaComponent } from './components/lectura/lectura.component';
 import { ActividadesComponent } from './components/actividades/actividades.component';
+import { CambiarContrasenaComponent } from './components/cambiar-contrasena/cambiar-contrasena.component';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 
 @NgModule ( {
   declarations : [
@@ -59,7 +62,10 @@ import { ActividadesComponent } from './components/actividades/actividades.compo
     MeditacionPopUpComponent,
     EjerciciosComponent,
     LecturaComponent,
-    ActividadesComponent
+    ActividadesComponent,
+    CambiarContrasenaComponent,
+    EditarPerfilComponent,
+    EstadisticasComponent
   ],
   imports : [ CommonModule, RouterModule, FormsModule ],
   exports : [ HorizonRoutingModule ]
