@@ -1,3 +1,23 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : meditacion-pop-up.component.css
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo de estilos del componente MeditacionPopUp
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 15/10/2024    Humberto Medina Santos    Se crearon los estilos para
+ *                                         el componente, incluyendo los Media Queries
+ *                                         para añadir responsividad en los tamaños
+ *                                         de Celular y Tablet
+ *
+ * 17/10/2024    Humberto Medina Santos    Se hicieron cambios pequeños en algunos
+ *                                         estilos
+ * ---------------------------------------------------------------------------- */
+
+/* * Estilos para Computadora y Generales */
 .container {
   position: absolute;
   top: 50%;
@@ -90,6 +110,7 @@
   border-radius: 50px;
 }
 
+/* * Estilos para Tablet */
 @media ( max-width: 768px ) {
   .container {
     width: 630px;
@@ -122,6 +143,7 @@
   }
 }
 
+/* * Estilos para Celular */
 @media ( max-width: 460px ) {
   .container {
     width: 315px;
