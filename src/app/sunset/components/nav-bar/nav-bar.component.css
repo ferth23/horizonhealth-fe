@@ -114,7 +114,6 @@ nav {
     height: 5rem;
     padding: 0 1rem;
     display: grid;
-    font-size: 28px;
     place-content: center;
     width: auto;
   }
@@ -143,8 +142,16 @@ nav {
 /* * Estilos para Computadora */
 @media ( min-width: 768px ) {
   nav { padding: 0 4rem; }
-  .links { width: 26rem; }
-  .link { padding: 0 1.5rem; }
+
+  .links {
+    padding-right: 7rem;
+    width: 26rem;
+  }
+
+  .link {
+    font-size: 28px;
+    padding: 0 1.5rem;
+  }
 
   .link:hover {
     background-color: rgba(0, 0, 0, 0.10);

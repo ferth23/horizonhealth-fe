@@ -1,4 +1,25 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : meditacion-page.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo html del componente MeditacionPage
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 15/10/2024    Humberto Medina Santos    Se creó la estructura del html
+ *
+ * 16/10/2024    Humberto Medina Santos    Se implementó el componente MeditacionPopUp
+ *                                         y su funcionalidad
+ *
+ * 17/10/2024    Humberto Medina Santos    Se agregaron los botones de Inciiar/Reiniciar,
+ *                                         Pausar/Reanudar y sus funcionalidades
+ * ---------------------------------------------------------------------------- -->
+
 <div class="container">
+
+  <!-- * Implementación del MeditacionPopUpComponent -->
   <div [class.hidden]="hidden" class="pop-up-container">
     <div class="overlay"></div>
 
@@ -7,6 +28,7 @@
     </div>
   </div>
 
+  <!-- * Imágenes de fondo -->
   <img
     class="wave-up"
     src="waves_up.svg"
@@ -17,18 +39,21 @@
     src="waves_down.svg"
     alt="Waves Down">
 
+  <!-- * Botón para regresar al Home Page -->
   <button
     (click)="returnToHomePage()"
     class="button button-return">
     <img src="arrow_left.svg" alt="Arrow">
   </button>
 
+  <!-- * Botón para Iniciar o Reiniciar -->
   <button
     (click)="toggleStartRestart()"
     class="button button-start">
     {{ start_restart_text }}
   </button>
 
+  <!-- * Botón para Pausar o Reanudar -->
   <button
     [class.button-hidden]="button_hidden"
     (click)="toggleStopResume()"
@@ -37,12 +62,15 @@
   </button>
 
   <div class="meditation-content">
+
+    <!-- * Barra de progreso de la meditación -->
     <progress
       class="progress-bar"
       [value]="progress"
       max="100">
     </progress>
 
+    <!-- * Avatar central del ejercicio de meditación -->
     <div class="meditation-animation">
       <img
         #circle

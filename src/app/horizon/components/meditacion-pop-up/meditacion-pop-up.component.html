@@ -1,7 +1,25 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : meditacion-pop-up.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo html del componente MeditacionPopUp
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 16/10/2024    Humberto Medina Santos    Se creó la estructura del html
+ *
+ * 17/10/2024    Humberto Medina Santos    Se agregó el botón de 'cancelar'
+ * ---------------------------------------------------------------------------- -->
+
 <div class="container">
   <div class="content">
+
+    <!-- * Instrucción principal del ejercicio -->
     <p class="text">Sigue el ritmo de la ondas con tu respiración</p>
 
+    <!-- * Spinner númerico para indicar la cantidad de minutos que durará la meditación -->
     <div class="spinner-content">
       <button (click)="changeSpinnerValue('minus')" class="spinner-item spinner-button"> - </button>
 
@@ -21,6 +39,7 @@
       <p class="spinner-item spinner-text" >Minutos</p>
     </div>
 
+    <!-- * Botones de Empezar y Cancelar -->
     <div class="buttons">
       <button (click)="start()" class="button">Empezar</button>
       <button (click)="cancel()" class="button">Cancelar</button>

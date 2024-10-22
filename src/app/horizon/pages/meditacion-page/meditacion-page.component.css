@@ -1,3 +1,26 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : meditacion-page.component.css
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo de estilos del componente MeditacionPage
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 15/10/2024    Humberto Medina Santos    Se crearon los estilos iniciales para
+ *                                         el componente, siendo estos únicamente
+ *                                         para computadora
+ *
+ * 16/10/2024    Humberto Medina Santos    Se implementaron los Media Queries para
+ *                                         dar estilos al componente en los tamaños
+ *                                         de Celular y Tablet
+ *
+ * 17/10/2024    Humberto Medina Santos    Se hicieron cambios pequeños en algunos
+ *                                         estilos
+ * ---------------------------------------------------------------------------- */
+
+/* * Estilos para Computadora y Generales */
 .container {
   margin: 0 30px 30px 30px;
   border-radius: 20px;
@@ -124,11 +147,13 @@
 
 .animate { animation: meditation-animation 7s infinite; }
 
+/* * Animación de respiración */
 @keyframes meditation-animation {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.3); }
 }
 
+/* * Estilos para Tablet */
 @media ( max-width: 768px ) {
   .wave-up, .wave-down { height: 200px; }
 
@@ -151,6 +176,7 @@
   }
 }
 
+/* * Estilos para Celular */
 @media ( max-width: 460px ) {
   .container { height: 700px; }
   .wave-up, .wave-down { height: 150px; }
