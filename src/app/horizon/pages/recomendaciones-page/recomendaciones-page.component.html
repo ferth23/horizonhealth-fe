@@ -1,44 +1,72 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : recomendaciones-page.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo html del componente RecomendacionesPage
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 21/10/2024    Humberto Medina Santos    Se creó la estructura del html junto
+ *                                         con sus funcionalidades
+ * ---------------------------------------------------------------------------- -->
+
 <div class="container">
+
+  <!-- * Líneas que funcionan como imagen para decorar el fondo -->
   <img
     src="lines.svg"
     alt="Background Lines"
     class="lines">
 
+  <!-- * Botón para regresar a la página Home -->
   <button
     (click)="returnToHomePage()"
     class="button">
     <img src="arrow-recom.svg" alt="Arrow">
   </button>
 
+  <!-- * Título principal de la página -->
   <h1 class="main-title">Recomendaciones</h1>
 
+  <!-- * Sistema de pestañas donde se muestra cada apartado -->
   <div class="tabbed-pane">
     <div class="tab-items">
+
+      <!-- * Pestaña de ejercicios -->
       <div (click)="selectTab('ejercicios')" #ejercicios_item class="item">
         <img src="brain.svg" alt="Brain Icon">
         <div class="tab-item">Ejercicios</div>
       </div>
 
+      <!-- * Pestaña de lectura -->
       <div (click)="selectTab('lectura')" #lectura_item class="item selected">
         <img src="book.svg" alt="Book Icon">
         <div class="tab-item">Lectura</div>
       </div>
 
+      <!-- * Pestaña de actividades -->
       <div (click)="selectTab('actividades')" #actividades_item class="item">
         <img src="game.svg" alt="Game Icon">
         <div class="tab-item">Actividades</div>
       </div>
     </div>
 
+    <!-- * Contenido de las pestañas (componentes que se muestran en cada una) -->
     <div class="tab-content">
+
+      <!-- * Contenido de la pestaña de ejercicios -->
       <div [class.e-visible]="e_visible" class="content">
         <ejercicios/>
       </div>
 
+      <!-- * Contenido de la pestaña de lectura -->
       <div [class.l-visible]="l_visible" class="content">
         <lectura/>
       </div>
 
+      <!-- * Contenido de la pestaña de actividades -->
       <div [class.a-visible]="a_visible" class="content">
         <actividades/>
       </div>

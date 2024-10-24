@@ -1,18 +1,18 @@
 /* ---------------------------------------------------------------------------------
  * HorizonHealth
- * 
+ *
  * Archivo       : ensenanza-page.component.css
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 14/10/2024
- * Descripción   : Estilos para la sección de Enseñanza de la página de 
- *                 Horizon Health. 
- * 
+ * Descripción   : Estilos para la sección de Enseñanza de la página de
+ *                 Horizon Health.
+ *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
- * 14/10/2024    Layla González     Se estilizaron las clases para el background, 
+ * 14/10/2024    Layla González     Se estilizaron las clases para el background,
  *                                  el container principal, el título y el texto.
  *
- * 15/10/2024    Layla González     Se modificó el nombre de las clases para el 
+ * 15/10/2024    Layla González     Se modificó el nombre de las clases para el
  *                                  background y el container principal para no
  *                                  generar problemas con la ñ.
  *
@@ -30,13 +30,13 @@
  *               Layla González     Se hicieron cambios a las clases del botón y
  *                                  del container principal.
  *
- *               Layla González     Se agregó una clase para el borde de la página. 
+ *               Layla González     Se agregó una clase para el borde de la página.
  *
  *               Layla González     Se crearon los media queries para celular y
  *                                  tablets.
  *
- * 17/10/2024    Layla González     Se eliminaron las clases de las imágenes para 
- *                                  organizarlas mejor y en base a esto se 
+ * 17/10/2024    Layla González     Se eliminaron las clases de las imágenes para
+ *                                  organizarlas mejor y en base a esto se
  *                                  realizaron más cambios.
  * ---------------------------------------------------------------------------- */
 
@@ -51,8 +51,8 @@
     margin-left: 30px;
     margin-right: 30px;
     background: linear-gradient(
-                        160deg, 
-                        #D1B0E8 0%, 
+                        160deg,
+                        #D1B0E8 0%,
                         #FFB5E0 100%
                 );
     display: flex;
@@ -139,6 +139,9 @@ button {
     justify-content: center;
     gap: 50px;
 }
+
+.reaction-item { cursor: pointer; }
+.reaction-item:hover { opacity: 0.5; }
 
 /* * Vista para tablets*/
 @media (max-width: 768px) {

@@ -1,3 +1,19 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : home-page.component.css
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 10/10/2024
+ * Descripción   : Archivo de estilos del componente HomePage
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 21/10/2024    Humberto Medina Santos    Se crearon los estilos para el componente
+ *                                         incluidos los media queries para adaptar
+ *                                         los estilos tanto para Tablet como Celular
+ * ---------------------------------------------------------------------------- */
+
+/* * Estilos para Computadora y Generales */
 .container {
   margin: 0 30px 30px 30px;
   border-radius: 20px;
@@ -108,6 +124,7 @@
 
 .e-visible, .l-visible, .a-visible { display: block; }
 
+/* * Estilos para Tablet */
 @media ( max-width: 768px ) {
   .main-title {
     padding-top: 8rem;
@@ -133,6 +150,7 @@
   .content { padding: 36px; }
 }
 
+/* * Estilos para Celular */
 @media ( max-width: 460px ) {
   .button {
     width: 90px;

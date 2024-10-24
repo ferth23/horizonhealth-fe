@@ -1,3 +1,18 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : home-page.component.ts
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo de typescript del componente HomePage
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 21/10/2024    Humberto Medina Santos    Se creó toda la funcionalidad del
+ *                                         sistema de pestañas y de la página
+ *                                         en general
+ * ---------------------------------------------------------------------------- */
+
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,15 +22,19 @@ import { Router } from '@angular/router';
   styleUrls : [ './recomendaciones-page.component.css' ]
 } )
 export class RecomendacionesPageComponent {
+
+  // * Declaración de variables e injección de dependencias
   private router = inject ( Router );
   public e_visible : boolean = false;
   public l_visible : boolean = true;
   public a_visible : boolean = false;
 
+  // * Objetos obtenidos del DOM
   @ViewChild ( 'ejercicios_item' ) ejercicios_item !: ElementRef < HTMLDivElement >;
   @ViewChild ( 'lectura_item' ) lectura_item !: ElementRef < HTMLDivElement >;
   @ViewChild ( 'actividades_item' ) actividades_item !: ElementRef < HTMLDivElement >;
 
+  // * Método que muestra el contenido de la pestaña seleccionada y oculta las demás
   public selectTab ( tab : string ) : void {
     switch ( tab ) {
       case 'ejercicios':

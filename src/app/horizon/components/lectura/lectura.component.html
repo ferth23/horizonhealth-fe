@@ -1,1 +1,34 @@
-<p>lectura works!</p>
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : lectura.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 01/10/2024
+ * Descripción   : Archivo html del componente Lectura
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 22/10/2024    Humberto Medina Santos    Se creó la estructura del html junto
+ *                                         con sus funcionalidades
+ * ---------------------------------------------------------------------------- -->
+
+<div class="container">
+
+    <!-- * Textarea en donde se muestra la lectura -->
+    <textarea readonly class="text"> {{ reading_text() }} </textarea>
+
+    <!-- * Información de la lectura -->
+    <div class="reading-info">
+      <h2 class="reading-title"> {{ reading_title() }} </h2>
+      <p class="reading-author"> {{ reading_author() }} </p>
+      <p class="reading-year"> {{ reading_year() }} </p>
+      <h3 class="genre-title"> Géneros </h3>
+
+      <!-- * Géneros de la lectura -->
+      <div class="genres">
+        @for ( genre of reading_genres(); track $index ) {
+          <p class="genre"> {{ genre }} </p>
+        }
+      </div>
+    </div>
+</div>
