@@ -29,6 +29,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HorizonRoutingModule } from './horizon-routing.module';
@@ -67,7 +68,7 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
     EditarPerfilComponent,
     EstadisticasComponent
   ],
-  imports : [ CommonModule, RouterModule, FormsModule ],
+  imports : [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule ],
   exports : [ HorizonRoutingModule ]
 } )
 export class HorizonModule { }

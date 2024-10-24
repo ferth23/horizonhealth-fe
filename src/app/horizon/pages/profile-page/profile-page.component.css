@@ -1,0 +1,182 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : profile-page.component.css
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 16/10/2024
+ * Descripción   : Estilos CSS de la página de perfil de usuario de Horizon Health
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 21/10/2024    María Torres Herrera      Se estructuraron los contenedores y se
+ *                                         crearon sus respectivos estilos
+ *
+ * 22/10/24      María Torres Herrera      Se crearon los media queries para tabletas
+ * ---------------------------------------------------------------------------- */
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-container {
+  width: 20%;
+  margin-left: 45px;
+}
+
+.logo-container {
+  margin: 35px 0
+}
+
+.container-title {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  margin-bottom: 35px;
+}
+
+.container-title h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0;
+}
+
+.profile-settings, .security-settings {
+  padding-bottom: 20px;
+}
+
+.profile-settings h2, .security-settings h2  {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #808080;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.setting {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  margin-bottom: 24px;
+}
+
+.setting:hover {
+  cursor: pointer;
+  filter: invert(17%) sepia(43%) saturate(2668%) hue-rotate(295deg) brightness(87%) contrast(91%);
+}
+
+.setting p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0;
+}
+
+.horizontal-line {
+  border-top: 1px solid #B3B3B3;
+  width: 250px;
+  margin-bottom: 22px;
+}
+
+.delete-setting p {
+  color: #EA0C5F;
+}
+
+.content-container {
+  background-color: #F2F2F2;
+  width: 80%;
+  position: relative;
+}
+
+.content-title {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  margin: 75px 0 30px 45px;
+}
+
+.content-title img {
+  display: none;
+}
+
+.content-title h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  margin: 0;
+}
+
+.content {
+  background-color: white;
+  position: absolute;
+  top: 148px;
+  bottom: 45px;
+  right: 45px;
+  left: 45px;
+  border-radius: 20px;
+}
+
+@media ( max-width: 768px ) {
+  .settings-container {
+    width: 32%;
+    margin-left: 30px;
+  }
+
+  .logo-container {
+    margin: 35px 0
+  }
+
+  .logo-container img {
+    width: 180px;
+  }
+
+  .container-title h1 {
+    font-size: 26px;
+  }
+
+  .profile-settings h2, .security-settings h2  {
+    font-size: 16px;
+  }
+
+  .setting p {
+    font-size: 20px;
+  }
+
+  .horizontal-line {
+    border-top: 1px solid #B3B3B3;
+    width: 205px;
+    margin-bottom: 22px;
+  }
+
+  .icon {
+    width: 22px;
+  }
+
+  .config-icon {
+    width: 14px;
+  }
+
+  .content-container {
+    width: 68%;
+  }
+
+  .content-title {
+    margin: 75px 0 30px 30px;
+  }
+
+  .content-title h1 {
+    font-size: 30px;
+  }
+
+  .content {
+    top: 138px;
+    bottom: 30px;
+    right: 30px;
+    left: 30px;
+    border-radius: 20px;
+  }
+}

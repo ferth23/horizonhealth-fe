@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
  * HorizonHealth
  *
- * Archivo       : register-page.components.ts
+ * Archivo       : register-page.component.ts
  * Autor         : María Fernanda Torres Herrera
  * Fecha         : 07/10/2024
  * Descripción   : Lógica de la página de registro de Horizon Health
@@ -32,7 +32,7 @@ export class RegisterPageComponent {
 
   // * Definición del formulario de registro
   public myForm: FormGroup = this.fb.group ( {
-    fullName: [ '', [ Validators.required, Validators.pattern ( customValidators.firstNameAndLastNamePattern ) ]] ,
+    fullName: [ '', [ Validators.required, Validators.pattern ( customValidators.firstNameAndLastNamePattern ) ] ] ,
     email: [ '', [ Validators.required, Validators.pattern ( customValidators.emailPattern ) ] ],
     password: [ '', [ Validators.required, Validators.minLength ( 10 ) ] ],
     confirmPassword: [ '', [ Validators.required ] ]
@@ -40,7 +40,7 @@ export class RegisterPageComponent {
 
   // * Método para validar el registro, sin terminar
   register () {
-    const { name, email, password } = this.myForm.value;
+    const { fullName, email, password } = this.myForm.value;
 
     // this.authService.register ( name, email, password )
     //   .subscribe ( {
