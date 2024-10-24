@@ -1,1 +1,93 @@
-<p>profile-page works!</p>
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : profile-page.component.html
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 16/10/2024
+ * Descripción   : Estructura HTML de la página de perfil de usuario de Horizon Health
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 16/10/2024    María Torres Herrera      Se creó la estructura de la página
+ *
+ * 21/10/2024    María Torres Herrera      Se añadió el div 'horizontal-line'
+ *
+ * 22/20/2024    María Torres Herrera      Se añadió el div 'content-title'
+ * ---------------------------------------------------------------------------- -->
+
+<!-- * Contenedor principal -->
+<div class="main-container">
+
+  <!-- * Contenedor de la configuración del perfil y cuenta de usuario -->
+  <div class="settings-container">
+
+    <!-- * Logo del proyecto Horizon Health -->
+    <div class="logo-container">
+      <img src="hh-logo.svg" alt="Horizon Health Logo">
+    </div>
+
+    <!-- * Título del contenedor -->
+     <div class="container-title">
+       <img src="arrow-back.svg" class="config-icon" alt="Return Button">
+       <h1> Configuración </h1>
+     </div>
+
+    <!-- * Lista de opciones de configuración -->
+    <div class="settings-list">
+
+      <!-- * Configuraciones de perfil -->
+      <div class="profile-settings">
+        <h2> Perfil </h2>
+
+        <div class="setting" (click)="selectOption('edit-profile')">
+          <img src="edit-profile-setting.svg" class="icon" alt="Edit Profile Setting Image">
+          <p> Editar Perfil </p>
+        </div>
+
+        <div class="setting" (click)="selectOption('statistics')">
+          <img src="stats-setting.svg" class="icon" alt="Statistics Setting Image">
+          <p> Estadísticas </p>
+        </div>
+      </div>
+
+      <!-- * Configuración de seguridad -->
+      <div class="security-settings">
+        <h2> Seguridad </h2>
+
+        <div class="setting" (click)="selectOption('password')">
+          <img src="password-setting.svg" class="icon" alt="Password Setting Image">
+          <p> Contraseña </p>
+        </div>
+      </div>
+
+      <div class="horizontal-line"></div>
+
+      <!-- * Eliminar cuenta -->
+      <div class="delete-setting">
+        <div class="setting">
+          <img src="delete-account-setting.svg" class="icon" alt="Delete Account Setting Image">
+          <p> Eliminar cuenta </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- * Contenedor del contenido de las opciones de configuración -->
+  <div class="content-container">
+
+    <!-- * Título del contenedor, cambia en base a la opción de configuración elegida -->
+    <div class="content-title">
+      <img src="toggleNavBar.svg" class="toggle-settings-icon" alt="Toggle Settings">
+      <h1 *ngIf="selectedOption === 'edit-profile'"> Editar Perfil </h1>
+      <h1 *ngIf="selectedOption === 'statistics'"> Estadísticas </h1>
+      <h1 *ngIf="selectedOption === 'password'"> Contraseña </h1>
+    </div>
+
+    <!-- * Contenido de la opción de configuración elegida -->
+    <div class="content">
+      <editar-perfil *ngIf="selectedOption === 'edit-profile'"></editar-perfil>
+      <estadisticas *ngIf="selectedOption === 'statistics'"></estadisticas>
+      <cambiar-contrasena *ngIf="selectedOption === 'password'"></cambiar-contrasena>
+    </div>
+  </div>
+</div>

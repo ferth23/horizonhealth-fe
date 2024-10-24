@@ -1,1 +1,43 @@
-<p>cambiar-contrasena works!</p>
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : profile-page.component.html
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 21/10/2024
+ * Descripción   : Estructura HTML del componente Cambiar Contraseña
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 22/10/2024    María Torres Herrera      Se creó la estructura del componente
+ * ---------------------------------------------------------------------------- -->
+
+<!-- * Contenedor principal -->
+<div class="main-container">
+
+  <!-- * Contenedo del formulario -->
+  <div class="form-container">
+    <h1> Cambiar Contraseña </h1>
+
+    <!-- * Formulario para cambiar la contraseña de la cuenta. Cuenta con los campos: contraseña actual, contraseña nueva y confirmar contraseña nueva -->
+    <form [formGroup]="myForm" (ngSubmit)="changePassword()">
+      <div class="field">
+        <label for="currentPassword" class="field-label"> Contraseña Actual </label>
+        <input type="text" class="input-field" formControlName="currentPassword" placeholder="Ingresa tu contraseña actual">
+      </div>
+
+      <div class="field">
+        <label for="newPassword" class="field-label"> Contraseña Nueva </label>
+        <input type="text" class="input-field" formControlName="newPassword" placeholder="Ingresa tu contraseña nueva">
+      </div>
+
+      <div class="field">
+        <label for="confirmNewPassword" class="field-label"> Confirmar Contraseña Nueva </label>
+        <input type="text" class="input-field" formControlName="confirmNewPassword" placeholder="Confirma tu contraseña nueva">
+      </div>
+
+      <!-- * Botón para confirmar el cambio de contraseña -->
+      <button class="change-password-button" type="submit" [disabled]="myForm.invalid"> Cambiar Contraseña </button>
+    </form>
+
+  </div>
+</div>

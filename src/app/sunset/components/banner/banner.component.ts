@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
  * HorizonHealth
  *
- * Archivo       : banner.components.ts
+ * Archivo       : banner.component.ts
  * Autor         : María Fernanda Torres Herrera
  * Fecha         : 01/10/2024
  * Descripción   : Lógica del componente Banner

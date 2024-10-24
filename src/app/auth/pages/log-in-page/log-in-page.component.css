@@ -11,14 +11,20 @@
  * 07/10/2024    María Torres Herrera      Se estructuraron los contenedores y se
  *                                         crearon sus respectivos estilos
  *
- * 08/10/2024    María Torres Herrera      Se crearon los estilos para el formulario
+ * 09/10/2024    María Torres Herrera      Se crearon los estilos para el formulario
  *
- * 11/10/2024    María Torres Herrera      Se crearon los media queries para tabletas
- *                                         y celulares, también se ajustó el largo de
- *                                         los contenedores del carrusel
+ * 10/10/2024    María Torres Herrera      Se crearon los media queries para tabletas
+ *                                         y celulares
+ *
+ * 11/10/2024    María Torres Herrera      Se ajustó el largo de los contenedores
+ *                                         del carrusel
  *
  * 11/10/2024    Humberto Medina Santos    Se añadió el import de los estilos de
  *                                         Boostrap
+ *
+ * 16/10/24      María Torres Herrera      Se crearon los estilos para los 'ojos'
+ *                                         que permiten al usuario ver u ocultar
+ *                                         su contraseña
  * ---------------------------------------------------------------------------- */
 
  /* * Import para utilizar los estilos de la biblioteca Boostrap */
@@ -113,14 +119,21 @@ form {
   border: 1px solid rgba(0, 0, 0, 0.20);
 }
 
+.password-input {
+  position: relative;
+}
+
 .invisible {
   display: none;
 }
 
 .eye {
+  position: absolute;
   cursor: pointer;
-  display: grid;
-  align-self: center;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  margin: 6px;
 }
 
 form button {

@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
  * HorizonHealth
  *
- * Archivo       : log-in-page.components.ts
+ * Archivo       : log-in-page.component.ts
  * Autor         : María Fernanda Torres Herrera
  * Fecha         : 07/10/2024
  * Descripción   : Lógica de la página de inicio de sesión de Horizon Health
@@ -13,6 +13,8 @@
  *                                         la contraseña
  *
  * 11/10/2024    Humberto Medina Santos    Se añadió el método 'login()'
+ *
+ * 16/10/2024    María Torres Herrera      Se añadió el método 'togglePasswordView()'
  * ---------------------------------------------------------------------------- */
 
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
@@ -30,11 +32,11 @@ export class LogInPageComponent {
   private fb = inject ( FormBuilder );
   private router = inject ( Router );
 
-  // @ViewChild ( 'eyeopened', { static: true } )
-  // eye_opened!: ElementRef<SVGElement>;
+  @ViewChild ( 'eyeopened', { static: true } )
+  eye_opened!: ElementRef<SVGElement>;
 
-  // @ViewChild ( 'eyeclosed', { static: true } )
-  // eye_closed!: ElementRef<SVGElement>;
+  @ViewChild ( 'eyeclosed', { static: true } )
+  eye_closed!: ElementRef<SVGElement>;
 
   public type: string = 'password';
 
@@ -55,15 +57,15 @@ export class LogInPageComponent {
     //   } );
   }
 
-  // public togglePasswordView(): void {
-  //   if ( this.eye_opened.nativeElement.classList.contains('invisible') ) {
-  //     this.eye_opened.nativeElement.classList.remove('invisible');
-  //     this.eye_closed.nativeElement.classList.add('invisible');
-  //     this.type = 'text';
-  //   } else {
-  //     this.eye_opened.nativeElement.classList.add('invisible');
-  //     this.eye_closed.nativeElement.classList.remove('invisible');
-  //     this.type = 'password';
-  //   }
-  // }
+  public togglePasswordView(): void {
+    if ( this.eye_opened.nativeElement.classList.contains('invisible') ) {
+      this.eye_opened.nativeElement.classList.remove('invisible');
+      this.eye_closed.nativeElement.classList.add('invisible');
+      this.type = 'text';
+    } else {
+      this.eye_opened.nativeElement.classList.add('invisible');
+      this.eye_closed.nativeElement.classList.remove('invisible');
+      this.type = 'password';
+    }
+  }
 }
