@@ -17,9 +17,10 @@
 
 <!-- * Contenedor principal -->
 <div class="main-container">
+  <div (click)="toggleSettings()" class="overlay" #overlay></div>
 
   <!-- * Contenedor de la configuración del perfil y cuenta de usuario -->
-  <div class="settings-container">
+  <div class="settings-container" [class.hidden]="hidden">
 
     <!-- * Logo del proyecto Horizon Health -->
     <div class="logo-container">
@@ -77,7 +78,7 @@
 
     <!-- * Título del contenedor, cambia en base a la opción de configuración elegida -->
     <div class="content-title">
-      <img src="toggleNavBar.svg" class="toggle-settings-icon" alt="Toggle Settings">
+      <button (click)="toggleSettings()" class="toggle-settings-icon"></button>
       <h1 *ngIf="selectedOption === 'edit-profile'"> Editar Perfil </h1>
       <h1 *ngIf="selectedOption === 'statistics'"> Estadísticas </h1>
       <h1 *ngIf="selectedOption === 'password'"> Contraseña </h1>
