@@ -12,7 +12,18 @@
  *
  * 21/10/2024    María Torres Herrera      Se añadió el div 'horizontal-line'
  *
- * 22/20/2024    María Torres Herrera      Se añadió el div 'content-title'
+ * 22/10/2024    María Torres Herrera      Se añadió la función de cambiar el
+ *                                         contenido de 'content-container'
+ *                                         en base a la configuración elegida
+ *
+ * 24/10/2024    María Torres Herrera      Se añadió el div 'content-title'
+ *
+ * 24/10/2024    Humberto Medina Santos    Se añadió el botón con el método
+ *                                         'toggleSettings()'
+ *
+ * 25/10/2024    María Torres Herrera      Se añadió el método 'deleteAccount()'
+ *                                         al div 'setting' dentro del div
+ *                                         'delete-setting' al hacer clic
  * ---------------------------------------------------------------------------- -->
 
 <!-- * Contenedor principal -->
@@ -65,7 +76,7 @@
 
       <!-- * Eliminar cuenta -->
       <div class="delete-setting">
-        <div class="setting">
+        <div (click)="deleteAccount()" class="setting">
           <img src="delete-account-setting.svg" class="icon" alt="Delete Account Setting Image">
           <p> Eliminar cuenta </p>
         </div>
@@ -92,3 +103,4 @@
     </div>
   </div>
 </div>
+

@@ -1,3 +1,21 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : cambiar-contrasena.component.ts
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 21/10/2024
+ * Descripción   : Lógica del componente Cambiar Contraseña
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 24/10/2024    María Torres Herrera      Se declaró el formulario para cambiar la
+ *                                         contraseña de la cuenta y se añadieron
+ *                                         validaciones para las contraseñas
+ *
+ *
+ * 24/10/2024    María Torres Herrera      Se añadió el método 'changePassword()'
+ * ---------------------------------------------------------------------------- */
+
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as customValidators from '../../../auth/validators/validators';

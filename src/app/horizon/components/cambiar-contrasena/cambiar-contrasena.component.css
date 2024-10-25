@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
  * HorizonHealth
  *
- * Archivo       : banner.component.css
+ * Archivo       : cambiar-contrasena.component.css
  * Autor         : María Fernanda Torres Herrera
  * Fecha         : 21/10/2024
  * Descripción   : Estilos CSS del componente Editar Perfil
@@ -10,8 +10,12 @@
  * Fecha         Modificado por            Descripción
  * 22/10/2024    María Torres Herrera      Se crearon los estilos generales y para
  *                                         computadora
+ *
+ * 24/10/2024    María Torres Herrera      Se crearon los media queries para tabletas
+ *                                         y celulares
  * ---------------------------------------------------------------------------- */
 
+ /* * Estilos generales y para computadora */
 .main-container {
   width: 100%;
   height: 100%;
@@ -29,6 +33,7 @@
   font-family: "Roboto", sans-serif;
   font-size: 30px;
   font-weight: 600;
+  margin: 0 0 18px 0;
 }
 
 .form-container form {
@@ -75,6 +80,7 @@
   background-color: #40132D;
 }
 
+/* * Estilos para tableta */
 @media ( max-width: 768px ) {
   .form-container {
     width: 350px;
@@ -94,16 +100,22 @@
 
   .input-field {
     font-size: 14px;
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.20);
-    margin-top: 6px;
   }
 
   .change-password-button {
     width: 100%;
     height: 40px;
     font-size: 14px;
+  }
+}
+
+/* * Estilos para celular */
+@media ( max-width: 460px ) {
+  .form-container {
+    width: 320px;
+  }
+
+  .field {
+    width: 91%;
   }
 }
