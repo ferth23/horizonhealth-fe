@@ -1,3 +1,21 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : editar-perfil.component.ts
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 21/10/2024
+ * Descripción   : Lógica del componente Editar Perfil
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 24/10/2024    María Torres Herrera      Se declaró el formulario para editar el
+ *                                         perfil y se añadieron validaciones para
+ *                                         el nombre y el correo
+ *
+ *
+ * 24/10/2024    María Torres Herrera      Se añadió el método 'confirmChanges()'
+ * ---------------------------------------------------------------------------- */
+
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as customValidators from '../../../auth/validators/validators';
