@@ -28,6 +28,7 @@ import { RecomendacionesPageComponent } from './pages/recomendaciones-page/recom
 import { EnsenanzaPageComponent } from './pages/ensenanza-page/ensenanza-page.component';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { SuscriptionPageComponent } from './pages/suscription-page/suscription-page.component';
 
 const routes : Routes = [
   {
@@ -48,6 +49,7 @@ const routes : Routes = [
       { path : 'meditacion', title : 'Meditacion', component : MeditacionPageComponent },
       { path : 'recomendaciones', title : 'Recomendaciones', component : RecomendacionesPageComponent },
       { path : 'enseñanza', title : 'Enseñanza Del Dia', component : EnsenanzaPageComponent },
+      { path : 'suscription', title : 'Suscription', component : SuscriptionPageComponent },
       { path : '**', redirectTo : '' }
     ]
   },

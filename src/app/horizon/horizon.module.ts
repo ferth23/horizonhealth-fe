@@ -49,6 +49,7 @@ import { ActividadesComponent } from './components/actividades/actividades.compo
 import { CambiarContrasenaComponent } from './components/cambiar-contrasena/cambiar-contrasena.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
+import { SuscriptionPageComponent } from './pages/suscription-page/suscription-page.component';
 
 @NgModule ( {
   declarations : [
@@ -66,7 +67,8 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
     ActividadesComponent,
     CambiarContrasenaComponent,
     EditarPerfilComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    SuscriptionPageComponent
   ],
   imports : [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule ],
   exports : [ HorizonRoutingModule ]
