@@ -49,6 +49,7 @@
   font-weight: 500;
   font-size: 16px;
   color: white;
+  transition-duration: 0.5s;
 }
 
 .edit-button:hover {
@@ -97,6 +98,7 @@
   font-weight: 500;
   font-size: 16px;
   color: white;
+  transition-duration: 0.5s;
 }
 
 .save-changes-button:hover {
