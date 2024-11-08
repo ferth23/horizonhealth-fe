@@ -48,19 +48,19 @@
     <!-- * Botón de Log In que se encuentra dentro de los links -->
     <li>
       <a
-        class="link"
+        class="link session-link"
         [class.nav-login-hidden]="nav_login_hidden"
-        href="horizon-health/auth/log-in">
-        Iniciar Sesión
+        (click)="goToLogIn()">
+        Cerrar Sesión
       </a>
     </li>
   </ul>
 
   <!-- * Botón de Log In que se encuentra fuera de los links -->
-  <button
+  <!-- <button
     [class.login-hidden]="login_hidden"
     (click)="goToLogIn()"
     class="login-button">
-    Iniciar Sesión
-  </button>
+    Cerrar Sesión
+  </button> -->
 </nav>

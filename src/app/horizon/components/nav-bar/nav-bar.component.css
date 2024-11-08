@@ -73,6 +73,8 @@ nav {
   transition-duration: 0.4s;
 }
 
+.session-link { cursor: pointer; }
+
 .nav-login-hidden {
   opacity: 0;
   max-height: 0;

@@ -20,6 +20,7 @@
 
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/auth/services/user.service';
 import { NavBarItem } from 'src/app/sunset/interfaces/NavBarItem';
 
 @Component ( {
@@ -66,9 +67,11 @@ export class NavBarComponent {
   public hidden : boolean = false;
   public login_hidden : boolean = false;
   public nav_login_hidden : boolean = true;
+  public session_text : string = "Iniciar Sesión";
   private current_width : number;
   private previous_width : number;
   private router = inject ( Router );
+  private user_service = inject ( UserService );
 
   // * Método que, dependiendo del ancho de la pantalla, cambia el valor de la variable
   // * boleana 'hidden' cuyo valor esta ligado a la aparición o desaparición de ciertos
@@ -96,6 +99,6 @@ export class NavBarComponent {
 
   // * Método que, mediante el módulo de rutas, navega hacia la página de Log In
   public goToLogIn () : void {
-    this.router.navigateByUrl ( 'horizon-health/auth/log-in' );
+    this.router.navigate ( [ 'horizon-health/auth/log-in' ], { replaceUrl: true } );
   }
 }
