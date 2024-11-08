@@ -20,6 +20,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as customValidators from '../../validators/validators';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { UserService } from '../../services/user.service';
 
 @Component( {
   selector: 'app-register-page',
@@ -29,6 +30,7 @@ import Swal from 'sweetalert2'
 export class RegisterPageComponent {
   private fb = inject ( FormBuilder );
   private router = inject ( Router );
+  private user_service = inject ( UserService );
 
   // * Definición del formulario de registro
   public myForm: FormGroup = this.fb.group ( {
@@ -38,14 +40,14 @@ export class RegisterPageComponent {
     confirmPassword: [ '', [ Validators.required ] ]
   } );
 
-  // * Método para validar el registro, sin terminar
+  // * Método para validar el registro
   register () {
     const { fullName, email, password } = this.myForm.value;
 
-    // this.authService.register ( name, email, password )
-    //   .subscribe ( {
-    //     next: () => this.router.navigateByUrl ( 'horizon-health' ),
-    //     error: ( message => Swal.fire ( 'Error', message, 'error' ) )
-    //   } );
+    this.user_service.register ( fullName, email, password )
+      .subscribe ( {
+        next: () => this.router.navigate ( [ 'horizon-health' ], { replaceUrl: true } ),
+        error: ( message => Swal.fire ( 'Error', message, 'error' ) )
+      } );
   }
 }

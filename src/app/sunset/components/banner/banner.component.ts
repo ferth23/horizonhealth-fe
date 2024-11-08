@@ -28,6 +28,6 @@ export class BannerComponent {
 
   // * Método que redirige a la página del proyecto Horizon Health
   public goToHorizon (): void {
-    this.router.navigateByUrl ( 'horizon-health' );
+    this.router.navigateByUrl ( 'horizon-health/auth/log-in' );
   }
 }

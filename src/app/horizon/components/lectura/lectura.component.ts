@@ -12,7 +12,9 @@
  *                                         va a mostrar todo lo referente a la lectura
  * ---------------------------------------------------------------------------- */
 
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { LecturaService } from '../../services/lectura.service';
+import Swal from 'sweetalert2'
 
 @Component ( {
   selector : 'lectura',
@@ -20,11 +22,56 @@ import { Component, signal } from '@angular/core';
   styleUrl : './lectura.component.css'
 } )
 export class LecturaComponent {
+  constructor () {
+    this.user = localStorage.getItem ( 'user' );
+    this.premium = localStorage.getItem ( 'premium' );
+
+    if ( this.premium == "0" ) this.getLectura();
+    else this.getLecturaPremium ();
+  }
 
   // * Declaración de variables que serán mostradas en el html
-  public reading_text = signal < string > ( "Viví así, solo, sin alguien con quien poder hablar verdaderamente, hasta hace seis años cuando tuve una avería en el Sahara. Algo se había estropeado en el motor de mi avión. Como viajaba sin mecánico ni pasajero alguno, me dispuse a realizar yo sólo, una reparación difícil. Era para mí una cuestión de vida o muerte pues apenas tenía agua pura como para ocho días. \n\nLa primera noche me dormí sobre la arena, a unas mil millas de distancia del lugar habitado más próximo. Estaba más aislado que un náufrago en Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada purus sit amet mollis euismod. Vivamus vulputate vel velit sollicitudin aliquam. Mauris molestie ipsum vel turpis fringilla sollicitudin. Donec ultricies elit enim, eget pretium nisl tincidunt vitae. Nulla vel lorem ultrices, pulvinar lorem sed, vulputate quam. Maecenas lectus turpis, congue id nunc vitae, scelerisque tristique dui. Vivamus rhoncus tortor id lectus consequat, semper vehicula eros rhoncus. Praesent tristique nibh eros, vel pretium felis cursus id. Duis auctor ipsum non nulla mollis, nec maximus augue imperdiet." );
-  public reading_title = signal < string > ( "El Principito" );
-  public reading_author = signal < string > ( "Antoine de Saint-Exupéry" );
-  public reading_year = signal < number > ( 1943 );
-  public reading_genres = signal < string [] > ( [ "Infantil", "Fábula", "Poesía", "Ficción", "Aventura" ] );
+  public reading_text = signal < string > ( "" );
+  public reading_title = signal < string > ( "" );
+  public reading_author = signal < string > ( "" );
+  public reading_year = signal < number > ( 0 );
+  public genre_1 = signal < string > ( "" );
+  public genre_2 = signal < string > ( "" );
+  public genre_3 = signal < string > ( "" );
+  private user : string | null = null;
+  private premium : string | null = null;
+
+  private lectura_service = inject ( LecturaService );
+
+  getLectura () {
+    this.lectura_service.getLectura ()
+      .subscribe ( {
+        next: ( res ) => {
+          this.reading_text.set ( res.lectura );
+          this.reading_title.set ( res.titulo );
+          this.reading_author.set ( res.autor );
+          this.reading_year.set ( res.año );
+          this.genre_1.set ( res.genero );
+          this.genre_2.set ( res.genero_secundario_1 );
+          this.genre_3.set ( res.genero_secundario_2 );
+        },
+        error: ( message => Swal.fire ( 'Error al cargar la lectura', message, 'error' ) )
+      } )
+  }
+
+  getLecturaPremium () {
+    this.lectura_service.getLecturaPremium ( this.user! )
+      .subscribe ( {
+        next: ( res ) => {
+          this.reading_text.set ( res.lectura );
+          this.reading_title.set ( res.titulo );
+          this.reading_author.set ( res.autor );
+          this.reading_year.set ( res.año );
+          this.genre_1.set ( res.genero );
+          this.genre_2.set ( res.genero_secundario_1 );
+          this.genre_3.set ( res.genero_secundario_2 );
+        },
+        error: ( message => Swal.fire ( 'Error al cargar la lectura premium', message, 'error' ) )
+      } )
+  }
 }

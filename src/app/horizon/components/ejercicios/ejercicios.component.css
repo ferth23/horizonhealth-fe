@@ -1,15 +1,15 @@
 /* ------------------------------------------------------------------------------------
  * HorizonHealth
- * 
+ *
  * Archivo       : ejercicios.component.css
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 22/10/2024
  * Descripción   : Estilos para la pestaña de Ejercicios de la sección Recomendaciones
- *                 en la página de Horizon Health. 
- * 
+ *                 en la página de Horizon Health.
+ *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
- * 22/10/2024    Layla González     Se estilizaron las clases para el contenedor de 
+ * 22/10/2024    Layla González     Se estilizaron las clases para el contenedor de
  *                                  la rutina diaria, el título, la duración, y una
  *                                  breve descripción para reforzar la confianza del
  *                                  usuario.
@@ -22,19 +22,47 @@
     justify-content: center;
 }
 
-.scroll-container {
-    overflow-y: scroll;
-    width: 50%;
-    height: 430px;
-    background-color: #FFFFFF;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 0 20px;
+.text {
+  width: 50%;
+  border-radius: 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 30px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  border-style: none;
+  padding: 20px;
+  resize: none;
 }
 
-.text {
+.text:focus { outline: none; }
+.text::-webkit-scrollbar { width: 22px; }
+
+.text::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.text::-webkit-scrollbar-button:decrement {
+  background-image: url(../../../../../public/scrollbar-decrement.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 22px;
+  height: 23px;
+}
+
+.text::-webkit-scrollbar-button:increment {
+  background-image: url(../../../../../public/scrollbar-increment.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 22px;
+  height: 23px;
+}
+
+.text::-webkit-scrollbar-button:decrement:hover { cursor: pointer; }
+.text::-webkit-scrollbar-button:increment:hover { cursor: pointer; }
+
+.info-ejercicio {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,30 +89,23 @@ h2 {
     margin: 0 80px 30px 80px;
 }
 
-h3, p, li {
-    font-family: "Nunito", sans-serif;
-    font-style: Light;
-    font-size: 24px;
-    color: #000000;
-}
-
 /* * Media query para tablets */
 @media ( max-width: 768px ) {
     .ejercicios {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-
-    .scroll-container {
-        width: 90%;
-        height: 315px;
-        order: 2;
-        padding: 0 10px;
-        margin-bottom: 20px;
+        height: 100%;
     }
 
     .text {
+      font-size: 18px;
+      order: 2;
+      width: 90%;
+      height: 100%;
+    }
+
+    .info-ejercicio {
         width: 90%;
         order: 1;
         height: auto;
@@ -96,15 +117,11 @@ h3, p, li {
         margin-top: 0;
         margin-bottom: 15px;
     }
-    
+
     h2 {
         font-size: 18px;
         margin: 0 0 1px 0;
         margin-bottom: 15px;
-    }
-
-    h3, p, li {
-        font-size: 18px;
     }
 }
 
@@ -116,14 +133,16 @@ h3, p, li {
         justify-content: center;
     }
 
-    .scroll-container {
-        width: 85%;
-        height: 265px;
-        order: 2;
-        margin-bottom: 20px;
+    .text {
+      width: 80%;
+      font-size: 15px;
+      line-height: 20px;
+      height: 45%;
     }
 
-    .text {
+    .text::-webkit-scrollbar { width: 12px; }
+
+    .info-ejercicio {
         width: 90%;
         order: 1;
         height: auto;
@@ -135,14 +154,10 @@ h3, p, li {
         margin-top: 0;
         margin-bottom: 15px;
     }
-    
+
     h2 {
         font-size: 12px;
         margin: 0 0 1px 0;
         margin-bottom: 15px;
-    }
-
-    h3, p, li {
-        font-size: 12px;
     }
 }

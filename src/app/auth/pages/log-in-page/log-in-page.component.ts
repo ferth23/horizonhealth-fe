@@ -22,6 +22,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as customValidators from '../../validators/validators';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { UserService } from '../../services/user.service';
 
 @Component ( {
   selector: 'app-log-in-page',
@@ -29,8 +30,14 @@ import Swal from 'sweetalert2'
   styleUrls: ['./log-in-page.component.css']
 } )
 export class LogInPageComponent {
+  constructor () {
+    if ( localStorage.getItem ( 'user' ) ) localStorage.removeItem ( 'user' );
+    if ( localStorage.getItem ( 'premium' ) ) localStorage.removeItem ( 'premium' );
+  }
+
   private fb = inject ( FormBuilder );
   private router = inject ( Router );
+  private user_service = inject ( UserService );
 
   @ViewChild ( 'eyeopened', { static: true } )
   eye_opened!: ElementRef<SVGElement>;
@@ -46,15 +53,20 @@ export class LogInPageComponent {
     password: [ '', [ Validators.required, Validators.minLength ( 10 ) ] ],
   } );
 
-  // * Método para validar el inicio de sesión, sin terminar
+  // * Método para validar el inicio de sesión
   login () {
     const { email, password } = this.myForm.value;
 
-    // this.authService.login ( email, password )
-    //   .subscribe ( {
-    //     next: () => this.router.navigateByUrl ( 'horizon-health' ),
-    //     error: ( message => Swal.fire ( 'Error', message, 'error' ) )
-    //   } );
+    this.user_service.login ( email, password )
+      .subscribe ( {
+        next: ( { userId } ) => {
+          this.user_service.checkPremium ( userId ).subscribe ( {
+            next: () => this.router.navigate ( [ 'horizon-health' ], { replaceUrl: true } ),
+            error: ( message => Swal.fire ( 'Error al verificar Status de Premium', message, 'error' ) )
+          } );
+        },
+        error: ( message => Swal.fire ( 'Error al iniciar sesión', message, 'error' ) )
+      } );
   }
 
   public togglePasswordView(): void {

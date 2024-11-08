@@ -118,7 +118,7 @@
     font-size: 18px;
     order: 2;
     width: 90%;
-    height: 40%;
+    height: 50%;
   }
 
   .reading-info {
@@ -142,7 +142,7 @@
     width: 80%;
     font-size: 15px;
     line-height: 20px;
-    height: 45%;
+    height: 52%;
   }
 
   .reading-title { font-size: 24px; }
@@ -151,9 +151,11 @@
 
   .genre {
     font-size: 12px;
+    word-wrap: normal;
     padding: 0;
     margin: 10px 0 0 0;
-    width: 75px;
+    width: 85px;
+    border-radius: 15px;
     height: 30px;
   }
 }
