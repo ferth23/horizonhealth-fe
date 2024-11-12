@@ -1,0 +1,141 @@
+/* * ---------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : formulario-pago.component.css
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 06/11/2024
+ * Descripción   : Estilos CSS para el formulario de pago de la suscripción.
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 07/11/2024    Layla González     Se modificaron los tamaños de las fuentes de texto 
+ *                                  y de los campos del formulario.
+ * -------------------------------------------------------------------------------- */
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    width: fit-content;
+    height: fit-content;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 26px;
+    max-width: 450px;
+    font-family: 'Nunito', sans-serif;
+    z-index: 999999;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px;
+}
+
+.credit-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input_container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.exp_cvv {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.input_label {
+    height: 25px;
+    font-size: 15px;
+    color: #8B8E98;
+    font-weight: 600;
+    padding: 0 0 0 18px; 
+}
+
+.input_field {
+    width: auto;
+    height: 40px;
+    padding: 0 0 0 16px;
+    border-radius: 9px;
+    outline: none;
+    background-color: #F2F2F2;
+    border: 1px solid #e5e5e500;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.input_field:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 2px #242424;
+    background-color: transparent;
+}
+
+.suscription {
+    height: 55px;
+    background: #F2F2F2;
+    border-radius: 11px;
+    border: 0;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #363636 0%, #1B1B1B 50%, #000000 100%);
+    box-shadow: 0px 0px 0px 0px #FFFFFF, 0px 0px 0px 0px #000000;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.suscription:hover {
+    box-shadow: 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #0000003a;
+}
+
+/* * Ocultar el incremento y decremento que tienen los campos de html por default */
+.input_field::-webkit-outer-spin-button,
+.input_field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input_field[type=number] {
+    -moz-appearance: textfield;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999998;
+}
+
+@media ( max-width: 768px ) {
+    .modal {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@media ( max-width: 460px ) {
+    .modal {
+        transform: translate(-50%, -50%) scale(0.8);
+        transform-origin: center;
+    }
+}
