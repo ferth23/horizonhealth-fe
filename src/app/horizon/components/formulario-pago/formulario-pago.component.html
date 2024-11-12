@@ -1,0 +1,78 @@
+<!-- * ------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : formulario-pago.component.html
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 06/11/2024
+ * Descripción   : Archivo html del formulario para el pago de la suscripción. o 
+ *                 Contiene los campos para la información de la tarjeta con la que
+ *                 se va a realizar la transacción.
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 07/11/2024    Layla González     Se implementó la funcionalidad de pop up (aparecer
+ *                                  y desaparecer) en el formulario de pago.
+ *
+ * 08/11/2024    Layla González     Se implementó la validación para el número de  
+ *                                  tarjeta: sólo 16 números y separar sus dígitos
+ *                                  en grupos de 4.
+ *
+ * 08/11/2024    Layla González    Se agregó un contenedor más para lograr el efecto  
+ *                                  de desenfoque al abrir el pop up del formulario
+ *                                  de pago.
+ * --------------------------------------------------------------------------------->
+
+<!-- * Contenedor para desenfocar el fondo al abrir formulario de pago -->
+<div class="overlay">
+    
+    <!-- * Contenedor principal, contiene el formulario de la tarjeta -->
+    <div class="modal">
+
+        <!-- * Formulario para la información de la tarjeta de crédito -->
+        <form class="form">
+
+            <!-- * Contenedor con todos los campos del formulario de la tarjeta -->
+            <div class="credit-card-form">
+
+                <!-- * Campo y etiqueta para el nombre del titular -->
+                <div class="input_container">
+                    <label for="name" class="input_label">Nombre del Titular</label>
+                    <input id="name" class="input_field" type="text" name="card-name" 
+                    placeholder="Como aparece en la tarjeta">
+                </div>
+
+                <!-- * Campo y etiqueta para el número de tarjeta -->
+                <div class="input_container">
+                    <label for="card_number" class="input_label">Número de Tarjeta</label>
+                    <input id="card_number" class="input_field" type="text" name="card-number" 
+                    placeholder="0000 0000 0000 0000" maxlength="16" (input)="validateNumber($event)" 
+                    formControlName="cardNumber">
+                </div>
+                
+                <!-- * Campos y etiquetas para la fecha de expiración y el código de seguridad en una sola línea -->
+                <div class="input_container">
+                    <div class="exp_cvv">
+
+                        <!-- * Fecha de expiración -->
+                        <div class="campo">
+                            <label for="expiry_date" class="input_label">Fecha de Expiración</label>
+                            <input id="expiry_date" class="input_field" type="text" name="expiry-date" placeholder="01/23">
+                        </div>
+
+                        <!-- * Código de seguridad -->
+                        <div class="campo">
+                            <label for="cvv" class="input_label">CVV</label>
+                            <input id="cvv" class="input_field" type="number" name="cvv" placeholder="123">
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- * Botón para confirmar la información de los campos y "pagar" -->
+            <button class="suscription" (click)="close()">Confirmar</button>
+
+        </form>
+    </div>
+</div>
