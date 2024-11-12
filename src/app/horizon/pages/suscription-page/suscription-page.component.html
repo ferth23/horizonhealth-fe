@@ -1,3 +1,19 @@
+<!-- * ------------------------------------------------------------------------------
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 08/11/2024    Layla González     Se implementó la funcionalidad de pop up (aparecer
+ *                                  y desaparecer) en el formulario de pago al dar
+ *                                  click en el botón de suscripción hseeker.
+ *
+ * 11/11/2024    Layla González     Se reacomodó el componente de formulario pago 
+ *                                  para que su funcionalidad actúe correctamente. 
+ * --------------------------------------------------------------------------------->
+
+<!-- * Formulario de pago -->
+<div class="formulario-pago">
+  <formulario-pago *ngIf="formPago" (closePopup)="formPago = false"></formulario-pago>
+</div>
+
 <!-- * Contenedor principal -->
 <div class="main-container">
 
@@ -41,7 +57,7 @@
       <h2 class="text"> Tu bienestar a otro nivel </h2>
       <h3 class="cost"> $99 MXN <span> / mes </span> </h3>
 
-      <button class="suscription-button bseeker"> Seleccionar plan </button>
+      <button class="suscription-button bseeker" (click)="mostrarFormPago()"> Seleccionar plan </button>
 
       <!-- * Beneficios de la suscripción -->
       <div class="benefits">
