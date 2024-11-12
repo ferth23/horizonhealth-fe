@@ -29,7 +29,6 @@ import { EnsenanzaPageComponent } from './pages/ensenanza-page/ensenanza-page.co
 import { LayoutComponent } from './layout/layout/layout.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { SuscriptionPageComponent } from './pages/suscription-page/suscription-page.component';
-import { FormularioPagoComponent } from './components/formulario-pago/formulario-pago.component';
 
 const routes : Routes = [
   {
@@ -51,7 +50,6 @@ const routes : Routes = [
       { path : 'recomendaciones', title : 'Recomendaciones', component : RecomendacionesPageComponent },
       { path : 'enseñanza', title : 'Enseñanza Del Dia', component : EnsenanzaPageComponent },
       { path : 'suscription', title : 'Suscription', component : SuscriptionPageComponent },
-      { path : 'formulario-pago', title: 'Formulario de Pago', component: FormularioPagoComponent },
       { path : '**', redirectTo : '' }
     ]
   },
