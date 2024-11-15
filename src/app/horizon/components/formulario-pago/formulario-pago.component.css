@@ -1,14 +1,14 @@
 /* * ---------------------------------------------------------------------------------
  * HorizonHealth
- * 
+ *
  * Archivo       : formulario-pago.component.css
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 06/11/2024
  * Descripción   : Estilos CSS para el formulario de pago de la suscripción.
- * 
+ *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
- * 07/11/2024    Layla González     Se modificaron los tamaños de las fuentes de texto 
+ * 07/11/2024    Layla González     Se modificaron los tamaños de las fuentes de texto
  *                                  y de los campos del formulario.
  * -------------------------------------------------------------------------------- */
 
@@ -63,18 +63,20 @@
 }
 
 .input_label {
-    height: 25px;
-    font-size: 15px;
+    height: 20px;
+    font-size: 14px;
     color: #8B8E98;
     font-weight: 600;
-    padding: 0 0 0 18px; 
+    /* padding: 0 0 0 18px; */
 }
 
 .input_field {
     width: auto;
     height: 40px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
     padding: 0 0 0 16px;
-    border-radius: 9px;
+    border-radius: 10px;
     outline: none;
     background-color: #F2F2F2;
     border: 1px solid #e5e5e500;
@@ -88,20 +90,22 @@
 }
 
 .suscription {
-    height: 55px;
-    background: #F2F2F2;
-    border-radius: 11px;
+    height: 40px;
+    border-radius: 10px;
     border: 0;
     outline: none;
     color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
     font-size: 15px;
     font-weight: 700;
-    background: linear-gradient(180deg, #363636 0%, #1B1B1B 50%, #000000 100%);
+    background-color: #325192;
     box-shadow: 0px 0px 0px 0px #FFFFFF, 0px 0px 0px 0px #000000;
     transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
 
 .suscription:hover {
+    cursor: pointer;
     box-shadow: 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #0000003a;
 }
 

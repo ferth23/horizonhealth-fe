@@ -14,12 +14,21 @@
  *                                         funcionalidad de aparecer y desaparecer
  * ---------------------------------------------------------------------------- -->
 
- <!-- * Componente PopUp -->
+ <!-- * Componente PopUp De Emociones -->
 <div [class.hidden]="hidden" class="pop-up-container">
   <div class="overlay"></div>
 
   <div class="popup">
     <pop-up (onHide)="hidden = true"/>
+  </div>
+</div>
+
+ <!-- * Componente PopUp Del Test -->
+ <div [class.test-hidden]="test_hidden" class="pop-up-container">
+  <div class="overlay"></div>
+
+  <div class="popup">
+    <survey-pop-up (onHide)="test_hidden = true"/>
   </div>
 </div>
 

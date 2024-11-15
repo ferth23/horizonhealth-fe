@@ -1,6 +1,35 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : suscription-page.component.css
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 04/11/2024
+ * Descripción   : Estilos CSS de la página suscripción de Horizon Health
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 05/11/2024    María Torres Herrera      Se estructuraron los contenedores y se
+ *                                         crearon sus respectivos estilos
+ *
+ * 06/11/2024    María Torres Herrera      Se crearon los media queries para tabletas
+ *                                         y celulares
+ *
+ * 12/11/2024    María Torres Herrera      Se creó el estilo para el contenedor
+ *                                         secundario y se modificaron los media
+ *                                         queries para adaptarse al contenedor
+ * ---------------------------------------------------------------------------- */
+
+/* * Estilos generales y para computadora */
 .main-container {
   width: 100%;
+  height: calc(100%+30px);
+}
+
+.secondary-container {
   height: 100%;
+  margin: 0 30px 30px 30px;
+  border-radius: 20px;
+  background: linear-gradient(40deg, rgba(255,248,241,1) 0%, rgba(254,245,234,1) 39%, rgba(255,245,238,1) 85%);
 }
 
 .text-container {
@@ -13,7 +42,7 @@
   font-size: 60px;
   text-align: center;
   margin: 0;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 .text-container h2 {
@@ -30,6 +59,7 @@
   column-gap: 60px;
   margin-top: 40px;
   margin-bottom: 40px;
+  padding-bottom: 50px;
   justify-content: center;
 }
 
@@ -128,23 +158,29 @@
 
 .bseeker { background-color: #325192; }
 
+/* * Estilos para tableta */
 @media ( max-width: 768px ) {
   .text-container {
     padding: 0 100px;
   }
 
   .text-container h1 {
-    padding-top: 40px;
+    padding-top: 70px;
   }
 
   .suscription-container {
     transform: scale(0.9);
     column-gap: 50px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+  }
+
+  .suscription-button {
+    width: 270px;
   }
 }
 
+/* * Estilos para celular */
 @media ( max-width: 460px ) {
   .text-container {
     padding: 0 40px;
@@ -153,20 +189,25 @@
   .text-container h1 {
     font-size: 50px;
     line-height: 50px;
+    padding-top: 60px;
     margin-bottom: 10px;
   }
 
   .text-container h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .suscription-container {
     display: flex;
     flex-direction: column;
     row-gap: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: -25px;
+    margin-bottom: 0;
+    padding-bottom: 0;
     align-items: center;
-    transform: scale(1);
+  }
+
+  .suscription-button {
+    width: 300px;
   }
 }

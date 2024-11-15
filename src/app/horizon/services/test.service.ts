@@ -11,7 +11,7 @@ export class TestService {
   private readonly base_url = environment.baseUrl;
   private http = inject ( HttpClient );
 
-  guardarPuntaje ( user: string, puntaje : string ) : Observable < TestResponse > {
+  guardarPuntaje ( user: string | null, puntaje : string ) : Observable < TestResponse > {
     const url = `${ this.base_url }/api/test/guardar-puntaje`;
     const body = { user, puntaje };
 

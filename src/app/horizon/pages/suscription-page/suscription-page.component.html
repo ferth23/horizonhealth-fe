@@ -1,12 +1,23 @@
 <!-- * ------------------------------------------------------------------------------
- * Modificaciones:
- * Fecha         Modificado por     Descripción
- * 08/11/2024    Layla González     Se implementó la funcionalidad de pop up (aparecer
- *                                  y desaparecer) en el formulario de pago al dar
- *                                  click en el botón de suscripción hseeker.
+ * HorizonHealth
  *
- * 11/11/2024    Layla González     Se reacomodó el componente de formulario pago 
- *                                  para que su funcionalidad actúe correctamente. 
+ * Archivo       : suscription-page.component.html
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 04/11/2024
+ * Descripción   : Estructura HTML de la página de suscripción de Horizon Health
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 04/11/2024    María Torres Herrera      Se creó la estructura de la página
+ *
+ * 08/11/2024    Layla González            Se implementó la funcionalidad de pop up (aparecer
+ *                                         y desaparecer) en el formulario de pago al dar
+ *                                         click en el botón de suscripción hseeker
+ *
+ * 11/11/2024    Layla González            Se reacomodó el componente de formulario pago
+ *                                         para que su funcionalidad actúe correctamente
+ *
+ * 12/11/2024    María Torres Herrera      Se añadió un contenedor secundario
  * --------------------------------------------------------------------------------->
 
 <!-- * Formulario de pago -->
@@ -17,67 +28,71 @@
 <!-- * Contenedor principal -->
 <div class="main-container">
 
-  <!-- * Contenedor del titulo y el texto breve que lo acompaña -->
-  <div class="text-container">
-    <h1> Transforma tu salud </h1>
-    <h2> Desbloquea recursos exclusivos para tu paz mental y crecimiento personal </h2>
-  </div>
+  <!-- * Contenedor secundario -->
+  <div class="secondary-container">
 
-  <!-- * Contenedor de las suscripciones -->
-  <div class="suscription-container">
-
-    <!-- * Suscripción HorizonBasic -->
-    <div class="suscription hbasic">
-      <h1 class="title basic"> HorizonBasic </h1>
-      <h2 class="text"> Lo esencial para tu bienestar </h2>
-      <h3 class="cost"> $0 MXN </h3>
-
-      <button class="suscription-button bbasic"> Plan actual </button>
-
-      <!-- * Beneficios de la suscripción -->
-      <div class="benefits">
-        <img src="checkcircle-basic.svg" class="check" alt="Check">
-        <p> Recomendaciones y <br> enseñanzas limitadas </p>
-      </div>
-
-      <div class="benefits">
-        <img src="checkcircle-basic.svg" class="check" alt="Check">
-        <p> Meditación de 1 minuto </p>
-      </div>
-
-      <div class="benefits">
-        <img src="checkcircle-basic.svg" class="check" alt="Check">
-        <p> Test diario </p>
-      </div>
+    <!-- * Contenedor del titulo y el texto breve que lo acompaña -->
+    <div class="text-container">
+      <h1> Transforma tu salud </h1>
+      <h2> Desbloquea recursos exclusivos para tu paz mental y crecimiento personal </h2>
     </div>
 
-    <!-- * Suscripción HorizonSeeker -->
-    <div class="suscription hseeker">
-      <h1 class="title seeker"> HorizonSeeker </h1>
-      <h2 class="text"> Tu bienestar a otro nivel </h2>
-      <h3 class="cost"> $99 MXN <span> / mes </span> </h3>
+    <!-- * Contenedor de las suscripciones -->
+    <div class="suscription-container">
 
-      <button class="suscription-button bseeker" (click)="mostrarFormPago()"> Seleccionar plan </button>
+      <!-- * Suscripción HorizonBasic -->
+      <div class="suscription hbasic">
+        <h1 class="title basic"> HorizonBasic </h1>
+        <h2 class="text"> Lo esencial para tu bienestar </h2>
+        <h3 class="cost"> $0 MXN </h3>
 
-      <!-- * Beneficios de la suscripción -->
-      <div class="benefits">
-        <img src="checkcircle-seeker.svg" class="check" alt="Check">
-        <p> Recomendaciones y <br> enseñanzas adicionales </p>
+        <button class="suscription-button bbasic"> Plan actual </button>
+
+        <!-- * Beneficios de la suscripción -->
+        <div class="benefits">
+          <img src="checkcircle-basic.svg" class="check" alt="Check">
+          <p> Recomendaciones y <br> enseñanzas limitadas </p>
+        </div>
+
+        <div class="benefits">
+          <img src="checkcircle-basic.svg" class="check" alt="Check">
+          <p> Meditación de 1 minuto </p>
+        </div>
+
+        <div class="benefits">
+          <img src="checkcircle-basic.svg" class="check" alt="Check">
+          <p> Test diario </p>
+        </div>
       </div>
 
-      <div class="benefits">
-        <img src="checkcircle-seeker.svg" class="check" alt="Check">
-        <p> Meditación personalizada </p>
-      </div>
+      <!-- * Suscripción HorizonSeeker -->
+      <div class="suscription hseeker">
+        <h1 class="title seeker"> HorizonSeeker </h1>
+        <h2 class="text"> Tu bienestar a otro nivel </h2>
+        <h3 class="cost"> $99 MXN <span> / mes </span> </h3>
 
-      <div class="benefits">
-        <img src="checkcircle-seeker.svg" class="check" alt="Check">
-        <p> Test diario y semanal </p>
-      </div>
+        <button class="suscription-button bseeker" (click)="mostrarFormPago()"> Seleccionar plan </button>
 
-      <div class="benefits">
-        <img src="checkcircle-seeker.svg" class="check" alt="Check">
-        <p> Estadísticas </p>
+        <!-- * Beneficios de la suscripción -->
+        <div class="benefits">
+          <img src="checkcircle-seeker.svg" class="check" alt="Check">
+          <p> Recomendaciones y <br> enseñanzas adicionales </p>
+        </div>
+
+        <div class="benefits">
+          <img src="checkcircle-seeker.svg" class="check" alt="Check">
+          <p> Meditación personalizada </p>
+        </div>
+
+        <div class="benefits">
+          <img src="checkcircle-seeker.svg" class="check" alt="Check">
+          <p> Test diario y semanal </p>
+        </div>
+
+        <div class="benefits">
+          <img src="checkcircle-seeker.svg" class="check" alt="Check">
+          <p> Estadísticas </p>
+        </div>
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@
  *                                              - EjerciciosComponent
  *                                              - LecturaComponent
  *                                              - ActividadesComponent
- * 
+ *
  * 08/11/2024    Layla González            Se importó el componente FormularioPagoComponent.
  * ---------------------------------------------------------------------------- */
 
@@ -53,6 +53,7 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { SuscriptionPageComponent } from './pages/suscription-page/suscription-page.component';
 import { FormularioPagoComponent } from './components/formulario-pago/formulario-pago.component';
+import { SurveyPopUpComponent } from './components/survey-pop-up/survey-pop-up.component';
 
 @NgModule ( {
   declarations : [
@@ -72,7 +73,8 @@ import { FormularioPagoComponent } from './components/formulario-pago/formulario
     EditarPerfilComponent,
     EstadisticasComponent,
     SuscriptionPageComponent,
-    FormularioPagoComponent
+    FormularioPagoComponent,
+    SurveyPopUpComponent
   ],
   imports : [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule ],
   exports : [ HorizonRoutingModule ]

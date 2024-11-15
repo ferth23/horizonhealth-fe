@@ -1,0 +1,173 @@
+<!-- *----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : survey-pop-up.component.html
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 12/11/2024
+ * Descripción   : Estructura HTML del test semanal para el usuario de Horizon Health
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 12/11/2024    María Torres Herrera      Se creó la estructura de la página
+ *
+ * 13/11/2024    María Torres Herrera      Se cambiaron las respuestas de las
+ *                                         preguntas
+ * ---------------------------------------------------------------------------- -->
+
+<!-- * Contenedor del test semanal -->
+<div class="survey-container">
+
+  <!-- *Contenido del test semanal -->
+  <div class="survey-content">
+
+    <!-- * Test semanal -->
+    <form action="">
+
+      <h1> Test Semanal </h1>
+      <h2> Responda las siguientes preguntas en una escala del 1 al 5, donde 1 significa Mucho peor o Muy poco, y 5 significa Mucho mejor o Bastante. </h2>
+
+      <!-- * Pregunta 1 -->
+      <div class="question">
+        <p>
+          ¿Cómo te has sentido esta semana con las actividades sugeridas?
+          <span *ngIf="answers.q1 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q1" [value]="option" (change)="answers.q1 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 2 -->
+      <div class="question">
+        <p>
+          ¿Cómo calificarías tu nivel actual de energía?
+          <span *ngIf="answers.q2 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q2" [value]="option" (change)="answers.q2 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 3 -->
+      <div class="question">
+        <p>
+          ¿Cómo describirías tu nivel de motivación para enfrentar el día?
+          <span *ngIf="answers.q3 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q3" [value]="option" (change)="answers.q3 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 4 -->
+      <div class="question">
+        <p>
+          ¿Qué tanto te han gustado las enseñanzas del día?
+          <span *ngIf="answers.q4 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q4" [value]="option" (change)="answers.q4 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 5 -->
+      <div class="question">
+        <p>
+          ¿Cuánto han mejorado tus habilidades para manejar el estrés usando las técnicas de respiración/meditación?
+          <span *ngIf="answers.q5 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q5" [value]="option" (change)="answers.q5 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 6 -->
+      <div class="question">
+        <p>
+          ¿Qué tan útiles o agradables te han resultado las actividades propuestas (sección de actividades)?
+          <span *ngIf="answers.q6 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q6" [value]="option" (change)="answers.q6 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 7 -->
+      <div class="question">
+        <p>
+          ¿Cómo te sientes en este momento?
+          <span *ngIf="answers.q7 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q7" [value]="option" (change)="answers.q7 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 8 -->
+      <div class="question">
+        <p>
+          ¿Cómo evaluarías tu satisfacción con tus logros recientes?
+          <span *ngIf="answers.q8 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q8" [value]="option" (change)="answers.q8 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 9 -->
+      <div class="question">
+        <p>
+          ¿Cómo te has sentido con las rutinas de ejercicio físico propuestas?
+          <span *ngIf="answers.q9 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q9" [value]="option" (change)="answers.q9 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- * Pregunta 10 -->
+      <div class="question">
+        <p>
+          ¿Cómo describirías tu claridad mental y enfoque?
+          <span *ngIf="answers.q10 === null" style="color: red;"> * </span>
+        </p>
+
+        <div class="answers">
+          <label *ngFor="let option of [5, 4, 3, 2, 1]">
+            <input type="radio" name="q10" [value]="option" (change)="answers.q10 = option"> <span> {{option}} </span>
+          </label>
+        </div>
+      </div>
+
+      <button class="submit-survey" (click)="onSubmit()"> Terminar </button>
+    </form>
+  </div>
+</div>
+
