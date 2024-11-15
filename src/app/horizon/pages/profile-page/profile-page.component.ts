@@ -18,8 +18,12 @@
  * 25/10/2014    María Torres Herrera      Se añadió el método 'deleteAccount()'
  * ---------------------------------------------------------------------------- */
 
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
+import { UserResponse } from '../../../auth/interfaces/user-response.interface';
+import { UserService } from 'src/app/auth/services/user.service';
+import { Router } from '@angular/router';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector : 'profile-page',
@@ -31,6 +35,11 @@ export class ProfilePageComponent {
   hidden : boolean = true;
   private current_width : number;
   private previous_width : number;
+  private user_service = inject ( UserService );
+  private router = inject ( Router );
+  private user_id : string | null = "";
+  private user !: UserResponse;
+  private user_pass : string = "";
 
   @ViewChild ( 'overlay' ) overlay !: ElementRef<HTMLDivElement>;
 
@@ -40,6 +49,22 @@ export class ProfilePageComponent {
     this.current_width = window.innerWidth;
     this.previous_width = window.innerWidth;
     this.toggleSettings ();
+    this.user_id = localStorage.getItem ( 'user' );
+    this.getUserById ();
+  }
+
+  goToHomePage () {
+    this.router.navigateByUrl ( 'horizon-health' );
+  }
+
+  getUserById () {
+    this.user_service.getUserById ( this.user_id ).subscribe ( {
+      next: ( res ) => {
+        this.user = res[0];
+        this.user_pass = res[0]? res[0].contrasena : "";
+      },
+      error: ( message => Swal.fire ( 'Error', message, 'error' ) )
+    } );
   }
 
   // * Evento que detecta cuando el ancho de la pantalla cambia y dependiendo del
@@ -70,8 +95,8 @@ export class ProfilePageComponent {
   }
 
   // * Método para eliminar la cuenta del usuario, sin terminar
-  deleteAccount () {
-    Swal.fire({
+  async deleteAccount () {
+    const result = await Swal.fire ( {
       title: "¿Deseas eliminar tu cuenta?",
       text: "Esta acción no se puede deshacer y perderás todo tu progreso y datos guardados",
       inputPlaceholder: "Ingresa tu contraseña",
@@ -83,16 +108,32 @@ export class ProfilePageComponent {
       cancelButtonText: "Cancelar",
       confirmButtonColor: "#EA0C5F",
       confirmButtonText: "Eliminar cuenta"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: "¡Tu cuenta ha sido eliminada!",
-          icon: "success",
-          iconColor: "#52EA0C",
-          confirmButtonColor: "#52EA0C",
-          confirmButtonText: "OK"
-        });
-      }
-    });
+    } );
+
+    const isPasswordValid = await bcrypt.compare ( result.value, this.user_pass );
+
+    if ( ( isPasswordValid ) && ( result.isConfirmed ) ) {
+      this.user_service.eliminarCuenta ( this.user_id ).subscribe ( {
+        next: () => {
+          Swal.fire ( {
+            title: "¡Tu cuenta ha sido eliminada!",
+            icon: "success",
+            iconColor: "#52EA0C",
+            confirmButtonColor: "#52EA0C",
+            confirmButtonText: "OK"
+          } );
+          this.router.navigateByUrl ( 'horizon-health/auth/log-in' );
+        },
+        error: ( message => Swal.fire ( 'Error', message, 'error' ) )
+      } );
+    } else if ( ( !isPasswordValid ) && ( result.isConfirmed ) ) {
+      Swal.fire ( {
+        title: "Contraseña incorrecta",
+        icon: "error",
+        iconColor: "#EA0C5F",
+        confirmButtonColor: "#EA0C5F",
+        confirmButtonText: "OK"
+      } );
+    }
   }
 }

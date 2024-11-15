@@ -10,6 +10,9 @@
  * Fecha         Modificado por            Descripción
  * 22/10/2024    Humberto Medina Santos    Se crearon las variables con las que se
  *                                         va a mostrar todo lo referente a la lectura
+ *
+ * 07/11/2024    Humberto Medina Santos    Se implementaron los métodos
+ *                                         getLectura() y getLecturaPremium()
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject, signal } from '@angular/core';
@@ -22,6 +25,10 @@ import Swal from 'sweetalert2'
   styleUrl : './lectura.component.css'
 } )
 export class LecturaComponent {
+
+  // * Constructor del componente donde se obtienen el id del usuario y el estado
+  // * de premium del LocalStorage y dependiendo del estado de premium se muestra
+  // * un contenido u otro
   constructor () {
     this.user = localStorage.getItem ( 'user' );
     this.premium = localStorage.getItem ( 'premium' );
@@ -30,7 +37,7 @@ export class LecturaComponent {
     else this.getLecturaPremium ();
   }
 
-  // * Declaración de variables que serán mostradas en el html
+  // * Declaración de variables e injección de dependencias
   public reading_text = signal < string > ( "" );
   public reading_title = signal < string > ( "" );
   public reading_author = signal < string > ( "" );
@@ -40,9 +47,10 @@ export class LecturaComponent {
   public genre_3 = signal < string > ( "" );
   private user : string | null = null;
   private premium : string | null = null;
-
   private lectura_service = inject ( LecturaService );
 
+  // * Método que mediante el servicio de lectura obtiene la informacion
+  // * de cada apartado de la lectura y lo asigna a su variable respectiva
   getLectura () {
     this.lectura_service.getLectura ()
       .subscribe ( {
@@ -59,6 +67,7 @@ export class LecturaComponent {
       } )
   }
 
+  // * Método idéntico al método getLectura() pero para usuarios premium
   getLecturaPremium () {
     this.lectura_service.getLecturaPremium ( this.user! )
       .subscribe ( {
