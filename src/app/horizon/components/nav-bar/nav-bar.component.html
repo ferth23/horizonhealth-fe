@@ -30,37 +30,29 @@
         alt="Sunset Wellness Logo">
     </a>
 
+    <!-- * Links principales que llevan a cada apartado de la página -->
+    <ul *ngIf="!hidden" class="links">
+      @for ( item of NavBarItems(); track item.name ) {
+        <li>
+          <a
+            class="link"
+            [href]="item.route">
+            {{ item.name }}
+          </a>
+        </li>
+      }
+    </ul>
+
     <button (click)="toggleNavBar()" class="toggle-nav"></button>
+
+    <img
+      class="profile"
+      (click)="options_hidden = false"
+      [src]="getImage()"
+      alt="Perfil">
   </div>
-
-  <!-- * Links principales que llevan a cada apartado de la página -->
-  <ul [class.hidden]="hidden" class="links">
-    @for ( item of NavBarItems(); track item.name ) {
-      <li>
-        <a
-          class="link"
-          [href]="item.route">
-          {{ item.name }}
-        </a>
-      </li>
-    }
-
-    <!-- * Botón de Log In que se encuentra dentro de los links -->
-    <li>
-      <a
-        class="link session-link"
-        [class.nav-login-hidden]="nav_login_hidden"
-        (click)="goToLogIn()">
-        Cerrar Sesión
-      </a>
-    </li>
-  </ul>
-
-  <!-- * Botón de Log In que se encuentra fuera de los links -->
-  <!-- <button
-    [class.login-hidden]="login_hidden"
-    (click)="goToLogIn()"
-    class="login-button">
-    Cerrar Sesión
-  </button> -->
 </nav>
+
+<div class="profile-pop-up" [class.options-hidden]="options_hidden">
+  <profile-pop-up (onHide)="options_hidden = $event"/>
+</div>

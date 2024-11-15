@@ -1,0 +1,75 @@
+.container {
+  background-color: #6E214E;
+  border-radius: 20px;
+  width: 368px;
+  height: 532px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.exit {
+  cursor: pointer;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+  right: 40px;
+}
+
+.profile_pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 142px;
+}
+
+.user {
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  margin: 20px 0 10px 0;
+}
+
+.line { width: 298px; }
+
+.perfil {
+  cursor: pointer;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  background-color: transparent;
+  border: none;
+  margin: 20px 0;
+}
+
+.sesion {
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #6E214E;
+  background-color: white;
+  border-radius: 20px;
+  width: 300px;
+  height: 46px;
+  border: none;
+}
+
+.subscribe {
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #6E214E;
+  background-color: gold;
+  border-radius: 20px;
+  width: 300px;
+  height: 46px;
+  border: none;
+  margin-bottom: 10px;
+}

@@ -1,8 +1,27 @@
+/* ----------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : editar-perfil.component.ts
+ * Autor         : María Fernanda Torres Herrera
+ * Fecha         : 12/11/2024
+ * Descripción   : Lógica del componente Survey PopUp
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 14/11/2024    María Torres Herrera      Se añadió el método 'onSubmit()', el
+ *                                         cual valida que todas las preguntas
+ *                                         tengan respuesta, y guarda en la base
+ *                                         de datos la puntuación obtenida
+ *
+ * 24/10/2024    María Torres Herrera      Se añadió el método 'confirmChanges()'
+ * ---------------------------------------------------------------------------- */
+
 import { Component, inject, output } from '@angular/core';
 import { Answers } from '../../interfaces/survey-answers.interface';
 import Swal from 'sweetalert2'
 import { TestService } from '../../services/test.service';
 import { UserService } from 'src/app/auth/services/user.service';
+import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
 
 @Component({
   selector: 'survey-pop-up',
@@ -13,12 +32,18 @@ import { UserService } from 'src/app/auth/services/user.service';
 export class SurveyPopUpComponent {
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
+    this.isPremium = localStorage.getItem ( 'premium' );
   }
 
   private test_service = inject ( TestService );
   private user_service = inject ( UserService );
   private user_id !: string | null;
+  private creation_date: Date | null = null;
+  private isPremium : string | null;
+  private user !: UserResponse;
+  private id : number = 0;
 
+  // * Objeto para guardar las respuestas de las preguntas
   answers: Answers = {
     q1: null,
     q2: null,
@@ -32,8 +57,36 @@ export class SurveyPopUpComponent {
     q10: null,
   };
 
+  // * Método que revisa si debe aparecer el Pop Up
+  checkPopUpVisibility () {
+    if ( this.isPremium != "1" ) {
+      this.onHide.emit ( true );
+      return;
+    }
+
+    const today = new Date();
+
+    if ( this.creation_date ) {
+      const creationDate = new Date ( this.creation_date );
+      const daysSinceCreation = Math.floor ( ( today.getTime() - creationDate.getTime () ) / ( 1000 * 60 * 60 * 24 ) );
+
+      if ( daysSinceCreation % 7 === 0 ) {
+        this.onHide.emit ( false );
+      }
+    }
+  }
+
+  // * Obtiene la fecha de creación de la cuenta de usuario
   getCreationDate () {
-    this.user_service.
+    this.user_service.getUserById ( this.user_id ).subscribe({
+      next: ( user ) => {
+        this.user = user[0];
+        this.creation_date = this.user.fecha_de_creacion;
+        this.id = this.user.id_usuario;
+        this.checkPopUpVisibility();
+      },
+      error: ( message => Swal.fire ( 'Error', message, 'error' ) )
+    });
   }
 
   // * Variable para controlar cuando desaparece el Pop Up
@@ -56,10 +109,10 @@ export class SurveyPopUpComponent {
       }
     }
 
-    const totalScore = Object.values( this.answers ).reduce( ( sum, value ) => sum + ( value as number ) , 0 );
-    const averageScore = Math.round ( totalScore / Object.keys( this.answers ).length );
+    const totalScore: number = Object.values( this.answers ).reduce( ( sum, value ) => sum + ( value as number ) , 0 );
+    const averageScore: number = Math.round ( totalScore / Object.keys( this.answers ).length );
 
-    this.test_service.guardarPuntaje ( this.user_id, averageScore.toString() ).subscribe ( {
+    this.test_service.guardarPuntaje ( this.id, averageScore ).subscribe ( {
       next: () => {
         Swal.fire ({
           title: "¡Test terminado!",
@@ -74,7 +127,7 @@ export class SurveyPopUpComponent {
     } );
 
 
-    // * Desaparezca el Pop Up
-    this.onHide.emit(true);
+    // * Desaparece el Pop Up
+    this.onHide.emit ( true );
   }
 }

@@ -15,6 +15,8 @@
  * 11/10/2024    Humberto Medina Santos    Se añadió el método 'login()'
  *
  * 16/10/2024    María Torres Herrera      Se añadió el método 'togglePasswordView()'
+ *
+ * 05/11/2024    Humberto Medina Santos    Implementación final del método login()
  * ---------------------------------------------------------------------------- */
 
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';

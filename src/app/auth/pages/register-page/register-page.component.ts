@@ -13,6 +13,8 @@
  *                                         y la contraseña
  *
  * 11/10/2024    Humberto Medina Santos    Se añadió el método 'register()'
+ *
+ * 05/11/2024    Humberto Medina Santos    Implementación final del método register()
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject } from '@angular/core';

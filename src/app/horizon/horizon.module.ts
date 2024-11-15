@@ -54,6 +54,7 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
 import { SuscriptionPageComponent } from './pages/suscription-page/suscription-page.component';
 import { FormularioPagoComponent } from './components/formulario-pago/formulario-pago.component';
 import { SurveyPopUpComponent } from './components/survey-pop-up/survey-pop-up.component';
+import { ProfilePopUpComponent } from './components/profile-pop-up/profile-pop-up.component';
 
 @NgModule ( {
   declarations : [
@@ -74,7 +75,8 @@ import { SurveyPopUpComponent } from './components/survey-pop-up/survey-pop-up.c
     EstadisticasComponent,
     SuscriptionPageComponent,
     FormularioPagoComponent,
-    SurveyPopUpComponent
+    SurveyPopUpComponent,
+    ProfilePopUpComponent
   ],
   imports : [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule ],
   exports : [ HorizonRoutingModule ]
