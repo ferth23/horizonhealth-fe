@@ -25,6 +25,7 @@ nav {
   justify-content: space-between;
   margin-top: 8px;
   margin-bottom: 8px;
+  width: 100%;
 }
 
 .toggle-nav {
@@ -80,6 +81,26 @@ nav {
   max-height: 0;
 }
 
+.profile {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 70px;
+  height: 70px;
+  border-radius: 55px;
+  background-color: #6E214E;
+  margin: 17px 0;
+}
+
+.profile-pop-up {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 9;
+}
+
+.options-hidden { display: none; }
+
 /* * Estilos para Tablet y Computadora */
 @media ( min-width: 460px ) {
   nav {
@@ -126,6 +147,28 @@ nav {
     overflow: hidden;
     opacity: 1;
     transition: opacity 1s ease, max-height 1s ease;
+  }
+
+  .navigation {
+    justify-content: unset;
+    flex-direction: column;
+  }
+
+  .toggle-nav {
+    margin-left: 21rem;
+    margin-right: 20px;
+  }
+
+  .profile {
+    position: absolute;
+    top: 0;
+    right: 35px;
+  }
+
+  .toggle-nav {
+    position: absolute;
+    top: 20px;
+    right: 105px;
   }
 
   .link:hover { color: #2f041c7d; }

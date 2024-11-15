@@ -1,22 +1,22 @@
 <!-- * ------------------------------------------------------------------------------
  * HorizonHealth
- * 
+ *
  * Archivo       : pop-up.component.html
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 07/10/2024
- * Descripción   : Se organiza el diseño de un pop-up interactivo en la página de 
- *                 Horizon Health, que permite al usuario expresar su estado 
+ * Descripción   : Se organiza el diseño de un pop-up interactivo en la página de
+ *                 Horizon Health, que permite al usuario expresar su estado
  *                 emocional.
- * 
+ *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
  * 07/10/2024    Layla González     Se definieron las clases y se asignaron sus
  *                                  contenidos. Además, se cargaron las imágenes en
- *                                  el proyecto para ponerlas en la propiedad de 
+ *                                  el proyecto para ponerlas en la propiedad de
  *                                  cada emotion-item.
  * ---------------------------------------------------------------------------- -->
 
-<!-- * Contenedor cuyo contenido es el popUp, 
+<!-- * Contenedor cuyo contenido es el popUp,
      * es para un "marco" -->
 <div class="popUp-container" >
 
@@ -26,14 +26,14 @@
       <!-- * Íconos de las emociones juntos -->
       <div class="emotions-icons">
 
-        <!-- * Cada item representa una emoción,  
-             * se la pasa al método que almacena 
-             * que emoción se escogió, se le asigna 
+        <!-- * Cada item representa una emoción,
+             * se la pasa al método que almacena
+             * que emoción se escogió, se le asigna
              * la ruta de la imagen correspondiente
              * y un "nombre" para la imagen -->
         <div class="emotion-item">
           <img
-            (click)="emotionSelected('excited')"  
+            (click)="emotionSelected('5')"
             class="emotions-img"
             src="excited.svg"
             alt="excited icon">
@@ -41,7 +41,7 @@
 
         <div class="emotion-item">
           <img
-            (click)="emotionSelected('happy')"
+            (click)="emotionSelected('4')"
             class="emotions-img"
             src="happy.svg"
             alt="happy icon">
@@ -49,7 +49,7 @@
 
         <div class="emotion-item">
           <img
-            (click)="emotionSelected('neutral')"
+            (click)="emotionSelected('3')"
             class="emotions-img"
             src="neutral.svg"
             alt="neutral icon">
@@ -57,7 +57,7 @@
 
         <div class="emotion-item">
           <img
-            (click)="emotionSelected('sad')"
+            (click)="emotionSelected('2')"
             class="emotions-img"
             src="sad.svg"
             alt="sad icon">
@@ -65,7 +65,7 @@
 
         <div class="emotion-item">
           <img
-            (click)="emotionSelected('depressed')"
+            (click)="emotionSelected('1')"
             class="emotions-img"
             src="depressed.svg"
             alt="depressed icon">

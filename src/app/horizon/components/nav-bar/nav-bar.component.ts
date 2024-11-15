@@ -20,8 +20,10 @@
 
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
 import { UserService } from 'src/app/auth/services/user.service';
 import { NavBarItem } from 'src/app/sunset/interfaces/NavBarItem';
+import Swal from 'sweetalert2';
 
 @Component ( {
   selector : 'nav-bar',
@@ -38,6 +40,8 @@ export class NavBarComponent {
     this.toggleNavBar ();
     this.toggleNavLogIn ();
     this.toggleLogIn ();
+    this.user_id = localStorage.getItem ( 'user' );
+    this.getUserById ();
   }
 
   // * Evento que detecta cuando el ancho de la pantalla cambia y dependiendo del
@@ -70,8 +74,17 @@ export class NavBarComponent {
   public session_text : string = "Iniciar Sesión";
   private current_width : number;
   private previous_width : number;
-  private router = inject ( Router );
   private user_service = inject ( UserService );
+  private user_id : string | null = "";
+  public user !: UserResponse;
+  public options_hidden : boolean = true;
+
+  getUserById () {
+    this.user_service.getUserById ( this.user_id ).subscribe ( {
+      next: ( res ) => this.user = res[0],
+      error: ( message => Swal.fire ( 'Error', message, 'error' ) )
+    } );
+  }
 
   // * Método que, dependiendo del ancho de la pantalla, cambia el valor de la variable
   // * boleana 'hidden' cuyo valor esta ligado a la aparición o desaparición de ciertos
@@ -97,8 +110,7 @@ export class NavBarComponent {
     else if ( window.innerWidth <= 768 && this.nav_login_hidden ) this.nav_login_hidden = false;
   }
 
-  // * Método que, mediante el módulo de rutas, navega hacia la página de Log In
-  public goToLogIn () : void {
-    this.router.navigate ( [ 'horizon-health/auth/log-in' ], { replaceUrl: true } );
+  getImage () : string {
+    return this.user.foto_perfil ? this.user.foto_perfil : "placeholder-avatar.png"
   }
 }

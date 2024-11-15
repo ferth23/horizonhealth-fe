@@ -19,8 +19,15 @@
 
   <!-- * Contenedor de la foto de perfil -->
   <div class="profile-picture-container">
-    <img src="placeholder-avatar.png" alt="Profile Picture">
-    <button class="edit-button"> Editar Imagen </button>
+    <img [src]="getImage()" alt="Profile Picture">
+    <button (click)="getPicture()" class="edit-button"> Editar Imagen </button>
+
+    <input
+      type="file"
+      #fileInput
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      style="display: none;">
   </div>
 
   <!-- * Contenedor del formulario -->
@@ -30,16 +37,16 @@
     <form [formGroup]="myForm" (ngSubmit)="confirmChanges()">
       <div class="field">
         <label for="fullName" class="field-label"> Nombre Completo </label>
-        <input type="text" class="input-field" formControlName="fullName" placeholder="Ingresa tu nombre">
+        <input #name type="text" class="input-field" formControlName="fullName" placeholder="Ingresa tu nombre">
       </div>
 
       <div class="field">
         <label for="email" class="field-label"> Correo Electrónico </label>
-        <input type="email" class="input-field" formControlName="email" placeholder="Ingresa tu correo">
+        <input #email type="email" class="input-field" formControlName="email" placeholder="Ingresa tu correo">
       </div>
 
       <!-- * Botón para guardar los cambios realizados al perfil -->
-      <button class="save-changes-button" type="submit" [disabled]="myForm.invalid"> Guardar Cambios </button>
+      <button class="save-changes-button" type="submit"> Guardar Cambios </button>
     </form>
 
   </div>
