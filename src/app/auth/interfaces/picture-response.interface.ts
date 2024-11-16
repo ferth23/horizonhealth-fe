@@ -1,3 +1,10 @@
 export interface PictureResponse {
-  message : string;
+  success: boolean;
+  message: string;
+  data:    Data;
 }
+
+export interface Data {
+  url: string;
+}
+

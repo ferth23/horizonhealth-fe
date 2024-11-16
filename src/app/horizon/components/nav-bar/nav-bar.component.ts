@@ -19,7 +19,6 @@
  * ---------------------------------------------------------------------------- */
 
 import { Component, HostListener, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
 import { UserService } from 'src/app/auth/services/user.service';
 import { NavBarItem } from 'src/app/sunset/interfaces/NavBarItem';
@@ -76,8 +75,18 @@ export class NavBarComponent {
   private previous_width : number;
   private user_service = inject ( UserService );
   private user_id : string | null = "";
-  public user !: UserResponse;
   public options_hidden : boolean = true;
+
+  public user : UserResponse = {
+    id_usuario: 0,
+    nombre: '',
+    correo: '',
+    contrasena: '',
+    fecha_de_creacion: new Date(),
+    fecha_de_ultimo_ingreso: new Date(),
+    premium: 0,
+    foto_perfil: ''
+  };
 
   getUserById () {
     this.user_service.getUserById ( this.user_id ).subscribe ( {

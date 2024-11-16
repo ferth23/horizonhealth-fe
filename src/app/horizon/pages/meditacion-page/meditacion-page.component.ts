@@ -48,7 +48,7 @@ export class MeditacionPageComponent {
   public button_hidden : boolean = true;
   public isStopped : boolean = false;
   public progress : number = 0;
-  public start_restart_text : string = "Iniciar";
+  public start_restart_text : string = "Iniciar"
 
   // * Variable que permite obtener del DOM la imagen del círculo
   @ViewChild ( 'circle' ) circle !: ElementRef<HTMLImageElement>;

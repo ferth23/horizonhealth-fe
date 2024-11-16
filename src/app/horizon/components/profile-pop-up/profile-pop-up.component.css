@@ -73,3 +73,7 @@
   border: none;
   margin-bottom: 10px;
 }
+
+::ng-deep .swal2-modal {
+  font-family: "Roboto", sans-serif;
+}

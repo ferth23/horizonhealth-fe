@@ -72,13 +72,13 @@ export class LecturaComponent {
     this.lectura_service.getLecturaPremium ( this.user! )
       .subscribe ( {
         next: ( res ) => {
-          this.reading_text.set ( res.lectura );
-          this.reading_title.set ( res.titulo );
-          this.reading_author.set ( res.autor );
-          this.reading_year.set ( res.año );
-          this.genre_1.set ( res.genero );
-          this.genre_2.set ( res.genero_secundario_1 );
-          this.genre_3.set ( res.genero_secundario_2 );
+          this.reading_text.set ( res.lecturaPre );
+          this.reading_title.set ( res.tituloPre );
+          this.reading_author.set ( res.autorPre );
+          this.reading_year.set ( res.añoPre );
+          this.genre_1.set ( res.generoPre );
+          this.genre_2.set ( res.genero_secundario_1Pre );
+          this.genre_3.set ( res.genero_secundario_2Pre );
         },
         error: ( message => Swal.fire ( 'Error al cargar la lectura premium', message, 'error' ) )
       } )

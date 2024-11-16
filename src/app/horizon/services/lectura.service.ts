@@ -17,6 +17,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { LecturaResponse } from '../interfaces/lectura-response.interface';
+import { LecturasPreResponse } from '../interfaces/lecturasPre-response.interface';
 
 @Injectable ( {
   providedIn : 'root'
@@ -40,10 +41,10 @@ export class LecturaService {
 
   // * Método que manda una petición al backend para obtener una lectura aleatoria
   // * para los usuarios premium
-  getLecturaPremium ( user : string ) : Observable < LecturaResponse > {
+  getLecturaPremium ( user : string ) : Observable < LecturasPreResponse > {
     const url = `${ this.base_url }/api/lecturas/lecturas/premium?userId=${ user }`;
 
-    return this.http.get < LecturaResponse > ( url )
+    return this.http.get < LecturasPreResponse > ( url )
       .pipe (
         catchError ( err => throwError ( () => err.error.message ) )
       )
