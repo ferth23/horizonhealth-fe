@@ -27,9 +27,7 @@ export class TestService {
   private readonly base_url = environment.baseUrl;
   private http = inject ( HttpClient );
 
-  // * Método que manda una petición al backend para guardar el puntaje del usuario
-  // * en el test semanal
-  guardarPuntaje ( user: string, puntaje : string ) : Observable < TestResponse > {
+  guardarPuntaje ( user: number, puntaje : number ) : Observable < TestResponse > {
     const url = `${ this.base_url }/api/test/guardar-puntaje`;
     const body = { user, puntaje };
 

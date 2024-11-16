@@ -30,6 +30,7 @@ export class HomePageComponent {
   // * Declaración de variables y dependencias
   private router = inject ( Router );
   public hidden : boolean = false;
+  public test_hidden : boolean = false;
 
   // * Arreglo que contiene la información de los items de las previews de las secciones
   // * de la página principal de Horizon Health para poder iterarlos en el html
