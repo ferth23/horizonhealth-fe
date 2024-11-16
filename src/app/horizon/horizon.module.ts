@@ -53,6 +53,7 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { SuscriptionPageComponent } from './pages/suscription-page/suscription-page.component';
 import { FormularioPagoComponent } from './components/formulario-pago/formulario-pago.component';
+import { SurveyPopUpComponent } from './components/survey-pop-up/survey-pop-up.component';
 import { ProfilePopUpComponent } from './components/profile-pop-up/profile-pop-up.component';
 
 @NgModule ( {
@@ -74,6 +75,7 @@ import { ProfilePopUpComponent } from './components/profile-pop-up/profile-pop-u
     EstadisticasComponent,
     SuscriptionPageComponent,
     FormularioPagoComponent,
+    SurveyPopUpComponent,
     ProfilePopUpComponent
   ],
   imports : [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule ],

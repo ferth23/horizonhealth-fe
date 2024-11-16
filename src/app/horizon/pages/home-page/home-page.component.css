@@ -115,7 +115,7 @@
 }
 
 .popup { z-index: 3; }
-.hidden { display: none; }
+.hidden, .test-hidden { display: none; }
 
 /* * Estilos para Tablet */
 @media ( max-width: 768px ) {
