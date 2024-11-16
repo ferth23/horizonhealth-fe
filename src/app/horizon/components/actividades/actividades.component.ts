@@ -60,10 +60,10 @@ export class ActividadesComponent {
   getActividadPremium () {
     this.actividades_service.getActividadPremium ( this.user! )
       .subscribe ( {
-        next: ( { descripcion, nombre_actividad, tiempo_actividad } ) => {
-          this.actividad.set ( descripcion );
-          this.titulo.set ( nombre_actividad );
-          this.duracion.set ( tiempo_actividad );
+        next: ( { descripcionPre, nombre_actividadPre, tiempo_actividadPre } ) => {
+          this.actividad.set ( descripcionPre );
+          this.titulo.set ( nombre_actividadPre );
+          this.duracion.set ( tiempo_actividadPre );
         },
         error: ( message => Swal.fire ( 'Error al cargar la actividad premium', message, 'error' ) )
       } )

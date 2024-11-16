@@ -38,6 +38,7 @@ export class EjerciciosComponent {
   private ejercicios_service = inject ( EjerciciosService );
   public ejercicio = signal < string > ( "" );
   public duracion = signal < number > ( 0 );
+  public description = signal < string > ( "" );
   private user : string | null = null;
   private premium : string | null = null;
 
@@ -46,9 +47,10 @@ export class EjerciciosComponent {
   getEjercicio () {
     this.ejercicios_service.getEjercicio ()
       .subscribe ( {
-        next: ( { rutina, tiempo } ) => {
+        next: ( { rutina, tiempo, descripcion } ) => {
           this.ejercicio.set ( rutina );
           this.duracion.set ( tiempo );
+          this.description.set ( descripcion );
         },
         error: ( message => Swal.fire ( 'Error al cargar el ejercicio', message, 'error' ) )
       } )
@@ -56,11 +58,12 @@ export class EjerciciosComponent {
 
   // * Método idéntico al método getEjercicio() pero para usuarios premium
   getEjercicioPremium () {
-    this.ejercicios_service.getEjercicioPremium ( this.user! )
+    this.ejercicios_service.getEjercicioPremium ( this.user )
       .subscribe ( {
-        next: ( { rutina, tiempo } ) => {
-          this.ejercicio.set ( rutina );
-          this.duracion.set ( tiempo );
+        next: ( { rutinaPre, tiempoPre, descripcionPre } ) => {
+          this.ejercicio.set ( rutinaPre );
+          this.duracion.set ( tiempoPre );
+          this.description.set ( descripcionPre );
         },
         error: ( message => Swal.fire ( 'Error al cargar el ejercicio premium', message, 'error' ) )
       } )

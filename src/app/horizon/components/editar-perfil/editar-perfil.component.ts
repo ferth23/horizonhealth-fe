@@ -16,7 +16,7 @@
  * 24/10/2024    María Torres Herrera      Se añadió el método 'confirmChanges()'
  * ---------------------------------------------------------------------------- */
 
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as customValidators from '../../../auth/validators/validators';
 import Swal from 'sweetalert2';
@@ -35,9 +35,6 @@ export class EditarPerfilComponent {
   public profile_pic_src : string | null = null;
   private user !: UserResponse;
 
-  @ViewChild ( 'name', { static: true } ) name_input !: ElementRef < HTMLInputElement >;
-  @ViewChild ( 'email', { static: true } ) email_input !: ElementRef < HTMLInputElement >;
-
   @ViewChild ( 'fileInput' ) fileInput!: ElementRef < HTMLInputElement >;
   selectedImage: File | null = null;
 
@@ -49,7 +46,7 @@ export class EditarPerfilComponent {
 
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
-    if (this.user_id) this.getUserById ();
+    if ( this.user_id ) this.getUserById ();
   }
 
   getUserById () {
@@ -57,8 +54,7 @@ export class EditarPerfilComponent {
       next: ( user ) => {
         this.user = user[0];
         this.profile_pic_src = this.user.foto_perfil;
-        this.name_input.nativeElement.value = this.user.nombre;
-        this.email_input.nativeElement.value = this.user.correo;
+        this.myForm.patchValue ( { fullName: this.user.nombre, email: this.user.correo } );
       },
       error: ( message => Swal.fire ( 'Error', message, 'error' ) )
     } );
@@ -70,9 +66,13 @@ export class EditarPerfilComponent {
 
   onFileSelected ( event : Event ) {
     const input = event.target as HTMLInputElement;
+
     if ( input.files && input.files.length > 0 ) {
       this.selectedImage = input.files[0];
-      this.profile_pic_src = URL.createObjectURL(this.selectedImage);
+      const new_image_url = URL.createObjectURL ( this.selectedImage );
+
+      if ( new_image_url !== this.profile_pic_src ) this.profile_pic_src = new_image_url;
+      else this.selectedImage = null;
     }
   }
 
@@ -82,15 +82,24 @@ export class EditarPerfilComponent {
 
     this.user_service.cambiarDatos ( this.user_id, fullName, email ).subscribe ( {
       next: () => {
-        this.user_service.cambiarFoto ( this.user_id, this.profile_pic_src ).subscribe ( {
-          next: () => {
-            Swal.fire ( {
-              icon: 'success',
-              text: "¡Los cambios han sido realizados!"
-            } );
-          },
-          error: ( message => Swal.fire ( 'Error al cambiar la foto de perfil', message, 'error' ) )
-        } );
+        if ( this.selectedImage && this.user_id ) {
+          this.user_service.cambiarFoto ( this.user_id, this.selectedImage! ).subscribe ( {
+            next: ( res ) => {
+              this.profile_pic_src = res.data.url;
+
+              Swal.fire ( {
+                icon: 'success',
+                text: "¡Los cambios en los datos y la foto de perfil han sido realizados!"
+              } );
+            },
+            error: ( message => Swal.fire ( 'Error al cambiar la foto de perfil', message, 'error' ) )
+          } );
+        } else {
+          Swal.fire ( {
+            icon: 'success',
+            text: "¡Los cambios en los datos han sido realizados!"
+          } );
+        }
       },
       error: ( message => Swal.fire ( 'Error al cambiar datos', message, 'error' ) )
     } );

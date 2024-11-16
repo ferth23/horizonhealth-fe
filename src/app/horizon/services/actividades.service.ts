@@ -17,6 +17,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { ActividadResponse } from '../interfaces/actividad-response.interface';
+import { ActividadPreResponse } from '../interfaces/actividadPre-response.interface';
 
 @Injectable ( {
   providedIn : 'root'
@@ -40,10 +41,10 @@ export class ActividadesService {
 
   // * Método que manda una petición al backend para obtener una actividad aleatoria
   // * para los usuarios premium
-  getActividadPremium ( user : string ) : Observable < ActividadResponse > {
+  getActividadPremium ( user : string ) : Observable < ActividadPreResponse > {
     const url = `${ this.base_url }/api/actividades/actividades/premium?userId=${ user }`;
 
-    return this.http.get < ActividadResponse > ( url )
+    return this.http.get < ActividadPreResponse > ( url )
       .pipe (
         catchError ( err => throwError ( () => err.error.message ) )
       )

@@ -35,6 +35,7 @@ export class LogInPageComponent {
   constructor () {
     if ( localStorage.getItem ( 'user' ) ) localStorage.removeItem ( 'user' );
     if ( localStorage.getItem ( 'premium' ) ) localStorage.removeItem ( 'premium' );
+    if ( localStorage.getItem ( 'emotion' ) ) localStorage.removeItem ( 'emotion' );
   }
 
   private fb = inject ( FormBuilder );

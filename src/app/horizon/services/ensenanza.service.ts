@@ -29,8 +29,8 @@ export class EnsenanzaService {
 
   // * Método que manda una petición al backend para obtener una frase aleatoria
   // * para los usuarios no premium
-  getFrase ( user : string ) : Observable < FraseResponse > {
-    const url = `${ this.base_url }/api/frases/frases?userId=${ user }`;
+  getFrase ( emotion : number ) : Observable < FraseResponse > {
+    const url = `${ this.base_url }/api/frases/frases-del-dia?puntaje=${ emotion }`;
 
     return this.http.get < FraseResponse > ( url )
       .pipe (
@@ -40,8 +40,8 @@ export class EnsenanzaService {
 
   // * Método que manda una petición al backend para obtener una frase aleatoria
   // * para los usuarios premium
-  getFrasePremium ( user : string ) : Observable < FraseResponse > {
-    const url = `${ this.base_url }/api/frases/frases/premium?userId=${ user }`;
+  getFrasePremium ( user : string, emotion : number ) : Observable < FraseResponse > {
+    const url = `${ this.base_url }/api/frases/frases/premium?userId=${ user }&puntaje=${ emotion }`;
 
     return this.http.get < FraseResponse > ( url )
       .pipe (

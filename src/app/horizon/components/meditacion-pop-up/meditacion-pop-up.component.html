@@ -21,7 +21,7 @@
 
     <!-- * Spinner númerico para indicar la cantidad de minutos que durará la meditación -->
     <div class="spinner-content">
-      <button (click)="changeSpinnerValue('minus')" class="spinner-item spinner-button"> - </button>
+      <button [disabled]="no_premium" (click)="changeSpinnerValue('minus')" class="spinner-item spinner-button"> - </button>
 
       <input
         disabled
@@ -34,7 +34,7 @@
         step="1"
         [value]="value_spinner">
 
-      <button (click)="changeSpinnerValue('plus')" class="spinner-item spinner-button"> + </button>
+      <button [disabled]="no_premium" (click)="changeSpinnerValue('plus')" class="spinner-item spinner-button"> + </button>
 
       <p class="spinner-item spinner-text" >Minutos</p>
     </div>

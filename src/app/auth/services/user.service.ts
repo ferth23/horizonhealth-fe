@@ -99,11 +99,12 @@ export class UserService {
       );
   }
 
-  cambiarFoto ( user : string | null, foto : string | null ) {
-    const url = `${ this.base_url }/api/usuarios/cambiar-foto/${ user }`;
-    const body = { foto };
+  cambiarFoto ( user : string | null, file : File ) {
+    const url = `${ this.base_url }/api/usuarios/usuarios/${ user }/upload`;
+    const form_data = new FormData ();
+    form_data.append ( 'image', file )
 
-    return this.http.put < PictureResponse > ( url, body )
+    return this.http.post < PictureResponse > ( url, form_data )
       .pipe (
         catchError ( err => throwError ( () => err.error.message ) )
       )

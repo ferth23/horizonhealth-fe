@@ -29,6 +29,7 @@ export class EnsenanzaPageComponent {
   constructor () {
     this.user = localStorage.getItem ( 'user' );
     this.premium = localStorage.getItem ( 'premium' );
+    this.emotion = localStorage.getItem ( 'emotion' );
 
     if ( this.premium == "0" ) this.getFrase ();
     else this.getFrasePremium ();
@@ -38,12 +39,13 @@ export class EnsenanzaPageComponent {
   private ensenanza_service = inject ( EnsenanzaService );
   private user : string | null = null;
   private premium : string | null = null;
+  private emotion : string | null = null;
   public ensenanza = signal < string > ( "" );
 
   // * Método que mediante el servicio de ensenanza obtiene la frase y la asigna
   // * a una variable para posteriormente mostrarla en el html
   getFrase () {
-    this.ensenanza_service.getFrase ( this.user! )
+    this.ensenanza_service.getFrase ( Number ( this.emotion ) )
       .subscribe ( {
         next: ( { frase } ) => this.ensenanza.set ( frase ),
         error: ( message => Swal.fire ( 'Error al cargar la enseñanza', message, 'error' ) )
@@ -52,7 +54,7 @@ export class EnsenanzaPageComponent {
 
   // * Método idéntico al método getFrase() pero para usuarios premium
   getFrasePremium () {
-    this.ensenanza_service.getFrasePremium ( this.user! )
+    this.ensenanza_service.getFrasePremium ( this.user!, Number ( this.emotion ) )
       .subscribe ( {
         next: ( { frase } ) => this.ensenanza.set ( frase ),
         error: ( message => Swal.fire ( 'Error al cargar la enseñanza premium', message, 'error' ) )

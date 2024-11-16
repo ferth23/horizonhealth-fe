@@ -17,6 +17,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { EjerciciosResponse } from '../interfaces/ejercicios-response.interface';
+import { EjerciciosPreResponse } from '../interfaces/ejerciciosPre-response.interface';
 
 @Injectable ( {
   providedIn : 'root'
@@ -40,10 +41,10 @@ export class EjerciciosService {
 
   // * Método que manda una petición al backend para obtener un ejercicio aleatorio
   // * para los usuarios premium
-  getEjercicioPremium ( user : string ) : Observable < EjerciciosResponse > {
+  getEjercicioPremium ( user : string | null ) : Observable < EjerciciosPreResponse > {
     const url = `${ this.base_url }/api/ejercicios/ejercicios/premium?userId=${ user }`;
 
-    return this.http.get < EjerciciosResponse > ( url )
+    return this.http.get < EjerciciosPreResponse > ( url )
       .pipe (
         catchError ( err => throwError ( () => err.error.message ) )
       )

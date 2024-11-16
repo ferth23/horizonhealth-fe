@@ -1,9 +1,9 @@
 <div class="container">
   <p (click)="hideOptions()" class="exit">X</p>
   <img class="profile_pic" [src]="getImage()" alt="Perfil">
-  <p class="user"> {{ user_name }} </p>
+  <p #user_name class="user"> {{ user_name_label }} </p>
   <hr class="line">
   <button (click)="goToProfile()" class="perfil">Ver Perfil</button>
-  <button (click)="goToSubscribe()" class="subscribe">Suscribirse</button>
+  <button (click)="goToSubscribe()" class="subscribe"> {{ suscribe_text }} </button>
   <button (click)="logOut()" class="sesion">Cerrar Sesión</button>
 </div>

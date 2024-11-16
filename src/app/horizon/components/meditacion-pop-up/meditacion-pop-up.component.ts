@@ -22,7 +22,7 @@
  *                                         el botón cancelar
  * ---------------------------------------------------------------------------- */
 
-import { Component, output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, output, ViewChild } from '@angular/core';
 
 @Component({
   selector : 'meditacion-pop-up',
@@ -31,10 +31,17 @@ import { Component, output } from '@angular/core';
 })
 export class MeditacionPopUpComponent {
 
+  constructor () {
+    this.premium = localStorage.getItem ( 'premium' );
+    this.no_premium = this.premium === "0" ? true : false;
+  }
+
   // * Declaración de eventos y variables
   public onStart = output <number> ();
   public onCancel = output <boolean> ();
   public value_spinner : number = 1;
+  private premium : string | null = "";
+  public no_premium : boolean = true;
 
   // * Método que emite el evento onStart con un valor dado
   public start () : void {

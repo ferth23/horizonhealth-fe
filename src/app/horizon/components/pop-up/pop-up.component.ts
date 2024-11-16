@@ -27,11 +27,10 @@ export class PopUpComponent {
 
   // * Variable para controlar cuando desaparece el Pop Up
   public onHide = output <boolean> ();
-  private emotion : string = "";
 
   // * Método que guarda la emoción seleccionada
   emotionSelected ( emotion_selected: string ) {
-    this.emotion = emotion_selected;
+    localStorage.setItem ( 'emotion', emotion_selected );
 
     // * Desaparezca el Pop Up
     this.onHide.emit(true);

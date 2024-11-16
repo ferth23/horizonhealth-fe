@@ -41,7 +41,6 @@ export class SurveyPopUpComponent {
   private creation_date: Date | null = null;
   private isPremium : string | null;
   private user !: UserResponse;
-  private id : number = 0;
 
   // * Objeto para guardar las respuestas de las preguntas
   answers: Answers = {
@@ -82,7 +81,6 @@ export class SurveyPopUpComponent {
       next: ( user ) => {
         this.user = user[0];
         this.creation_date = this.user.fecha_de_creacion;
-        this.id = this.user.id_usuario;
         this.checkPopUpVisibility();
       },
       error: ( message => Swal.fire ( 'Error', message, 'error' ) )
@@ -112,7 +110,7 @@ export class SurveyPopUpComponent {
     const totalScore: number = Object.values( this.answers ).reduce( ( sum, value ) => sum + ( value as number ) , 0 );
     const averageScore: number = Math.round ( totalScore / Object.keys( this.answers ).length );
 
-    this.test_service.guardarPuntaje ( this.id, averageScore ).subscribe ( {
+    this.test_service.guardarPuntaje ( this.user_id, averageScore ).subscribe ( {
       next: () => {
         Swal.fire ({
           title: "¡Test terminado!",
