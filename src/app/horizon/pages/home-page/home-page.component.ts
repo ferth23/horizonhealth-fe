@@ -27,10 +27,17 @@ import { Router } from '@angular/router';
 } )
 export class HomePageComponent {
 
+  constructor () {
+    this.premium = localStorage.getItem ( 'premium' );
+    if ( this.premium === "1" ) this.is_premium = true;
+  }
+
   // * Declaración de variables y dependencias
   private router = inject ( Router );
   public hidden : boolean = false;
   public test_hidden : boolean = false;
+  public is_premium : boolean = false;
+  private premium !: string | null;
 
   // * Arreglo que contiene la información de los items de las previews de las secciones
   // * de la página principal de Horizon Health para poder iterarlos en el html

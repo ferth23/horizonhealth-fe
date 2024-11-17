@@ -24,7 +24,7 @@
 </div>
 
  <!-- * Componente PopUp Del Test -->
- <div [class.test-hidden]="test_hidden" class="pop-up-container">
+ <div *ngIf="is_premium" [class.test-hidden]="test_hidden" class="pop-up-container">
   <div class="overlay"></div>
 
   <div class="popup">

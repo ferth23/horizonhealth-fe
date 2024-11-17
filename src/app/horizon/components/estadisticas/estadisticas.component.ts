@@ -9,13 +9,13 @@
  *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
- * 15/11/2024    Layla González     Se crearon los métodos para mostrar la 
+ * 15/11/2024    Layla González     Se crearon los métodos para mostrar la
  *                                  gráfica de las estadísticas.
- * 
+ *
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Chart, ChartType, registerables } from 'chart.js';
+import { Chart, ChartTypeRegistry, registerables } from 'chart.js';
 import { TestService } from '../../services/test.service';
 import { MeditacionService } from '../../services/meditacion.service';
 import Swal from 'sweetalert2';
@@ -33,37 +33,37 @@ export class EstadisticasComponent implements OnInit {
     this.user_id = localStorage.getItem( 'user' );
   }
 
-  @ViewChild('chart') chartRef!: ElementRef;
-  
   // Atributo que almacena los datos del chart
-  public chart: Chart | null = null;
+  public chart_m: Chart | null = null;
+  public chart_t: Chart | null = null;
   private user_id !: string | null;
   private meditacion_service = inject ( MeditacionService );
   private test_service = inject ( TestService );
-  private data_meditaciones: number[] = [];
+  private data_meditaciones : number[] = [];
+  private fechas_meditaciones : string [] = [];
   private data_test: number[] = [];
+  private fechas_tests : string [] = [];
 
   ngOnInit(): void {
-    this.crearTabla();
+    this.getMeditaciones ();
+    this.getTestsResults ();
   }
 
-  crearTabla() {
-    console.log(this.data_meditaciones);
-    
+  crearTabla ( fechas: string [], data_numbers : number [], label : string, chart : Chart | null, chart_id : string, type : keyof ChartTypeRegistry ) {
     // Datos
     const data = {
-      //labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'Estadísticas de tus meditaciones',
-        data: this.data_meditaciones,
+      labels: fechas,
+      datasets: [ {
+        label: label,
+        data: data_numbers,
         borderColor: '#6BCADE',
         tension: 0.1
-      }]
+      } ]
     };
 
     // Crear la gráfica
-    this.chart = new Chart ( "chart", {
-      type: 'line',
+    chart = new Chart ( chart_id, {
+      type: type,
       data: data,
       options: {
         plugins: {
@@ -71,16 +71,16 @@ export class EstadisticasComponent implements OnInit {
             display: false
           },
           title: {
-            display: true, 
-            text: 'Estadísticas de tus meditaciones', 
+            display: true,
+            text: label,
             font: {
               size: 25,
-              family: 'Inter'
+              family: 'Roboto'
             },
-            color: '#50216E', 
+            color: '#50216E',
             padding: {
-              top: 10, 
-              bottom: 10 
+              top: 10,
+              bottom: 10
             }
           }
         },
@@ -119,15 +119,52 @@ export class EstadisticasComponent implements OnInit {
       }
     });
   }
-  
-  saveMeditacion() {
-    this.meditacion_service.getMeditaciones ( this.user_id )
-      .subscribe ( {
-        next: ( res ) => {
-          this.data_meditaciones = res;
-          this.crearTabla();
-        },
-        error: ( message => Swal.fire )
-      } )
+
+  getMeditaciones () {
+    this.meditacion_service.getMeditaciones ( this.user_id ).subscribe ( {
+      next: ( meditaciones ) => {
+        meditaciones.forEach ( meditacion => {
+          this.data_meditaciones.unshift ( meditacion.tiempo )
+          this.fechas_meditaciones.unshift ( meditacion.fecha )
+        } );
+        this.crearTabla (
+          this.fechas_meditaciones,
+          this.data_meditaciones,
+          'Duración de tus meditaciones (minutos)',
+          this.chart_m,
+          'chart_meditaciones',
+          "bar"
+        );
+      },
+      error: ( message => Swal.fire (
+        'Error al obtener las meditaciones',
+        message,
+        'error'
+      ) )
+    } )
+  }
+
+  getTestsResults () {
+    this.test_service.obtenerPuntajes ( this.user_id ).subscribe ( {
+      next: ( results ) => {
+        results.forEach ( result => {
+          this.data_test.unshift ( result.puntaje );
+          this.fechas_tests.unshift ( result.fecha );
+        } );
+        this.crearTabla (
+          this.fechas_tests,
+          this.data_test,
+          'Resultados de tus tests semanales',
+          this.chart_t,
+          'chart_tests',
+          "line"
+        );
+      },
+      error: ( message => Swal.fire (
+        'Error al obtener los resultados de los tests',
+        message,
+        'error'
+      ) )
+    } );
   }
 }
