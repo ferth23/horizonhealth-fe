@@ -14,7 +14,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { MeditacionResponse } from '../interfaces/meditacion-response.interface';
 
@@ -29,11 +29,13 @@ export class MeditacionService {
 
   // * Método que manda una petición al backend para obtener el registro de
   // * meditaciones del usuario
-  getMeditaciones ( user : string ) : Observable < MeditacionResponse > {
+  getMeditaciones ( user : string | null ) : Observable < number[] > {
     const url = `${ this.base_url }/api/meditacion/meditacion?userId=${ user }`;
 
-    return this.http.get < MeditacionResponse > ( url )
+    return this.http.get < MeditacionResponse[] > ( url )
       .pipe (
+        map ( meditaciones => meditaciones.map ( meditacion => meditacion.tiempo_meditacion ) ),
+        //tap ( ( res ) => console.log ( res ) ),
         catchError ( err => throwError ( () => err.error.message ) )
       );
   }
