@@ -1,0 +1,18 @@
+/* * ---------------------------------------------------------------------------------
+ * HorizonHealth
+ * 
+ * Archivo       : estadisticas.component.css
+ * Autor         : Layla Vanessa González Martínez
+ * Fecha         : 11/11/2024
+ * Descripción   : Estilos CSS para el apartado de la gráfica de las estadísticas.
+ * 
+ * Modificaciones:
+ * Fecha         Modificado por     Descripción
+ * 15/11/2024    Layla González     Se agregó el color de fondo de la página.
+ * -------------------------------------------------------------------------------- */
+ 
+canvas {
+    width: 100%;
+    height: 100%;
+    background-color: #FAEAFF;
+}

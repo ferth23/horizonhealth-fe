@@ -17,6 +17,7 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { TestResponse } from '../interfaces/test-response.interface';
+import { TestResultResponse } from '../interfaces/testResult-response.interface';
 
 @Injectable ( {
   providedIn : 'root'
@@ -32,6 +33,15 @@ export class TestService {
     const body = { userId, puntaje };
 
     return this.http.post < TestResponse > ( url, body )
+      .pipe (
+        catchError ( err => throwError ( () => err.error.message ) )
+      );
+  }
+
+  obtenerPuntajes ( userId: string | null ) : Observable < TestResultResponse[] > {
+    const url = `${ this.base_url }/api/test/resultados-test/${ userId }`;
+
+    return this.http.get < TestResultResponse[] > ( url )
       .pipe (
         catchError ( err => throwError ( () => err.error.message ) )
       );
