@@ -14,10 +14,15 @@
 
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { TestResponse } from '../interfaces/test-response.interface';
 import { TestResultResponse } from '../interfaces/testResult-response.interface';
+
+interface Result {
+  puntaje : number;
+  fecha : string;
+}
 
 @Injectable ( {
   providedIn : 'root'
@@ -38,11 +43,15 @@ export class TestService {
       );
   }
 
-  obtenerPuntajes ( userId: string | null ) : Observable < TestResultResponse[] > {
+  obtenerPuntajes ( userId: string | null ) : Observable < Result[] > {
     const url = `${ this.base_url }/api/test/resultados-test/${ userId }`;
 
     return this.http.get < TestResultResponse[] > ( url )
       .pipe (
+        map ( results => results.map ( result => ( {
+          puntaje : result.puntaje,
+          fecha : new Date ( result.fecha_test ).toDateString()
+        } ) ) ),
         catchError ( err => throwError ( () => err.error.message ) )
       );
   }

@@ -58,11 +58,6 @@ export class SurveyPopUpComponent {
 
   // * Método que revisa si debe aparecer el Pop Up
   checkPopUpVisibility () {
-    if ( this.isPremium != "1" ) {
-      this.onHide.emit ( true );
-      return;
-    }
-
     const today = new Date();
 
     if ( this.creation_date ) {

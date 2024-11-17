@@ -22,7 +22,9 @@
  *                                         el botón cancelar
  * ---------------------------------------------------------------------------- */
 
-import { AfterViewInit, Component, ElementRef, output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, output, ViewChild } from '@angular/core';
+import { MeditacionService } from '../../services/meditacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector : 'meditacion-pop-up',
@@ -32,20 +34,32 @@ import { AfterViewInit, Component, ElementRef, output, ViewChild } from '@angula
 export class MeditacionPopUpComponent {
 
   constructor () {
+    this.user_id = localStorage.getItem ( 'user' );
     this.premium = localStorage.getItem ( 'premium' );
     this.no_premium = this.premium === "0" ? true : false;
   }
 
   // * Declaración de eventos y variables
+  private meditacion_service = inject ( MeditacionService );
   public onStart = output <number> ();
   public onCancel = output <boolean> ();
   public value_spinner : number = 1;
   private premium : string | null = "";
+  private user_id : string | null = "";
   public no_premium : boolean = true;
 
   // * Método que emite el evento onStart con un valor dado
   public start () : void {
     this.onStart.emit ( this.value_spinner );
+
+    this.meditacion_service.guardarMeditacion ( this.user_id, this.value_spinner )
+      .subscribe ( {
+        error: ( message => Swal.fire (
+          'Error al guardar la meditación',
+          message,
+          'error'
+        ) )
+      } );
   }
 
   // * Método que emite el evento onCancel con un valor dado
