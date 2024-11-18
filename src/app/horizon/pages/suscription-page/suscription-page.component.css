@@ -22,7 +22,7 @@
 /* * Estilos generales y para computadora */
 .main-container {
   width: 100%;
-  height: calc(100%+30px);
+  height: calc(100% + 30px);
 }
 
 .secondary-container {
