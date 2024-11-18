@@ -27,6 +27,8 @@ import { Router } from '@angular/router';
 } )
 export class HomePageComponent {
 
+  // * Constructor del componente en donde se obtiene la variable 'premium'
+  // * del localStorage para saber si el usuario es premium o no
   constructor () {
     this.premium = localStorage.getItem ( 'premium' );
     if ( this.premium === "1" ) this.is_premium = true;

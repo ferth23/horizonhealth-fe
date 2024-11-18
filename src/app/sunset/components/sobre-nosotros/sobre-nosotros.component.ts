@@ -24,6 +24,8 @@ import { AcercaItem } from '../../interfaces/AcercaItem';
   styleUrls : [ './sobre-nosotros.component.css' ]
 } )
 export class SobreNosotrosComponent {
+
+  // * Información de los items que se mostrarán en el html
   public AcercaItems = signal < AcercaItem [] > ( [
     {
       clase : 'cuidado',

@@ -13,6 +13,14 @@
  *
  * 06/11/2024    Humberto Medina Santos    Implementación de los métodos de
  *                                         checkPremium() y updateUserToPremium()
+ *
+ * 12/11/2024    Humberto Medina Santos    Se agregaron los siguientes métodos:
+ *                                            - getUserById()
+ *                                            - cambiarFoto()
+ *                                            - cambiarDatos()
+ *                                            - cambiarContrasena()
+ *                                            - eliminarCuenta()
+ *                                            - cancelarSuscripcion()
  * ---------------------------------------------------------------------------- */
 
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -99,6 +107,7 @@ export class UserService {
       );
   }
 
+  // * Método que manda una petición al backend para cambiar la foto de perfil del usuario
   cambiarFoto ( user : string | null, file : File ) {
     const url = `${ this.base_url }/api/usuarios/usuarios/${ user }/upload`;
     const form_data = new FormData ();
@@ -110,6 +119,7 @@ export class UserService {
       )
   }
 
+  // * Método que manda una petición al backend para cambiar el nombre y correo del usuario
   cambiarDatos ( user : string | null, nombre : string, correo : string ) {
     const url = `${ this.base_url }/api/usuarios/cambiar-datos/${ user }`;
     const body = { nombre, correo };
@@ -120,6 +130,7 @@ export class UserService {
       )
   }
 
+  // * Método que manda una petición al backend para cambiar la contraseña del usuario
   cambiarContrasena ( user : string | null, c_actual : string, c_nueva : string ) {
     const url = `${ this.base_url }/api/usuarios/cambiar-contrasena/${ user }`;
     const body = { contrasenaActual: c_actual, nuevaContrasena: c_nueva };
@@ -130,6 +141,7 @@ export class UserService {
       )
   }
 
+  // * Método que manda una petición al backend para eliminar la cuenta del usuario
   eliminarCuenta ( user : string | null ) {
     const url = `${ this.base_url }/api/usuarios/eliminar-cuenta/${ user }`;
 
@@ -139,6 +151,7 @@ export class UserService {
       )
   }
 
+  // * Método que manda una petición al backend para cancelar la suscripción del usuario
   cancelarSuscripcion ( user : string | null ) {
     const url = `${ this.base_url }/api/usuarios/cancelar-suscripcion/${ user }`;
 

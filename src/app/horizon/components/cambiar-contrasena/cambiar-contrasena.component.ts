@@ -28,6 +28,8 @@ import { UserService } from 'src/app/auth/services/user.service';
   styleUrl: './cambiar-contrasena.component.css'
 })
 export class CambiarContrasenaComponent {
+
+  // * Injección de dependencias, servicios y declaración de variables
   private fb = inject ( FormBuilder );
   private user_service = inject ( UserService );
   private user_id : string | null = "";
@@ -39,11 +41,13 @@ export class CambiarContrasenaComponent {
     confirmNewPassword: [ '', [ Validators.required ] ]
   } );
 
+  // * Constructor del componente en donde se obtiene el id del usuario desde el
+  // * localstorage
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
   }
 
-  // * Método para validar los cambios a la contraseña, sin terminar
+  // * Método para validar los cambios a la contraseña
   changePassword () {
     const { currentPassword, newPassword, confirmNewPassword } = this.myForm.value;
 
