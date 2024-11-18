@@ -1,3 +1,17 @@
+/* ---------------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : profile-pop-up.component.css
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 13/11/2024
+ * Descripción   : Archivo de estilos de css del componente ProfilePopUp
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 13/11/2024    Humberto Medina Santos    Se crearon los estilos para el componente
+ * ---------------------------------------------------------------------------- */
+
+/* * Estilos generales (no fueron necesarios media queries) */
 .container {
   background-color: #6E214E;
   border-radius: 20px;

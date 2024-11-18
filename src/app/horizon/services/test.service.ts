@@ -10,15 +10,19 @@
  * Fecha         Modificado por            Descripción
  * 06/11/2024    Humberto Medina Santos    Implementación del método de
  *                                         guardarPuntaje()
+ *
+ * 16/11/2024    Humberto Medina Santos    Implementación del método de
+ *                                         obtenerPuntajes()
  * ---------------------------------------------------------------------------- */
 
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, Observable, tap, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { TestResponse } from '../interfaces/test-response.interface';
 import { TestResultResponse } from '../interfaces/testResult-response.interface';
 
+// * Interface para mapear la respuesta de la petición del método obtenerPuntajes()
 interface Result {
   puntaje : number;
   fecha : string;
@@ -33,6 +37,8 @@ export class TestService {
   private readonly base_url = environment.baseUrl;
   private http = inject ( HttpClient );
 
+  // * Método que realiza una petición POST al backend para guardar el puntaje
+  // * de un test semanal
   guardarPuntaje ( userId: string | null, puntaje : number ) : Observable < TestResponse > {
     const url = `${ this.base_url }/api/test/guardar-puntaje`;
     const body = { userId, puntaje };
@@ -43,6 +49,8 @@ export class TestService {
       );
   }
 
+  // * Método que realiza una petición GET al backend para obtener los puntajes
+  // * que ha tenido un usuario en sus tests semanales
   obtenerPuntajes ( userId: string | null ) : Observable < Result[] > {
     const url = `${ this.base_url }/api/test/resultados-test/${ userId }`;
 

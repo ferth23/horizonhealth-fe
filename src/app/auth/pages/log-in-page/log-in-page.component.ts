@@ -32,12 +32,16 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./log-in-page.component.css']
 } )
 export class LogInPageComponent {
+
+  // * Constructor del componente en donde se eliminan del localStorage las
+  // * variables user, premium y emotion
   constructor () {
     if ( localStorage.getItem ( 'user' ) ) localStorage.removeItem ( 'user' );
     if ( localStorage.getItem ( 'premium' ) ) localStorage.removeItem ( 'premium' );
     if ( localStorage.getItem ( 'emotion' ) ) localStorage.removeItem ( 'emotion' );
   }
 
+  // * Injección de dependencias, servicios y declaración de variables
   private fb = inject ( FormBuilder );
   private router = inject ( Router );
   private user_service = inject ( UserService );
@@ -72,6 +76,7 @@ export class LogInPageComponent {
       } );
   }
 
+  // * Método que hace que se oculte la contraseña o se vea mientras se escribe
   public togglePasswordView(): void {
     if ( this.eye_opened.nativeElement.classList.contains('invisible') ) {
       this.eye_opened.nativeElement.classList.remove('invisible');

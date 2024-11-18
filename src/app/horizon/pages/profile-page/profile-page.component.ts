@@ -31,6 +31,8 @@ import * as bcrypt from 'bcryptjs';
   styleUrl : './profile-page.component.css'
 })
 export class ProfilePageComponent {
+
+  // * Declaración de variables e injección de dependencias
   selectedOption : string = 'edit-profile';
   hidden : boolean = true;
   private current_width : number;
@@ -53,10 +55,12 @@ export class ProfilePageComponent {
     this.getUserById ();
   }
 
+  // * Método que envía al usuario al Home Page
   goToHomePage () {
     this.router.navigateByUrl ( 'horizon-health' );
   }
 
+  // * Método que obtiene todos los datos de un usuario mediante su id
   getUserById () {
     this.user_service.getUserById ( this.user_id ).subscribe ( {
       next: ( res ) => {
@@ -76,6 +80,7 @@ export class ProfilePageComponent {
     if ( this.current_width !== this.previous_width ) this.toggleSettings();
   }
 
+  // * Método que hace la funcionalidad de cambiar entre tabs
   selectOption ( option: string ) {
     this.selectedOption = option;
     this.toggleSettings();
@@ -94,7 +99,7 @@ export class ProfilePageComponent {
     }
   }
 
-  // * Método para eliminar la cuenta del usuario, sin terminar
+  // * Método para eliminar la cuenta del usuario
   async deleteAccount () {
     const result = await Swal.fire ( {
       title: "¿Deseas eliminar tu cuenta?",
