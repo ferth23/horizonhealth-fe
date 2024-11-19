@@ -15,7 +15,12 @@
  *                                         de configuración mediante el método
  *                                         'toggleSettings()'
  *
- * 25/10/2014    María Torres Herrera      Se añadió el método 'deleteAccount()'
+ * 25/10/2024    María Torres Herrera      Se añadió el método 'deleteAccount()'
+ *
+ * 15/10/2024    María Torres Herrera      Se modificó el método 'selectedOption()'
+ *                                         para cambiar el comportamiento de la
+ *                                         opción 'estadísticas' si el usuario no
+ *                                         es premium
  * ---------------------------------------------------------------------------- */
 
 import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
@@ -51,7 +56,13 @@ export class ProfilePageComponent {
     this.toggleSettings ();
     this.user_id = localStorage.getItem ( 'user' );
     this.getUserById ();
+
+    this.premium = localStorage.getItem ( 'premium' );
+    if ( this.premium === "1" ) this.is_premium = true;
   }
+
+  public is_premium : boolean = false;
+  private premium !: string | null;
 
   goToHomePage () {
     this.router.navigateByUrl ( 'horizon-health' );
@@ -78,6 +89,14 @@ export class ProfilePageComponent {
 
   selectOption ( option: string ) {
     this.selectedOption = option;
+
+    if ( this.selectedOption === "statistics" ) {
+      if ( !this.is_premium ) {
+        this.router.navigateByUrl ( 'horizon-health/suscription' );
+        return;
+      }
+    }
+
     this.toggleSettings();
   }
 
