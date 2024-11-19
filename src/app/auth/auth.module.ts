@@ -22,7 +22,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { UserService } from './services/user.service';
 
 @NgModule ( {
   declarations : [

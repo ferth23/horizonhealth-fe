@@ -20,6 +20,10 @@
  *                                         respectivo método cancel() para poder
  *                                         emitir dicho evento al hacer clic en
  *                                         el botón cancelar
+ *
+ * 16/11/2024    Humberto Medina Santos    Se implementó la funcionalidad de
+ *                                         guardar el tiempo de meditación en la
+ *                                         base de datos cada que se inicia una sesión
  * ---------------------------------------------------------------------------- */
 
 import { AfterViewInit, Component, ElementRef, inject, output, ViewChild } from '@angular/core';
@@ -33,6 +37,8 @@ import Swal from 'sweetalert2';
 })
 export class MeditacionPopUpComponent {
 
+  // * Constructor del componente que obtiene las variables user y premium del
+  // * localStorage y dependiendo de si el usuario es premium o no cambia una variable
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
     this.premium = localStorage.getItem ( 'premium' );

@@ -1,9 +1,36 @@
+<!-- * ------------------------------------------------------------------------------
+ * HorizonHealth
+ *
+ * Archivo       : profile-pop-up.component.html
+ * Autor         : Humberto Medina Santos
+ * Fecha         : 13/11/2024
+ * Descripción   : Archivo html del componente ProfilePopUp
+ *
+ * Modificaciones:
+ * Fecha         Modificado por            Descripción
+ * 13/11/2024    Humberto Medina Santos    Se creó la estructura html del componente
+ * ---------------------------------------------------------------------------- -->
+
 <div class="container">
+
+  <!-- * Botón para cerrar el pop up -->
   <p (click)="hideOptions()" class="exit">X</p>
+
+  <!-- * Foto de perfil del usuario -->
   <img class="profile_pic" [src]="getImage()" alt="Perfil">
+
+  <!-- * Nombre del usuario -->
   <p #user_name class="user"> {{ user_name_label }} </p>
+
+  <!-- * Línea divisora -->
   <hr class="line">
+
+  <!-- * Botón para ir a la página del perfil -->
   <button (click)="goToProfile()" class="perfil">Ver Perfil</button>
-  <button (click)="goToSubscribe()" class="subscribe"> {{ suscribe_text }} </button>
+
+  <!-- * Botón para suscribirse o cancelar la suscripción -->
+  <button (click)="suscription()" class="subscribe"> {{ suscribe_text }} </button>
+
+  <!-- * Botón para cerrar la sesión -->
   <button (click)="logOut()" class="sesion">Cerrar Sesión</button>
 </div>

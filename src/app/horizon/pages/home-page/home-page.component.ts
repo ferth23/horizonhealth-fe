@@ -35,6 +35,8 @@ import Swal from 'sweetalert2';
 } )
 export class HomePageComponent {
 
+  // * Constructor del componente en donde se obtiene la variable 'premium'
+  // * del localStorage para saber si el usuario es premium o no
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
 

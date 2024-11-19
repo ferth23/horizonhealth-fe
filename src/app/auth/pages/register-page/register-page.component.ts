@@ -30,6 +30,8 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./register-page.component.css']
 } )
 export class RegisterPageComponent {
+
+  // * Injección de dependencias y servicios
   private fb = inject ( FormBuilder );
   private router = inject ( Router );
   private user_service = inject ( UserService );

@@ -24,6 +24,8 @@ import { Router } from '@angular/router';
   styleUrls: [ './banner.component.css' ]
 } )
 export class BannerComponent {
+
+  // * Injección de la dependencia de Router
   private router = inject ( Router );
 
   // * Método que redirige a la página del proyecto Horizon Health

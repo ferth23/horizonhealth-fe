@@ -10,6 +10,9 @@
  * Fecha         Modificado por            Descripción
  * 06/11/2024    Humberto Medina Santos    Implementación del método de
  *                                         getMeditaciones()
+ *
+ * 16/11/2024    Humberto Medina Santos    Implementación del método de
+ *                                         guardarMeditacion()
  * ---------------------------------------------------------------------------- */
 
 import { HttpClient } from '@angular/common/http';
@@ -19,6 +22,7 @@ import { environment } from 'src/environments/environments';
 import { MeditacionResponse } from '../interfaces/meditacion-response.interface';
 import { GuardarMeditacionResponse } from '../interfaces/guardarmeditacion-response.interface';
 
+// * Interface para mapear la respuesta de la petición del método getMeditaciones()
 interface Meditacion {
   tiempo : number;
   fecha : string;

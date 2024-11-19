@@ -29,12 +29,15 @@ import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
   styleUrl: './editar-perfil.component.css'
 })
 export class EditarPerfilComponent {
+
+  // * Injección de dependencias, servicios y declaración de variables
   private fb = inject ( FormBuilder );
   private user_service = inject ( UserService );
   private user_id : string | null = "";
   public profile_pic_src : string | null = null;
   private user !: UserResponse;
 
+  // * Variable que contiene la referencia del elemento fileInput
   @ViewChild ( 'fileInput' ) fileInput!: ElementRef < HTMLInputElement >;
   selectedImage: File | null = null;
 
@@ -44,11 +47,14 @@ export class EditarPerfilComponent {
     email: [ '', [ Validators.required, Validators.pattern ( customValidators.emailPattern ) ] ],
   } );
 
+  // * Constructor del componente en donde se obtiene el id del usuario desde el
+  // * localStorage y se obtienen los datos del usuario en base a este
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
     if ( this.user_id ) this.getUserById ();
   }
 
+  // * Método que obtiene todos los datos del usuario con su id
   getUserById () {
     this.user_service.getUserById ( this.user_id ).subscribe ( {
       next: ( user ) => {
@@ -60,10 +66,14 @@ export class EditarPerfilComponent {
     } );
   }
 
+  // * Método que hace que s ehaga clic en el input invisible para abrir el dialogo
+  // * del explorador de archivos y seleccionar una imagen
   getPicture () {
     this.fileInput.nativeElement.click();
   }
 
+  // * Método que obtiene la imagen seleccionada por el usuario y la guarda en una
+  // * variable. En caso de ser la misma que ya se tenia se pone null
   onFileSelected ( event : Event ) {
     const input = event.target as HTMLInputElement;
 

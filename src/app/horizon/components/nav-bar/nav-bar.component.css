@@ -89,7 +89,7 @@ nav {
   height: 70px;
   border-radius: 55px;
   background-color: #6E214E;
-  margin: 17px 0;
+  margin: 12px 0;
 }
 
 .profile-pop-up {
@@ -130,6 +130,8 @@ nav {
     display: grid;
     place-self: center;
   }
+
+  .profile { margin: 17px 0; }
 }
 
 /* * Estilos para Tablet y Celular */

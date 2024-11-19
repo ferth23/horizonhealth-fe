@@ -88,6 +88,7 @@ export class NavBarComponent {
     foto_perfil: ''
   };
 
+  // * Método que obtiene todos los datos del usuario con su id
   getUserById () {
     this.user_service.getUserById ( this.user_id ).subscribe ( {
       next: ( res ) => this.user = res[0],
@@ -119,6 +120,7 @@ export class NavBarComponent {
     else if ( window.innerWidth <= 768 && this.nav_login_hidden ) this.nav_login_hidden = false;
   }
 
+  // * Método que asigna la imagen que se mostrará como foto de perfil del usuario
   getImage () : string {
     return this.user.foto_perfil ? this.user.foto_perfil : "placeholder-avatar.png"
   }
