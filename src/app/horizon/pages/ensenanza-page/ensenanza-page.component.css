@@ -102,6 +102,7 @@ p {
 }
 
 button {
+    cursor: pointer;
     background-color: white;
     z-index: 999;
     height: 55px;
