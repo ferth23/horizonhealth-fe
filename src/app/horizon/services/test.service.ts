@@ -25,7 +25,8 @@ import { TestResultResponse } from '../interfaces/testResult-response.interface'
 // * Interface para mapear la respuesta de la petición del método obtenerPuntajes()
 interface Result {
   puntaje : number;
-  fecha : string;
+  fecha_s : string;
+  fecha_d : Date;
 }
 
 @Injectable ( {
@@ -58,7 +59,8 @@ export class TestService {
       .pipe (
         map ( results => results.map ( result => ( {
           puntaje : result.puntaje,
-          fecha : new Date ( result.fecha_test ).toDateString()
+          fecha_s : new Date ( result.fecha_test ).toDateString(),
+          fecha_d : result.fecha_test
         } ) ) ),
         catchError ( err => throwError ( () => err.error.message ) )
       );

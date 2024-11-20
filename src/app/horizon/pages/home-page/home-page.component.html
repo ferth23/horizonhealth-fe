@@ -12,23 +12,27 @@
  *
  * 11/10/2024    Humberto Medina Santos    Se implementó el componente PopUp y su
  *                                         funcionalidad de aparecer y desaparecer
+ *
+ * 15/10/2024    María Torres Herrera      Se añadieron las variables booleanas
+ *                                         'showDailyPopup' y 'showWeeklyPopup'
+ *                                         a los PopUps
  * ---------------------------------------------------------------------------- -->
 
  <!-- * Componente PopUp De Emociones -->
-<div [class.hidden]="hidden" class="pop-up-container">
+<div *ngIf="showDailyPopup" [class.hidden]="hidden" class="pop-up-container">
   <div class="overlay"></div>
 
   <div class="popup">
-    <pop-up (onHide)="hidden = true"/>
+    <pop-up *ngIf="showDailyPopup" (onHide)="hidden = true"/>
   </div>
 </div>
 
  <!-- * Componente PopUp Del Test -->
-<div *ngIf="is_premium" [class.test-hidden]="test_hidden" class="pop-up-container">
+ <div *ngIf="showWeeklyPopup" [class.test-hidden]="test_hidden" class="pop-up-container">
   <div class="overlay"></div>
 
   <div class="popup">
-    <survey-pop-up (onHide)="test_hidden = true"/>
+    <survey-pop-up *ngIf="showWeeklyPopup" (onHide)="test_hidden = true; showDailyPopup = true"/>
   </div>
 </div>
 

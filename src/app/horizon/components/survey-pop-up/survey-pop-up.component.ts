@@ -12,16 +12,12 @@
  *                                         cual valida que todas las preguntas
  *                                         tengan respuesta, y guarda en la base
  *                                         de datos la puntuación obtenida
- *
- * 24/10/2024    María Torres Herrera      Se añadió el método 'confirmChanges()'
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject, output } from '@angular/core';
 import { Answers } from '../../interfaces/survey-answers.interface';
 import Swal from 'sweetalert2'
 import { TestService } from '../../services/test.service';
-import { UserService } from 'src/app/auth/services/user.service';
-import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
 
 @Component({
   selector: 'survey-pop-up',
@@ -32,15 +28,10 @@ import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
 export class SurveyPopUpComponent {
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
-    this.isPremium = localStorage.getItem ( 'premium' );
   }
 
   private test_service = inject ( TestService );
-  private user_service = inject ( UserService );
   private user_id !: string | null;
-  private creation_date: Date | null = null;
-  private isPremium : string | null;
-  private user !: UserResponse;
 
   // * Objeto para guardar las respuestas de las preguntas
   answers: Answers = {
@@ -55,32 +46,6 @@ export class SurveyPopUpComponent {
     q9: null,
     q10: null,
   };
-
-  // * Método que revisa si debe aparecer el Pop Up
-  checkPopUpVisibility () {
-    const today = new Date();
-
-    if ( this.creation_date ) {
-      const creationDate = new Date ( this.creation_date );
-      const daysSinceCreation = Math.floor ( ( today.getTime() - creationDate.getTime () ) / ( 1000 * 60 * 60 * 24 ) );
-
-      if ( daysSinceCreation % 7 === 0 ) {
-        this.onHide.emit ( false );
-      }
-    }
-  }
-
-  // * Obtiene la fecha de creación de la cuenta de usuario
-  getCreationDate () {
-    this.user_service.getUserById ( this.user_id ).subscribe({
-      next: ( user ) => {
-        this.user = user[0];
-        this.creation_date = this.user.fecha_de_creacion;
-        this.checkPopUpVisibility();
-      },
-      error: ( message => Swal.fire ( 'Error', message, 'error' ) )
-    });
-  }
 
   // * Variable para controlar cuando desaparece el Pop Up
   public onHide = output <boolean> ();
