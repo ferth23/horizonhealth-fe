@@ -19,6 +19,14 @@
  *                                         y 'checkPopUpVisibility()', los cuales
  *                                         tienen la función de mostrar el test
  *                                         semanal utilizando la fecha actual
+ *
+ * 19/11/2024    María Torres Herrera      Se añadió el método 'getLastWeeklyTestDate()',
+ *                                         el cual obtiene la fecha del test más
+ *                                         reciente que el usuario respondió
+ *
+ * 19/11/2024    María Torres Herrera      Se modificó el método 'checkPopUpVisibility()'
+ *                                         para que el test solo pueda responderse
+ *                                         una vez en el día
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject, signal } from '@angular/core';
@@ -27,6 +35,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/auth/services/user.service';
 import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
 import Swal from 'sweetalert2';
+import { TestService } from '../../services/test.service';
 
 @Component ( {
   selector : 'app-home-page',
@@ -53,6 +62,7 @@ export class HomePageComponent {
   // * Declaración de variables y dependencias
   private router = inject ( Router );
   private user_service = inject ( UserService );
+  private test_service = inject ( TestService );
   private user !: UserResponse;
   public hidden : boolean = false;
   public test_hidden : boolean = false;
@@ -60,32 +70,56 @@ export class HomePageComponent {
   private premium !: string | null;
   private creation_date: Date | null = null;
   private user_id !: string | null;
-  public showWeeklyPopup: boolean = false;
-  public showDailyPopup: boolean = false;
+  public showWeeklyPopup : boolean = false;
+  public showDailyPopup : boolean = false;
+  private last_test_date : Date | null = null;
 
   // * Obtiene la fecha de creación de la cuenta de usuario
   getCreationDate () {
-    this.user_service.getUserById ( this.user_id ).subscribe({
+    this.user_service.getUserById ( this.user_id ).subscribe ( {
       next: ( user ) => {
         this.user = user[0];
         this.creation_date = this.user.fecha_de_creacion;
-        this.checkPopUpVisibility();
+        this.getLastWeeklyTestDate();
       },
       error: ( message => Swal.fire ( 'Error', message, 'error' ) )
-    });
+    } );
+  }
+
+  // * Obtiene la fecha del último test que el usuario respondió
+  getLastWeeklyTestDate () {
+    this.test_service.obtenerPuntajes ( this.user_id ).subscribe ( {
+      next: ( res ) => {
+        this.last_test_date = res[0].fecha_d;
+        this.checkPopUpVisibility();
+      },
+      error: ( message ) => { /*Swal.fire ( 'Error', message, 'error' )*/
+        this.last_test_date = null;
+        this.checkPopUpVisibility();
+      }
+    } );
   }
 
   // * Método que revisa si debe aparecer el Pop Up
   checkPopUpVisibility () {
-    const today = new Date();
+    const now = new Date();
 
     if ( this.creation_date ) {
       const creationDate = new Date ( this.creation_date );
-      const daysSinceCreation = Math.floor ( ( today.getTime() - creationDate.getTime () ) / ( 1000 * 60 * 60 * 24 ) );
+      const daysSinceCreation = Math.floor ( ( now.getTime() - creationDate.getTime () ) / ( 1000 * 60 * 60 * 24 ) );
 
       if ( ( daysSinceCreation - 1 ) % 7 === 0 ) {
-        this.showDailyPopup = false;
-        this.showWeeklyPopup = true;
+        if ( this.last_test_date ) {
+          if ( this.last_test_date < now ) {
+            this.showDailyPopup = false;
+            this.showWeeklyPopup = true;
+          } else {
+            this.showDailyPopup = true;
+          }
+        } else {
+          this.showDailyPopup = false;
+          this.showWeeklyPopup = true;
+        }
       } else {
         this.showDailyPopup = true;
       }

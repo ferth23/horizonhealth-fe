@@ -149,7 +149,7 @@ export class EstadisticasComponent implements OnInit {
       next: ( results ) => {
         results.forEach ( result => {
           this.data_test.unshift ( result.puntaje );
-          this.fechas_tests.unshift ( result.fecha );
+          this.fechas_tests.unshift ( result.fecha_s );
         } );
         this.crearTabla (
           this.fechas_tests,
