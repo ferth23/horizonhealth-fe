@@ -18,7 +18,7 @@
  * 25/10/2024    María Torres Herrera      Se cambió el font al modal de SweetAlert
  * ---------------------------------------------------------------------------- */
 
-  /* * Estilos generales y para computadoras */
+/* * Estilos generales y para computadoras */
 .main-container {
   width: 100%;
   height: 100vh;
@@ -127,6 +127,11 @@
   right: 45px;
   left: 45px;
   border-radius: 20px;
+
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 5px;
 }
 
 ::ng-deep .swal2-modal, ::ng-deep .swal2-input {

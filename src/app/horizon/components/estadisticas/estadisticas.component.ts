@@ -11,10 +11,12 @@
  * Fecha         Modificado por     Descripción
  * 15/11/2024    Layla González     Se crearon los métodos para mostrar la
  *                                  gráfica de las estadísticas.
- *
+ * 
+ * 16/11/2024    Layla González y    Se modificaron los métodos.
+ *               Humberto Medina   
  * ---------------------------------------------------------------------------- */
 
-import { Component, inject, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Chart, ChartTypeRegistry, registerables } from 'chart.js';
 import { TestService } from '../../services/test.service';
 import { MeditacionService } from '../../services/meditacion.service';
@@ -29,39 +31,76 @@ Chart.register(...registerables);
 })
 
 export class EstadisticasComponent implements OnInit {
+
+  // * Constructor para obtener el id del usuario
   constructor () {
     this.user_id = localStorage.getItem( 'user' );
   }
 
-  // Atributo que almacena los datos del chart
+  // * Variables para las gráficas
   public chart_m: Chart | null = null;
   public chart_t: Chart | null = null;
+
+  // * Variable que almacena el id del usuario
   private user_id !: string | null;
+
+  // * Servicios
   private meditacion_service = inject ( MeditacionService );
   private test_service = inject ( TestService );
+
+  // * Atributos para las meditaciones
   private data_meditaciones : number[] = [];
   private fechas_meditaciones : string [] = [];
+
+  // * Atributos para los resultados del test
   private data_test: number[] = [];
   private fechas_tests : string [] = [];
 
+  // * Manda llamar los métodos que contienen los datos para las gr¿aficas
   ngOnInit(): void {
     this.getMeditaciones ();
     this.getTestsResults ();
   }
 
-  crearTabla ( fechas: string [], data_numbers : number [], label : string, chart : Chart | null, chart_id : string, type : keyof ChartTypeRegistry ) {
-    // Datos
+  // * Método para cambiar el tamaño de fuente según el tamaño de la ventana
+  private getFontSize(): number {
+    const width = window.innerWidth;
+
+    if ( width <= 460 ) {
+      return 10;
+    }
+    
+    if (width <= 768) {
+      return 11.5;
+    } 
+    
+    else
+        return 16;
+  }  
+
+  // * Método para crear y mostrar una gráfica
+  grafica ( fechas: string [], data_numbers : number [], label : string, chart : Chart | null, chart_id : string, type : keyof ChartTypeRegistry ) {
+    
+    // * Colores
+    const colors = [ 'rgba(255, 99, 132, 0.3)', 'rgba(255, 159, 64, 0.3)', 'rgba(255, 205, 86, 0.3)', 'rgba(75, 192, 192, 0.3)', 
+                     'rgba(54, 162, 235, 0.3)', 'rgba(153, 102, 255, 0.3)', 'rgba(201, 203, 207, 0.3)' ];
+    
+    // * Datos
     const data = {
       labels: fechas,
       datasets: [ {
         label: label,
         data: data_numbers,
+        backgroundColor: colors,
         borderColor: '#6BCADE',
         tension: 0.1
       } ]
     };
 
-    // Crear la gráfica
+    // * Tamaño de fuente
+    const fontSize = this.getFontSize();
+
+    // * Estructura de la gráfica
     chart = new Chart ( chart_id, {
       type: type,
       data: data,
@@ -80,7 +119,7 @@ export class EstadisticasComponent implements OnInit {
             color: '#50216E',
             padding: {
               top: 10,
-              bottom: 10
+              bottom: 15
             }
           }
         },
@@ -89,7 +128,7 @@ export class EstadisticasComponent implements OnInit {
             ticks: {
               color: '#50216E',
               font: {
-                size: 15
+                size: fontSize
               }
             },
             grid: {
@@ -100,7 +139,7 @@ export class EstadisticasComponent implements OnInit {
             ticks: {
               color: '#50216E',
               font: {
-                size: 15
+                size: fontSize
               }
             },
             grid: {
@@ -120,6 +159,7 @@ export class EstadisticasComponent implements OnInit {
     });
   }
 
+  // * Método para obtener los datos de las meditaciones y pasarlos de parámetros para la gráfica
   getMeditaciones () {
     this.meditacion_service.getMeditaciones ( this.user_id ).subscribe ( {
       next: ( meditaciones ) => {
@@ -127,7 +167,7 @@ export class EstadisticasComponent implements OnInit {
           this.data_meditaciones.unshift ( meditacion.tiempo )
           this.fechas_meditaciones.unshift ( meditacion.fecha )
         } );
-        this.crearTabla (
+        this.grafica (
           this.fechas_meditaciones,
           this.data_meditaciones,
           'Duración de tus meditaciones (minutos)',
@@ -144,6 +184,7 @@ export class EstadisticasComponent implements OnInit {
     } )
   }
 
+  // * Método para obtener los resultados del test y pasarlos de parámetros para la gráfica
   getTestsResults () {
     this.test_service.obtenerPuntajes ( this.user_id ).subscribe ( {
       next: ( results ) => {
@@ -151,7 +192,7 @@ export class EstadisticasComponent implements OnInit {
           this.data_test.unshift ( result.puntaje );
           this.fechas_tests.unshift ( result.fecha );
         } );
-        this.crearTabla (
+        this.grafica (
           this.fechas_tests,
           this.data_test,
           'Resultados de tus tests semanales',
