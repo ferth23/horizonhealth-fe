@@ -59,6 +59,7 @@
         <div class="setting" (click)="selectOption('statistics')">
           <img src="stats-setting.svg" class="icon" alt="Statistics Setting Image">
           <p> Estadísticas </p>
+          <img *ngIf="!is_premium" src="premium.svg" alt="Premium Icon Image">
         </div>
       </div>
 
@@ -98,9 +99,8 @@
     <!-- * Contenido de la opción de configuración elegida -->
     <div class="content">
       <editar-perfil *ngIf="selectedOption === 'edit-profile'"></editar-perfil>
-      <estadisticas *ngIf="selectedOption === 'statistics'"></estadisticas>
+      <estadisticas *ngIf="selectedOption === 'statistics' && is_premium"></estadisticas>
       <cambiar-contrasena *ngIf="selectedOption === 'password'"></cambiar-contrasena>
     </div>
   </div>
 </div>
-
