@@ -18,8 +18,8 @@
  *                                  en grupos de 4.
  *
  * 08/11/2024    Layla González    Se agregó un contenedor más para lograr el efecto
- *                                  de desenfoque al abrir el pop up del formulario
- *                                  de pago.
+ *                                 de desenfoque al abrir el pop up del formulario
+ *                                 de pago.
  * --------------------------------------------------------------------------------->
 
 <!-- * Contenedor para desenfocar el fondo al abrir formulario de pago -->
@@ -29,7 +29,7 @@
     <div class="modal">
 
         <!-- * Formulario para la información de la tarjeta de crédito -->
-        <form class="form">
+        <form class="form" [formGroup]="formPago" (ngSubmit)="onSubmit()">
 
             <!-- * Contenedor con todos los campos del formulario de la tarjeta -->
             <div class="credit-card-form">
@@ -44,8 +44,8 @@
                 <!-- * Campo y etiqueta para el número de tarjeta -->
                 <div class="input_container">
                     <label for="card_number" class="input_label">Número de Tarjeta</label>
-                    <input id="card_number" class="input_field" type="text" name="card-number"
-                    placeholder="0000 0000 0000 0000" maxlength="16" (input)="validateNumber($event)"
+                    <input id="card_number" class="input_field" type="text" 
+                    placeholder="0000 0000 0000 0000" maxlength="19" (input)="validateNumber($event)"
                     formControlName="cardNumber">
                 </div>
 
@@ -56,13 +56,17 @@
                         <!-- * Fecha de expiración -->
                         <div class="campo">
                             <label for="expiry_date" class="input_label">Fecha de Expiración</label>
-                            <input id="expiry_date" class="input_field" type="text" name="expiry-date" placeholder="01/23">
+                            <input id="expiry_date" class="input_field" type="text" name="expiry-date" 
+                            placeholder="MM/YY" maxlength="5" (input)="validateDate($event)"
+                            formControlName="expiryDate">
                         </div>
 
                         <!-- * Código de seguridad -->
                         <div class="campo">
                             <label for="cvv" class="input_label">CVV</label>
-                            <input id="cvv" class="input_field" type="number" name="cvv" placeholder="123">
+                            <input id="cvv" class="input_field" type="number" name="cvv" 
+                            placeholder="123"  maxlength="3" (input)="validateCVV($event)"
+                            formControlName="cvv">
                         </div>
 
                     </div>
@@ -71,7 +75,7 @@
             </div>
 
             <!-- * Botón para confirmar la información de los campos y "pagar" -->
-            <button class="suscription" (click)="close()">Confirmar</button>
+            <button class="suscription" type="submit">Confirmar</button>
             <button class="suscription" (click)="close()">Cancelar</button>
 
         </form>

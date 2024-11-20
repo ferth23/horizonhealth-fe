@@ -11,8 +11,28 @@
  * 15/11/2024    Layla González     Se agregó el color de fondo de la página.
  * -------------------------------------------------------------------------------- */
  
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 canvas {
     width: 100%;
     height: 100%;
-    background-color: #FAEAFF;
+    border-radius: 10px;
+}
+    
+@media ( max-width: 768px ) {
+    .main-container {
+        padding-top: 65px;
+    }
+}
+
+@media ( max-width: 460px ) {
+    .main-container {
+        padding-top: 85px;
+    }
 }
