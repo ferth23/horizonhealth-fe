@@ -11,9 +11,9 @@
  * Fecha         Modificado por     Descripción
  * 15/11/2024    Layla González     Se crearon los métodos para mostrar la
  *                                  gráfica de las estadísticas.
- * 
+ *
  * 16/11/2024    Layla González y    Se modificaron los métodos.
- *               Humberto Medina   
+ *               Humberto Medina
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject, OnInit } from '@angular/core';
@@ -69,22 +69,22 @@ export class EstadisticasComponent implements OnInit {
     if ( width <= 460 ) {
       return 10;
     }
-    
+
     if (width <= 768) {
       return 11.5;
-    } 
-    
+    }
+
     else
         return 16;
-  }  
+  }
 
   // * Método para crear y mostrar una gráfica
   grafica ( fechas: string [], data_numbers : number [], label : string, chart : Chart | null, chart_id : string, type : keyof ChartTypeRegistry ) {
-    
+
     // * Colores
-    const colors = [ 'rgba(255, 99, 132, 0.3)', 'rgba(255, 159, 64, 0.3)', 'rgba(255, 205, 86, 0.3)', 'rgba(75, 192, 192, 0.3)', 
+    const colors = [ 'rgba(255, 99, 132, 0.3)', 'rgba(255, 159, 64, 0.3)', 'rgba(255, 205, 86, 0.3)', 'rgba(75, 192, 192, 0.3)',
                      'rgba(54, 162, 235, 0.3)', 'rgba(153, 102, 255, 0.3)', 'rgba(201, 203, 207, 0.3)' ];
-    
+
     // * Datos
     const data = {
       labels: fechas,
@@ -202,9 +202,9 @@ export class EstadisticasComponent implements OnInit {
         );
       },
       error: ( message => Swal.fire (
-        'Error al obtener los resultados de los tests',
+        'Aún no tienes estadísticas del test semanal para mostrar',
         message,
-        'error'
+        'warning'
       ) )
     } );
   }

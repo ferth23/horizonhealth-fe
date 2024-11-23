@@ -105,14 +105,19 @@ export class ProfilePopUpComponent implements AfterViewInit {
               title: "¡Tu suscripción ha sido cancelada!",
               icon: "success",
               iconColor: "#52EA0C",
+              timer: 3000,
               showCancelButton: false,
               showConfirmButton: false
             } );
 
             localStorage.removeItem ( 'premium' );
             localStorage.setItem ( 'premium', "0" );
-            this.location.go ( this.location.path() );
-            window.location.reload();
+            this.router.navigateByUrl ( 'horizon-health' );
+
+            setTimeout ( () => {
+              this.location.go ( this.location.path() );
+              window.location.reload();
+            }, 3000 );
           },
           error: ( message => Swal.fire (
             'Error al cancelar la suscripción',

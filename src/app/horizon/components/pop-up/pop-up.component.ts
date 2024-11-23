@@ -16,7 +16,9 @@
  *                                  desaparecer el Pop Up.
  * ---------------------------------------------------------------------------- */
 
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
+import { DailyTestService } from '../../services/daily-test.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'pop-up',
@@ -25,12 +27,27 @@ import { Component, output } from '@angular/core';
 })
 export class PopUpComponent {
 
+  constructor () {
+    this.user_id = localStorage.getItem ( 'user' );
+  }
+
+  private daily_test_service = inject ( DailyTestService );
+  private user_id : string | null = "";
+
   // * Variable para controlar cuando desaparece el Pop Up
   public onHide = output <boolean> ();
 
   // * Método que guarda la emoción seleccionada
   emotionSelected ( emotion_selected: string ) {
     localStorage.setItem ( 'emotion', emotion_selected );
+
+    this.daily_test_service.guardarFecha ( this.user_id ).subscribe ( {
+      error: ( message => Swal.fire (
+        'Error al guardar la fecha del test',
+        message,
+        'error'
+      ) )
+    } );
 
     // * Desaparezca el Pop Up
     this.onHide.emit(true);

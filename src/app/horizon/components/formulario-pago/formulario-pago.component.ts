@@ -1,23 +1,26 @@
 /* * ---------------------------------------------------------------------------------
  * HorizonHealth
- * 
+ *
  * Archivo       : formulario-pago.component.ts
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 06/11/2024
- * Descripción   : Aquí se controla la lógica del formulario de pago de la 
+ * Descripción   : Aquí se controla la lógica del formulario de pago de la
  *                 suscripción.
- * 
+ *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
- * 07/11/2024    Layla González     Se implementó la funcionalidad para esconder el 
+ * 07/11/2024    Layla González     Se implementó la funcionalidad para esconder el
  *                                  formulario de pago.
- * 
- * 08/11/2024    Layla González     Se implementó la validación para el número de 
+ *
+ * 08/11/2024    Layla González     Se implementó la validación para el número de
  *                                  tarjeta.
  * -------------------------------------------------------------------------------- */
 
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/auth/services/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -27,12 +30,22 @@ import Swal from 'sweetalert2';
 })
 export class FormularioPagoComponent {
 
-  @Output() closePopup = new EventEmitter<void>();
+  constructor () {
+    this.user_id = localStorage.getItem ( 'user' );
+    this.applyRegex();
+  }
 
-  formPago: FormGroup;
+  @Output() closePopup = new EventEmitter<void>();
+  private user_service = inject ( UserService );
+  private fb = inject ( FormBuilder );
+  private router = inject ( Router );
+  private location = inject ( Location );
+  private user_id : string | null = "";
+  formPago!: FormGroup;
+
 
   // * Regex para validaciones
-  constructor ( private fb: FormBuilder ) {
+  applyRegex () {
     this.formPago = this.fb.group( {
       cardNumber: [
         '',
@@ -62,11 +75,11 @@ export class FormularioPagoComponent {
   validateNumber ( event: Event ) {
     const input = event.target as HTMLInputElement;
 
-    const rawValue = input.value.replace(/\D/g, ''); 
+    const rawValue = input.value.replace(/\D/g, '');
     const formattedValue = rawValue.replace(/(\d{4})(?=\d)/g, '$1 ');
-  
+
     this.formPago.get('cardNumber')?.setValue(rawValue, { emitEvent: false });
-  
+
     input.value = formattedValue;
   }
 
@@ -76,12 +89,12 @@ export class FormularioPagoComponent {
 
     input.value = input.value
       .replace(/\D/g, '')
-      .slice( 0, 3 ); 
+      .slice( 0, 3 );
 
     this.formPago.get( 'cvv' )?.setValue( input.value );
   }
 
-  // * Métodos para validar la fecha de expiración y su formato MM/YY 
+  // * Métodos para validar la fecha de expiración y su formato MM/YY
   validateDate ( event: Event ) {
     const input = event.target as HTMLInputElement;
 
@@ -94,38 +107,53 @@ export class FormularioPagoComponent {
 
   validateExpiryDate(control: any) {
     let value = control.value;
-  
-    if ( ! value ) 
+
+    if ( ! value )
       return null;
-  
+
     value = value.replace(/[^0-9/]/g, '');
-  
+
     if ( value.length !== 5 || !/^\d{2}\/\d{2}$/.test( value ) ) {
-      return { 
-        invalidFormat: true 
+      return {
+        invalidFormat: true
       };
     }
-  
+
     return null;
   }
 
-  // * Método para enviar el formulario 
+  // * Método para enviar el formulario
   onSubmit() {
     if ( this.formPago.valid ) {
-      Swal.fire({
-        title: '¡Pago exitoso!',
-        text: 'Ahora eres usuario premium',
-        icon: 'success',
-        confirmButtonText: 'Aceptar',
+      this.user_service.updateUserToPremium ( this.user_id ).subscribe ( {
+        next: () => {
+          Swal.fire({
+            title: '¡Pago exitoso!',
+            text: 'Ahora eres usuario premium',
+            icon: 'success',
+            timer: 3000,
+            showCancelButton: false,
+            showConfirmButton: false,
 
-        willOpen: () => {
-          const swalElement = document.querySelector('.swal2-container') as HTMLElement;
-          
-          if ( swalElement ) {
-            swalElement.style.zIndex = '1000000';
-          }
-        }
+            willOpen: () => {
+              const swalElement = document.querySelector('.swal2-container') as HTMLElement;
 
+              if ( swalElement ) {
+                swalElement.style.zIndex = '1000000';
+              }
+            }
+          } );
+
+          localStorage.removeItem ( 'premium' );
+          localStorage.setItem ( 'premium', "1" );
+          this.router.navigateByUrl ( 'horizon-health' );
+
+          setTimeout ( () => {
+            this.location.go ( this.location.path() );
+            window.location.reload();
+          }, 3000 );
+        },
+        error: ( message => Swal.fire ( 'Error al suscribirse', message, 'error' ) )
       } );
     } else {
       Swal.fire ( {
@@ -136,15 +164,14 @@ export class FormularioPagoComponent {
 
         willOpen: () => {
           const swalElement = document.querySelector('.swal2-container') as HTMLElement;
-          
+
           if ( swalElement ) {
             swalElement.style.zIndex = '1000000';
           }
         }
-
       } );
     }
-  }  
+  }
 
   // * Método para cerrar el formulario
   close() {

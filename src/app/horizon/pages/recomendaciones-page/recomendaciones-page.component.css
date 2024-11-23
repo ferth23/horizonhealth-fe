@@ -17,7 +17,7 @@
 .container {
   margin: 0 30px 30px 30px;
   border-radius: 20px;
-  height: 967px;
+  height: auto;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -68,8 +68,9 @@
   z-index: 3;
   display: grid;
   place-items: center;
-  margin: 5rem 0;
-  width: 1300px;
+  margin: 5% 0;
+  width: 90%;
+  height: auto;
 }
 
 .tab-items {
@@ -90,7 +91,7 @@
 
 .item {
   cursor: pointer;
-  width: 390px;
+  width: 30%;
   height: 70px;
   display: flex;
   justify-content: center;
@@ -132,12 +133,13 @@
   }
 
   .tabbed-pane {
-    margin: 2rem 0;
-    width: 600px;
+    margin: 10% 0;
+    width: 90%;
   }
 
   .tab-items {
     height: 70px;
+    width: 80vw;
     font-size: 20px;
   }
 
@@ -146,26 +148,42 @@
     height: 50px;
   }
 
-  .tab-content { height: 620px; }
+  .tab-content {
+    height: 620px;
+    width: 80vw
+  }
+
   .content { padding: 36px; }
 }
 
 /* * Estilos para Celular */
 @media ( max-width: 460px ) {
+  .container { margin: 0 20px 20px 20px; }
+
   .button {
     width: 90px;
     height: 50px;
   }
 
   .main-title { font-size: 30px; }
-  .tabbed-pane { width: 320px; }
+
+  .tabbed-pane {
+    width: 80%;
+    margin: 10% 0;
+  }
 
   .tab-items {
     flex-direction: column;
+    width: 70vw;
     height: 200px;
   }
 
   .item { width: 90%; }
-  .tab-content { height: 510px; }
+
+  .tab-content {
+    height: 530px;
+    width: 70vw;
+  }
+
   .content { padding: 26px; }
 }

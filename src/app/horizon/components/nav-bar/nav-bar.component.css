@@ -37,15 +37,14 @@ nav {
   width: 40px;
   height: 40px;
   display: grid;
-  align-self: center;
-  margin-top: 11px;
   margin-bottom: 11px;
+  margin-right: 0;
 }
 
 .hh-logo {
   cursor: pointer;
-  height: 100%;
-  width: 12rem;
+  height: 60px;
+  width: 11rem;
   margin: 3px 0;
 }
 
@@ -85,8 +84,8 @@ nav {
   cursor: pointer;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 55px;
   background-color: #6E214E;
   margin: 12px 0;
@@ -112,9 +111,15 @@ nav {
   .navigation { margin: 0; }
   .icon { display: block; }
 
+  .toggle-nav {
+    margin-top: 11px;
+    margin-right: 20px;
+  }
+
   .hh-logo {
     height: 4rem;
-    margin: 20px 0 15px 0;
+    width: 12rem;
+    margin: 20px 0;
   }
 
   .link {
@@ -131,11 +136,15 @@ nav {
     place-self: center;
   }
 
-  .profile { margin: 17px 0; }
+  .profile {
+    width: 70px;
+    height: 70px;
+    margin: 17px 0;
+  }
 }
 
 /* * Estilos para Tablet y Celular */
-@media ( max-width: 768px ) {
+@media ( max-width: 1110px ) {
   .hidden, .login-hidden {
     opacity: 0;
     max-height: 0;
@@ -156,10 +165,7 @@ nav {
     flex-direction: column;
   }
 
-  .toggle-nav {
-    margin-left: 21rem;
-    margin-right: 20px;
-  }
+  .toggle-nav { margin-left: 21rem; }
 
   .profile {
     position: absolute;
@@ -178,7 +184,7 @@ nav {
 }
 
 /* * Estilos para Computadora */
-@media ( min-width: 768px ) {
+@media ( min-width: 1110px ) {
   nav {
     padding: 0 4rem;
     flex-direction: row;
