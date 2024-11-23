@@ -17,6 +17,8 @@
  * 12/11/2024    María Torres Herrera      Se creó el estilo para el contenedor
  *                                         secundario y se modificaron los media
  *                                         queries para adaptarse al contenedor
+ *
+ * 21/11/2024    María Torres Herrera      Se añadieron media queries adicionales
  * ---------------------------------------------------------------------------- */
 
 /* * Estilos generales y para computadora */
@@ -101,7 +103,7 @@
 }
 
 .suscription-button {
-  width: 300px;
+  width: 90%;
   height: 50px;
   border: none;
   border-radius: 20px;
@@ -158,6 +160,16 @@
 
 .bseeker { background-color: #325192; }
 
+/* * Estilos adicionales */
+@media ( max-width: 900px ) {
+  .suscription-container {
+    transform: scale(0.9);
+    column-gap: 50px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+}
+
 /* * Estilos para tableta */
 @media ( max-width: 768px ) {
   .text-container {
@@ -170,18 +182,52 @@
 
   .suscription-container {
     transform: scale(0.9);
-    column-gap: 50px;
-    margin-top: 20px;
-    margin-bottom: 0;
+  }
+}
+
+/* * Estilos adicionales */
+@media ( max-width: 750px ) {
+  .suscription-container {
+    transform: scale(0.8);
+  }
+}
+
+@media ( max-width: 690px ) {
+  .text-container {
+    padding: 0 50px;
   }
 
-  .suscription-button {
-    width: 270px;
+  .suscription-container {
+    transform: scale(0.9);
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    margin-top: -25px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    align-items: center;
+  }
+}
+
+@media ( max-width: 560px ) {
+  .text-container h1 {
+    font-size: 54px;
+    line-height: 54px;
+    padding-top: 60px;
+    margin-bottom: 10px;
+  }
+
+  .text-container h2 {
+    font-size: 24px;
   }
 }
 
 /* * Estilos para celular */
 @media ( max-width: 460px ) {
+  .secondary-container {
+    margin: 0 20px 20px 20px;
+  }
+
   .text-container {
     padding: 0 40px;
   }
@@ -206,8 +252,39 @@
     padding-bottom: 0;
     align-items: center;
   }
+}
 
-  .suscription-button {
-    width: 300px;
+/* * Estilos adicionales */
+@media ( max-width: 440px ) {
+  .suscription-container {
+    transform: scale(0.75);
+    margin-top: -90px;
+  }
+}
+
+@media ( max-width: 410px ) {
+  .text-container h1 {
+    font-size: 40px;
+    line-height: 40px;
+    padding-top: 60px;
+    margin-bottom: 10px;
+  }
+}
+
+@media ( max-width: 360px ) {
+  .text-container h1 {
+    font-size: 35px;
+    line-height: 35px;
+    padding-top: 60px;
+    margin-bottom: 10px;
+  }
+
+  .text-container h2 {
+    font-size: 16px;
+  }
+
+  .suscription-container {
+    transform: scale(0.65);
+    margin-top: -150px;
   }
 }
