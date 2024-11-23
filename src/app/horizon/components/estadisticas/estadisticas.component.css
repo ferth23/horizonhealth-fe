@@ -8,31 +8,29 @@
  * 
  * Modificaciones:
  * Fecha         Modificado por     Descripción
- * 15/11/2024    Layla González     Se agregó el color de fondo de la página.
+ * 15/11/2024    Layla González     Se crearon los media queries.
+ *
+ * 21/11/2024    Layla González     Se eliminaron los media queries y modificaron 
+ *                                  propiedades.                       
  * -------------------------------------------------------------------------------- */
- 
-.main-container {
+
+ .main-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    justify-content: center;
+}
+
+.chart-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
 }
 
 canvas {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-}
-    
-@media ( max-width: 768px ) {
-    .main-container {
-        padding-top: 65px;
-    }
-}
-
-@media ( max-width: 460px ) {
-    .main-container {
-        padding-top: 85px;
-    }
 }

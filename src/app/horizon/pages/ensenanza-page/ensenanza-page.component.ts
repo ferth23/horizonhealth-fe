@@ -23,9 +23,9 @@ import Swal from 'sweetalert2'
 })
 export class EnsenanzaPageComponent {
 
-  // * Constructor del componente donde se obtienen el id del usuario, la emoción
-  // * diaria y el estado de premium del LocalStorage y dependiendo del estado de
-  // * premium se muestra un contenido u otro
+  // * Constructor del componente donde se obtienen el id del usuario y el estado
+  // * de premium del LocalStorage y dependiendo del estado de premium se muestra
+  // * un contenido u otro
   constructor () {
     this.user = localStorage.getItem ( 'user' );
     this.premium = localStorage.getItem ( 'premium' );

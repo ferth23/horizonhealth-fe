@@ -14,6 +14,10 @@
  * 
  * 08/11/2024    Layla González     Se implementó la validación para el número de 
  *                                  tarjeta.
+ * 
+ * 19/11/2024    Layla González     Se implementaron expresiones regulares para
+ *                                  validar los campos del formulario y se 
+ *                                  modificaron métodos.
  * -------------------------------------------------------------------------------- */
 
 import { Component, EventEmitter, Output } from '@angular/core';
@@ -31,20 +35,21 @@ export class FormularioPagoComponent {
 
   formPago: FormGroup;
 
-  // * Regex para validaciones
+  // * Expresiones regulares para validar la información ingresada en los campos del formulario
   constructor ( private fb: FormBuilder ) {
     this.formPago = this.fb.group( {
       cardNumber: [
         '',
         [
           Validators.required,
-          Validators.pattern(/^\d{16}$/) // * 0000 0000 0000 0000
+          Validators.pattern(/^(4\d{15}|5[1-5]\d{14}|2(?:2[2-9]\d{2}|[3-6]\d{3}|7[01]\d{2}|720\d{2})\d{12})$/) // * VISA y Mastercard
         ]
       ],
       expiryDate: [
         '',
         [
           Validators.required,
+          Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/), // * MM/YY
           this.validateExpiryDate
         ]
       ],
@@ -65,7 +70,7 @@ export class FormularioPagoComponent {
     const rawValue = input.value.replace(/\D/g, ''); 
     const formattedValue = rawValue.replace(/(\d{4})(?=\d)/g, '$1 ');
   
-    this.formPago.get('cardNumber')?.setValue(rawValue, { emitEvent: false });
+    this.formPago.get( 'cardNumber' )?.setValue( rawValue, { emitEvent: false } );
   
     input.value = formattedValue;
   }
@@ -81,38 +86,51 @@ export class FormularioPagoComponent {
     this.formPago.get( 'cvv' )?.setValue( input.value );
   }
 
-  // * Métodos para validar la fecha de expiración y su formato MM/YY 
-  validateDate ( event: Event ) {
-    const input = event.target as HTMLInputElement;
-
-    input.value = input.value
-      .replace (/[^0-9/]/g, '')
-      .slice ( 0, 5 );
-
-    this.formPago.get( 'expiryDate' )?.setValue( input.value );
-  }
-
-  validateExpiryDate(control: any) {
-    let value = control.value;
-  
+  // * Método para validar la fecha de expiración
+  validateExpiryDate ( control: any ) {
+    const value = control.value;
+    
     if ( ! value ) 
       return null;
-  
-    value = value.replace(/[^0-9/]/g, '');
-  
-    if ( value.length !== 5 || !/^\d{2}\/\d{2}$/.test( value ) ) {
+    
+    const [month, year] = value.split( '/' ).map( Number );
+    if ( ! month || ! year ) {
       return { 
-        invalidFormat: true 
+        invalidDate: true 
       };
     }
-  
+    
+    const currentYear = new Date().getFullYear() % 100;
+    const currentMonth = new Date().getMonth() + 1;
+    
+    if ( year < currentYear || ( year === currentYear && month < currentMonth ) ) {
+      return { 
+        expired: true 
+      };
+    }
+    
     return null;
   }
 
+  // * Método para validar el formato MM/YY de la fecha de expiración
+  validateDate ( event: Event ) {
+    const input = event.target as HTMLInputElement;
+    let value = input.value.replace(/[^0-9]/g, '');
+  
+    if ( value.length >= 2 ) {
+      value = value.slice( 0, 2 ) + '/' + value.slice( 2, 4 );
+    }
+  
+    value = value.slice(0, 5);
+  
+    input.value = value;
+    this.formPago.get( 'expiryDate' )?.setValue( value, { emitEvent: false } );
+  }  
+  
   // * Método para enviar el formulario 
   onSubmit() {
     if ( this.formPago.valid ) {
-      Swal.fire({
+      Swal.fire ( {
         title: '¡Pago exitoso!',
         text: 'Ahora eres usuario premium',
         icon: 'success',
@@ -126,7 +144,10 @@ export class FormularioPagoComponent {
           }
         }
 
-      } );
+      } )
+
+      this.closePopup.emit();
+
     } else {
       Swal.fire ( {
         title: 'Error',
