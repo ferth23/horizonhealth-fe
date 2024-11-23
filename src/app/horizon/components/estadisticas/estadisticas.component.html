@@ -9,11 +9,20 @@
  *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
- * 16/11/2024    Humberto Medina    Se agregó la gráfica de las estadísticas de los test.
+ * 21/11/2024    Layla González     Se agregó un contenedor para cada gráfica.
  * -------------------------------------------------------------------------------------->
 
-<!-- * Gráfica de estadísticas -->
+<!-- * Contenedor principal -->
 <div class="main-container">
-    <canvas id="chart_meditaciones"></canvas>
-    <canvas id="chart_tests"></canvas>
+
+    <!-- * Gráfica de meditaciones -->
+    <div class="chart-container">
+        <canvas id="chart_meditaciones"></canvas>
+    </div>
+    
+    <!-- * Gráfica de test -->
+    <div class="chart-container">
+        <canvas id="chart_tests"></canvas>
+    </div>
+        
 </div>

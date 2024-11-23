@@ -4,7 +4,7 @@
  * Archivo       : ejercicios.component.css
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 22/10/2024
- * Descripción   : Estilos para la pestaña de Ejercicios de la sección Recomendaciones
+ * Descripción   : Estilos para la pestaña de Ejercicios de la scción Recomendaciones
  *                 en la página de Horizon Health.
  *
  * Modificaciones:
@@ -12,9 +12,9 @@
  * 22/10/2024    Layla González     Se estilizaron las clases para el contenedor de
  *                                  la rutina diaria, el título, la duración, y una
  *                                  breve descripción para reforzar la confianza del
- *                                  usuario.
+ *                                  usuario. Se crearon los media queries.
  *
- *                                  Creación de los media queries.
+ * 22/11/2024   Layla González      Se modificaron los media queries.
  * ------------------------------------------------------------------------------- */
 
 .ejercicios {
@@ -78,7 +78,6 @@ h1 {
     font-style: SemiBold;
     font-size: 36px;
     color: #B64F00;
-    margin-bottom: 30px;
 }
 
 h2 {
@@ -86,10 +85,10 @@ h2 {
     font-style: SemiBold;
     font-size: 24px;
     color: #B64F00;
-    margin: 0 80px 30px 80px;
+    margin: 30px;
 }
 
-/* * Media query para tablets */
+/* * Estilos para versatilidad de tamaño de pantalla */
 @media ( max-width: 768px ) {
     .ejercicios {
         flex-direction: column;
@@ -114,25 +113,16 @@ h2 {
 
     h1 {
         font-size: 30px;
-        margin-top: 0;
-        margin-bottom: 15px;
+        margin: 15px 30px 15px 30px;
     }
 
     h2 {
         font-size: 18px;
-        margin: 0 0 1px 0;
-        margin-bottom: 15px;
+        margin: 0 0 15px 0;
     }
 }
 
-/* * Media query para celulares */
 @media ( max-width: 460px ) {
-    .ejercicios {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
     .text {
       width: 80%;
       font-size: 15px;

@@ -20,6 +20,12 @@
  * 08/11/2024    Layla González    Se agregó un contenedor más para lograr el efecto
  *                                 de desenfoque al abrir el pop up del formulario
  *                                 de pago.
+ *
+ * 19/11/2024    Layla González    Se implementaron las expresiones regulares para
+ *                                 las validaciones de los datos ingresados en el
+ *                                 formulario.
+ *
+ * 20/11/2024    Layla González    Se agregó un contenedor para englobar los botones.
  * --------------------------------------------------------------------------------->
 
 <!-- * Contenedor para desenfocar el fondo al abrir formulario de pago -->
@@ -30,6 +36,9 @@
 
         <!-- * Formulario para la información de la tarjeta de crédito -->
         <form class="form" [formGroup]="formPago" (ngSubmit)="onSubmit()">
+
+            <!-- * Título en el formulario -->
+            <div class="suscrip-form-title">Información de pago</div>
 
             <!-- * Contenedor con todos los campos del formulario de la tarjeta -->
             <div class="credit-card-form">
@@ -43,7 +52,14 @@
 
                 <!-- * Campo y etiqueta para el número de tarjeta -->
                 <div class="input_container">
-                    <label for="card_number" class="input_label">Número de Tarjeta</label>
+                    <div class="lab_icon">
+                        <label for="card_number" class="input_label">Número de Tarjeta</label>
+                        <div class="card-icons">
+                            <img src="logo-visa.png" alt="visa" class="icon">
+                            <img src="logo-mastercard.png" alt="mastercard" class="icon">
+                        </div>
+                    </div>
+
                     <input id="card_number" class="input_field" type="text" 
                     placeholder="0000 0000 0000 0000" maxlength="19" (input)="validateNumber($event)"
                     formControlName="cardNumber">
@@ -74,9 +90,13 @@
 
             </div>
 
-            <!-- * Botón para confirmar la información de los campos y "pagar" -->
-            <button class="suscription" type="submit">Confirmar</button>
-            <button class="suscription" (click)="close()">Cancelar</button>
+            <div class="button-container">
+                <!-- * Botón para confirmar la información de los campos y "pagar" -->
+                <button class="suscription">Confirmar</button>
+
+                <!-- * Botón para cancelar el pago -->
+                <button class="suscription" (click)="close()">Cancelar</button>
+            </div>            
 
         </form>
     </div>
