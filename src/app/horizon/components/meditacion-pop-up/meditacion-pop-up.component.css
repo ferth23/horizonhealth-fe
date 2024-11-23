@@ -15,6 +15,9 @@
  *
  * 17/10/2024    Humberto Medina Santos    Se hicieron cambios pequeños en algunos
  *                                         estilos
+ *
+ * 22/11/2024    Humberto Medina Santos    Se agregaron algunos estilos extras para más
+ *                                         responsividad
  * ---------------------------------------------------------------------------- */
 
 /* * Estilos para Computadora y Generales */
@@ -32,7 +35,7 @@
 }
 
 .content {
-  width: 91%;
+  width: 94%;
   height: 563px;
   margin: 34px 0;
   border-radius: 20px;
@@ -157,7 +160,7 @@
 }
 
 /* * Estilos para Celular */
-@media ( max-width: 460px ) {
+@media ( max-width: 640px ) {
   .container {
     height: 545px;
   }

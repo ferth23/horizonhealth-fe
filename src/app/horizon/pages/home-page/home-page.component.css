@@ -9,6 +9,9 @@
  * Modificaciones:
  * Fecha         Modificado por            Descripción
  * 10/10/2024    Humberto Medina Santos    Se crearon los estilos para el componente
+ *
+ * 22/11/2024    Humberto Medina Santos    Se agregaron algunos estilos extras para más
+ *                                         responsividad
  * ---------------------------------------------------------------------------- */
 
 /* * Estilos para Computadora */
@@ -65,7 +68,7 @@
 .section-item {
   position: relative;
   width: 30vw;
-  height: 100%;
+  height: 45vh;
   padding: 2rem;
   border-radius: 20px;
 }
@@ -120,6 +123,7 @@
 .popup { z-index: 3; }
 .hidden, .test-hidden { display: none; }
 
+/* * Estilos auxiliares */
 @media ( max-width: 1185px ) {
   .container { height: 1540px; }
 
@@ -130,8 +134,29 @@
   }
 
   .section-item {
-    width: 80vw;
+    width: 75vw;
+    height: 100%;
   }
+}
+
+@media ( max-width: 1133px ) {
+  .container { height: 1670px; }
+}
+
+@media ( max-width: 1110px ) {
+  .container { height: 1700px; }
+}
+
+@media ( max-width: 920px ) {
+  .container { height: 1750px; }
+}
+
+@media ( max-width: 880px ) {
+  .container { height: 1800px; }
+}
+
+@media ( max-width: 856px ) {
+  .container { height: 1900px; }
 }
 
 /* * Estilos para Tablet */
@@ -157,7 +182,7 @@
   }
 }
 
-/* * Estilos adicionales */
+/* * Estilos auxiliares */
 @media ( max-width: 667px ) {
   .container { height: 1650px; }
 }

@@ -16,6 +16,10 @@
  *                                         la página de Log In
  *
  * 12/10/2024    Humberto Medina Santos    Se añadieron espaciados
+ *
+ * 22/11/2024    Humberto Medina Santos    Se eliminaron métodos que ya no eran
+ *                                         necesarios y se modificó el método
+ *                                         toggleNavBar()
  * ---------------------------------------------------------------------------- */
 
 import { Component, HostListener, inject, signal } from '@angular/core';
