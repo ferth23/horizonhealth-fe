@@ -1,29 +1,41 @@
-/* ---------------------------------------------------------------------------------
+/* ------------------------------------------------------------------------------------
  * HorizonHealth
- *
+ * 
  * Archivo       : contacto.component.css
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 30/09/2024
- * Descripción   : Estilos para la sección de contacto de la página de
- *                 Sunset Wellness.
- *
+ * Descripción   : Estilos para la sección de contacto de la página de 
+ *                 Sunset Wellness. 
+ * 
  * Modificaciones:
  * Fecha         Modificado por     Descripción
  * 30/09/2024    Layla González     Se estilizaron el título, el subtítulo, y el
  *                                  background.
-
+ *
  * 01/10/2024    Layla González     Se creó la sección de información de contacto.
-
- * 02/10/2024    Layla González     Se creó la sección del forms para la
+ *
+ * 02/10/2024    Layla González     Se creó la sección del forms para la 
  *                                  información.
-
+ *
  * 03/10/2024    Layla González     Creación de los media queries para celular y
  *                                  tablets.
-
+ *
  * 04/10/2024    Layla González     Re ajustes a medidas en general.
- * ---------------------------------------------------------------------------- */
+ *
+ * 21/11/2024    Layla González     Se modificaron los estilos y los media queries.
+ * ------------------------------------------------------------------------------- */
 
- .contact-title {
+ .contact {
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-title {
   font-size: 64px;
   color: white;
   text-align: center;
@@ -33,7 +45,7 @@
 }
 
 .contact-subtitle {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: white;
   text-align: center;
   margin-top: 0;
@@ -41,20 +53,16 @@
 }
 
 .contacto-background {
-  height: 1160px;
+  height: 890px;
   background: linear-gradient( to right,
                               #26258F 0%,
                               #50236E 34%,
                               #99107D 69%,
                               #D9008A 100%);
-  background-size: cover;
-  background-position: center;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 0 300px 0;
+  justify-content: center;
 }
 
 .contacto-info {
@@ -108,13 +116,15 @@
 .row {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 100%;
   max-width: 1000px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  flex-wrap: wrap;
+  margin-top: 0;
+  flex-wrap: nowrap; 
+  gap: 20px;
 }
 
 .contacto-form {
@@ -148,6 +158,10 @@
   outline: none;
 }
 
+.contacto-form textarea { 
+  resize: none;
+}
+
 .contacto-form h2 {
   font-size: 2rem;
   color: #333;
@@ -163,13 +177,13 @@ button {
   color: white;
   border: none;
   padding: 8px 30px;
-  font-size: 20px;
+  font-size: 17px;
   border-radius: 30px;
   cursor: pointer;
   display: block;
   margin: 15px auto;
-  width: 200px;
-  height: 50px;
+  width: 40%;
+  height: auto;
   transition-duration: 0.6s;
 }
 
@@ -214,63 +228,71 @@ label {
   font-family: "Inter", sans-serif;
 }
 
-.social-network { color: white; }
-
-@media (min-width: 769px) {
-  .row {
-    width: 70%;
-    margin: 0 auto;
-    flex-wrap: nowrap;
-    gap: 20px;
-  }
-
-  .contacto-info {
-    width: 35%;
-  }
-
-  .contacto-form {
-    width: 60%;
-  }
-
-  .contacto-background {
-    height: 600px;
+/* * Estilos para versatilidad de tamaño de pantalla */
+@media ( max-width: 1110px ) {
+  .contact {
+    transform: scale( 0.9 );
   }
 }
 
-/* * Vista para tablets*/
 @media (max-width: 768px) {
-  .contacto-info,
-  .contacto-form {
-    width: 100%;
-    margin-bottom: 20px;
+  .contacto-background {
+    height: auto;
+    padding: 0;
+  }
+
+  .contact {
+    transform: none;
+  }
+
+  .row {
+    transform: scale( 0.85 );
   }
 
   .contact-title {
     font-size: 56px;
   }
+}
 
-  .contact-subtitle {
-    font-size: 20px;
+@media (max-width: 600px) {
+  .row {
+    width: 95%;
+    flex-direction: column;
+    align-items: center; 
   }
 
-  .contacto-background {
-    height: 1050px;
+  .contacto-info, 
+  .contacto-form {
+    width: 90%; 
+  }
+
+  .contact-list {
+    line-height: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .contact-list {
+    line-height: 10px;
   }
 }
 
-/* * Vista para celulares*/
 @media (max-width: 460px) {
-  .contacto-info,
-  .contacto-form {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
   .contact-title {
     font-size: 48px;
   }
 
-  .contact-subtitle {
-    font-size: 18px;
+  .row {
+    width: 90%;
+  }
+
+  .contact-list {
+    line-height: 30px;
+  }
+}
+
+@media ( max-width: 390px ) {
+  .row {
+    width: 85%
   }
 }

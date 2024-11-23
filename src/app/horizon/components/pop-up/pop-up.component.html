@@ -16,61 +16,59 @@
  *                                  cada emotion-item.
  * ---------------------------------------------------------------------------- -->
 
-<!-- * Contenedor cuyo contenido es el popUp,
-     * es para un "marco" -->
+ <!-- * Contenedor cuyo contenido es el popUp, es para un "marco" -->
 <div class="popUp-container" >
+  <div class="popUp">
+    <h2 class="h2"> ¿Cómo te sientes hoy? </h2>
 
-    <div class="popUp">
-      <h2 class="h2"> ¿Cómo te sientes hoy? </h2>
+    <!-- * Íconos de las emociones juntos -->
+    <div class="emotions-icons">
 
-      <!-- * Íconos de las emociones juntos -->
-      <div class="emotions-icons">
-
-        <!-- * Cada item representa una emoción,
-             * se la pasa al método que almacena
-             * que emoción se escogió, se le asigna
-             * la ruta de la imagen correspondiente
-             * y un "nombre" para la imagen -->
-        <div class="emotion-item">
-          <img
-            (click)="emotionSelected('5')"
-            class="emotions-img"
-            src="excited.svg"
-            alt="excited icon">
-        </div>
-
-        <div class="emotion-item">
-          <img
-            (click)="emotionSelected('4')"
-            class="emotions-img"
-            src="happy.svg"
-            alt="happy icon">
-        </div>
-
-        <div class="emotion-item">
-          <img
-            (click)="emotionSelected('3')"
-            class="emotions-img"
-            src="neutral.svg"
-            alt="neutral icon">
-        </div>
-
-        <div class="emotion-item">
-          <img
-            (click)="emotionSelected('2')"
-            class="emotions-img"
-            src="sad.svg"
-            alt="sad icon">
-        </div>
-
-        <div class="emotion-item">
-          <img
-            (click)="emotionSelected('1')"
-            class="emotions-img"
-            src="depressed.svg"
-            alt="depressed icon">
-        </div>
-
+      <!-- * Cada item representa una emoción, se la pasa al método que almacena que
+           * emoción se escogió, se le asigna la ruta de la imagen correspondiente y un
+           * "nombre" para la imagen -->
+      <div class="emotion-item">
+        <img
+          (click)="emotionSelected('5')"
+          class="emotions-img"
+          src="excited.svg"
+          alt="excited icon">
       </div>
+
+      <div class="emotion-item">
+        <img
+          (click)="emotionSelected('4')"
+          class="emotions-img"
+          src="happy.svg"
+          alt="happy icon">
+      </div>
+
+      <div class="emotion-item">
+        <img
+          (click)="emotionSelected('3')"
+          class="emotions-img"
+          src="neutral.svg"
+          alt="neutral icon">
+      </div>
+
+      <div class="emotion-item">
+        <img
+          (click)="emotionSelected('2')"
+          class="emotions-img"
+          src="sad.svg"
+          alt="sad icon">
+      </div>
+
+      <div class="emotion-item">
+        <img
+          (click)="emotionSelected('1')"
+          class="emotions-img"
+          src="depressed.svg"
+          alt="depressed icon">
+      </div>
+
     </div>
+
+  </div>
+  
 </div>
