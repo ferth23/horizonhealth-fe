@@ -64,7 +64,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-  padding-bottom: 6px;
+  padding: 0 20px 6px 20px;
 }
 
 .form-container p {
@@ -75,7 +75,7 @@
   line-height: 18px;
   color: rgba(0, 0, 0, 0.60);
   margin: 0;
-  padding-bottom: 20px;
+  padding: 0 20px 20px 20px;
 }
 
 .form-container p a {
@@ -85,7 +85,7 @@
 }
 
 .logo-container {
-  width: 512px;
+  width: 85%;
   margin: 30px auto 100px auto;
 }
 
@@ -94,7 +94,7 @@
 }
 
 form {
-  width: 512px;
+  width: 85%;
   margin: auto;
 }
 
@@ -188,6 +188,10 @@ form button:hover {
   text-align: justify;
 }
 
+::ng-deep .swal2-modal {
+  font-family: "Roboto", sans-serif;
+}
+
 /* * Estilos para tableta */
 @media ( max-width: 768px ) {
   .form-container {
@@ -206,22 +210,26 @@ form button:hover {
   }
 
   .form-container h1 {
-    width: 340px;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
     margin: auto;
   }
 
   .form-container p {
-    width: 340px;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
     margin: auto;
   }
 
   .logo-container {
-    width: 340px;
+    width: 85%;
     margin: 30px auto 80px auto;
   }
 
   form {
-    width: 340px;
+    width: 85%;
   }
 
   .input-field {

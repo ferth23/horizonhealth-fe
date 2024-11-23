@@ -15,6 +15,9 @@
  * 11/10/2024    Humberto Medina Santos    Se añadió el método 'register()'
  *
  * 05/11/2024    Humberto Medina Santos    Implementación final del método register()
+ *
+ * 20/11/2024    María Torres Herrera      Se modificó el método 'register()' para
+ *                                         incluir validaciones
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject } from '@angular/core';
@@ -30,7 +33,6 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./register-page.component.css']
 } )
 export class RegisterPageComponent {
-
   // * Injección de dependencias y servicios
   private fb = inject ( FormBuilder );
   private router = inject ( Router );
@@ -40,12 +42,33 @@ export class RegisterPageComponent {
   public myForm: FormGroup = this.fb.group ( {
     fullName: [ '', [ Validators.required, Validators.pattern ( customValidators.firstNameAndLastNamePattern ) ] ] ,
     email: [ '', [ Validators.required, Validators.pattern ( customValidators.emailPattern ) ] ],
-    password: [ '', [ Validators.required, Validators.minLength ( 10 ) ] ],
+    password: [ '', [ Validators.required, Validators.pattern ( customValidators.passwordPattern ) ] ],
     confirmPassword: [ '', [ Validators.required ] ]
-  } );
+  }, { validators: customValidators.passwordMatchValidator } );
 
   // * Método para validar el registro
   register () {
+    const hasEmptyFields = Object.keys ( this.myForm.controls ).some( key => this.myForm.get ( key )?.hasError ( 'required' ) );
+
+    if ( hasEmptyFields ) {
+      Swal.fire ({
+        title: "¡Ocurrió un error!",
+        text: "Debe rellenar todos los campos",
+        icon: 'error',
+        timer: 3000,
+        showCancelButton: false,
+        showConfirmButton: false
+      });
+
+      this.myForm.markAllAsTouched();
+      return;
+    }
+
+    if ( this.myForm.invalid ) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+
     const { fullName, email, password } = this.myForm.value;
 
     this.user_service.register ( fullName, email, password )

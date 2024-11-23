@@ -15,6 +15,8 @@
  *
  * 03/10/2024    María Torres Herrera      Se crearon los media queries para tabletas
  *                                         y celulares
+ *
+ * 21/11/2024    María Torres Herrera      Se añadieron media queries adicionales
  * ---------------------------------------------------------------------------- */
 
  /* * Estilos generales y para computadoras */
@@ -34,7 +36,7 @@ h1 {
   text-align: center;
   margin-top: 0;
   margin-bottom: 20px;
-  padding-top: 160px;
+  padding: 160px 30px 0 30px;
 }
 
 p {
@@ -46,6 +48,7 @@ p {
   line-height: 40px;
   text-align: center;
   margin-bottom: 20px;
+  padding: 0 30px;
 }
 
 .button-startnow {
@@ -76,12 +79,31 @@ p {
 
 .image-container {
   margin: auto;
-  width: 1088px;
+  width: 80%;
+}
+
+.image-container img {
+  width: 100%;
+}
+
+/* * Estilos adicionales */
+@media ( max-width: 1360px ) {
+  .banner-container {
+    height: 1100px;
+  }
+}
+
+@media ( max-width: 1100px ) {
+  .banner-container {
+    height: 1000px;
+  }
 }
 
 /* * Estilos para tableta */
 @media ( max-width: 768px ) {
-  .banner-container { height: 790px; }
+  .banner-container {
+    height: 790px;
+  }
 
   h1 {
     font-size: 70px;
@@ -108,14 +130,17 @@ p {
     height: 60px;
     border-radius: 50px;
   }
+}
 
-  .image-container {
-    margin: auto;
-    width: 652px;
+@media ( max-width: 540px ) {
+  .banner-container {
+    height: 800px;
   }
+}
 
-  .image-container img {
-    width: 652px;
+@media ( max-width: 528px ) {
+  .banner-container {
+    height: 850px;
   }
 }
 
@@ -154,10 +179,6 @@ p {
 
   .image-container {
     margin: auto;
-    width: 100%;
-  }
-
-  .image-container img {
     width: 100%;
   }
 }
