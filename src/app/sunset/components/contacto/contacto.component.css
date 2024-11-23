@@ -228,6 +228,10 @@ label {
   font-family: "Inter", sans-serif;
 }
 
+.social-network { 
+  color: white; 
+}
+
 /* * Estilos para versatilidad de tamaño de pantalla */
 @media ( max-width: 1110px ) {
   .contact {
