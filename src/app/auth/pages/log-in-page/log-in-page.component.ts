@@ -17,6 +17,9 @@
  * 16/10/2024    María Torres Herrera      Se añadió el método 'togglePasswordView()'
  *
  * 05/11/2024    Humberto Medina Santos    Implementación final del método login()
+ *
+ * 20/11/2024    María Torres Herrera      Se modificó el método 'login()' para
+ *                                         incluir validaciones
  * ---------------------------------------------------------------------------- */
 
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
@@ -57,11 +60,27 @@ export class LogInPageComponent {
   // * Definición del formulario de inicio de sesión
   public myForm: FormGroup = this.fb.group ( {
     email: [ '', [ Validators.required, Validators.pattern ( customValidators.emailPattern ) ] ],
-    password: [ '', [ Validators.required, Validators.minLength ( 10 ) ] ],
+    password: [ '', [ Validators.required, Validators.pattern ( customValidators.passwordPattern ) ] ],
   } );
 
   // * Método para validar el inicio de sesión
   login () {
+    const hasEmptyFields = Object.keys ( this.myForm.controls ).some( key => this.myForm.get ( key )?.hasError ( 'required' ) );
+
+    if ( hasEmptyFields ) {
+      Swal.fire ({
+        title: "¡Ocurrió un error!",
+        text: "Debe rellenar todos los campos",
+        icon: 'error',
+        timer: 3000,
+        showCancelButton: false,
+        showConfirmButton: false
+      });
+
+      this.myForm.markAllAsTouched();
+      return;
+    }
+
     const { email, password } = this.myForm.value;
 
     this.user_service.login ( email, password )
@@ -72,7 +91,18 @@ export class LogInPageComponent {
             error: ( message => Swal.fire ( 'Error al verificar Status de Premium', message, 'error' ) )
           } );
         },
-        error: ( message => Swal.fire ( 'Error al iniciar sesión', message, 'error' ) )
+        error: ( message => {
+          Swal.fire ( {
+          title: "Error al inciar sesión",
+          text: "Datos de sesión incorrectos",
+          icon: 'error',
+          timer: 3000,
+          showCancelButton: false,
+          showConfirmButton: false
+          } );
+
+          this.myForm.patchValue ( { password: '' } );
+        } )
       } );
   }
 

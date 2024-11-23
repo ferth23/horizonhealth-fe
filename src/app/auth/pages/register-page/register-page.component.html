@@ -18,6 +18,9 @@
  *                                         carrusel
  *
  * 11/10/2024    Humberto Medina Santos    Se cambió la etiqueta de un campo repetido
+ *
+ * 20/11/2024    María Torres Herrera      Se añadieron validaciones en tiempo real
+ *                                         a los campos
  * ---------------------------------------------------------------------------- -->
 
 <div class="page-container">
@@ -41,22 +44,38 @@
       <!-- * Formulario de registro. Cuenta con los campos: nombre completo, correo, contraseña y confirmación de contraseña -->
       <form [formGroup]="myForm" (ngSubmit)="register()">
         <div class="field">
-          <label for="fullName" class="field-label"> Nombre Completo </label>
+          <label for="fullName" class="field-label"> Nombre Completo
+            <small *ngIf="myForm.get('fullName')?.errors?.['pattern'] && ( myForm.get('fullName')?.touched || myForm.get('fullName')?.dirty )">
+              *Máximo dos nombres y dos apellidos
+            </small>
+          </label>
           <input type="text" class="input-field" formControlName="fullName" placeholder="Ingresa tu nombre">
         </div>
 
         <div class="field">
-          <label for="email" class="field-label"> Correo Electrónico </label>
+          <label for="email" class="field-label"> Correo Electrónico
+            <small *ngIf="myForm.get('email')?.errors?.['pattern'] && ( myForm.get('email')?.touched || myForm.get('email')?.dirty )">
+              *Correo no válido
+            </small>
+          </label>
           <input type="email" class="input-field" formControlName="email" placeholder="Ingresa tu correo">
         </div>
 
         <div class="field">
-          <label for="password" class="field-label"> Contraseña </label>
+          <label for="password" class="field-label"> Contraseña
+            <small *ngIf="myForm.get('password')?.errors?.['pattern'] && ( myForm.get('password')?.touched || myForm.get('password')?.dirty )">
+              *Mínimo 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial (&#64;$!%*?&)
+            </small>
+          </label>
           <input type="text" class="input-field" formControlName="password" placeholder="Ingresa tu contraseña">
         </div>
 
         <div class="field">
-          <label for="confirmPassword" class="field-label"> Confirmar Contraseña </label>
+          <label for="confirmPassword" class="field-label"> Confirmar Contraseña
+            <small *ngIf="myForm.errors?.['passwordMismatch'] && ( myForm.get('confirmPassword')?.touched || myForm.get('confirmPassword')?.dirty )">
+              *Las contraseñas no coinciden
+            </small>
+          </label>
           <input type="text" class="input-field" formControlName="confirmPassword" placeholder="Reingresa tu contraseña">
         </div>
 

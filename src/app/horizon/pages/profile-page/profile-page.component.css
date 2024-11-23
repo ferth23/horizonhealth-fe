@@ -16,6 +16,8 @@
  * 24/10/2024    Humberto Medina Santos    Se crearon los media queries para celulares
  *
  * 25/10/2024    María Torres Herrera      Se cambió el font al modal de SweetAlert
+ *
+ * 21/11/2024    María Torres Herrera      Se añadieron media queries adicionales
  * ---------------------------------------------------------------------------- */
 
 /* * Estilos generales y para computadoras */
@@ -32,7 +34,12 @@
 }
 
 .logo-container {
+  width: 70%;
   margin: 35px 0
+}
+
+.logo-container img {
+  width: 100%;
 }
 
 .container-title {
@@ -87,7 +94,7 @@
 
 .horizontal-line {
   border-top: 1px solid #B3B3B3;
-  width: 250px;
+  width: 85%;
   margin-bottom: 22px;
 }
 
@@ -138,6 +145,82 @@
   font-family: "Roboto", sans-serif;
 }
 
+/* * Estilos adicionales */
+@media ( max-width: 1360px ) {
+  .settings-container {
+    margin-left: 35px;
+  }
+
+  .container-title h1 {
+    font-size: 28px;
+  }
+
+  .profile-settings h2, .security-settings h2  {
+    font-size: 18px;
+  }
+
+  .setting p {
+    font-size: 22px;
+  }
+
+  .icon {
+    width: 22px;
+  }
+
+  .config-icon {
+    width: 12px;
+  }
+}
+
+@media ( max-width: 1180px ) {
+  .settings-container {
+    width: 24%;
+    margin-left: 30px;
+  }
+
+  .container-title h1 {
+    font-size: 27px;
+  }
+
+  .profile-settings h2, .security-settings h2  {
+    font-size: 17px;
+  }
+
+  .setting p {
+    font-size: 21px;
+  }
+
+  .horizontal-line {
+    width: 88%;
+  }
+
+  .icon {
+    width: 22px;
+  }
+
+  .config-icon {
+    width: 12px;
+  }
+}
+
+@media ( max-width: 1020px ) {
+  .settings-container {
+    width: 30%;
+  }
+}
+
+@media ( max-width: 880px ) {
+  .settings-container {
+    width: 32%;
+  }
+}
+
+@media ( max-width: 800px ) {
+  .settings-container {
+    width: 34%;
+  }
+}
+
 /* * Estilos para tableta */
 @media ( max-width: 768px ) {
   .settings-container {
@@ -146,11 +229,12 @@
   }
 
   .logo-container {
+    width: 70%;
     margin: 35px 0
   }
 
   .logo-container img {
-    width: 180px;
+    width: 100%;
   }
 
   .container-title h1 {
@@ -165,18 +249,12 @@
     font-size: 20px;
   }
 
-  .horizontal-line {
-    border-top: 1px solid #B3B3B3;
-    width: 205px;
-    margin-bottom: 22px;
-  }
-
   .icon {
     width: 22px;
   }
 
   .config-icon {
-    width: 14px;
+    width: 12px;
   }
 
   .content-container {
@@ -196,6 +274,83 @@
     bottom: 30px;
     right: 30px;
     left: 30px;
+  }
+}
+
+/* * Estilos adicionales */
+@media ( max-width: 720px ) {
+  .settings-container {
+    width: 36%;
+  }
+
+  .container-title h1 {
+    font-size: 24px;
+  }
+
+  .profile-settings h2, .security-settings h2  {
+    font-size: 14px;
+  }
+
+  .setting p {
+    font-size: 18px;
+  }
+
+  .icon {
+    width: 20px;
+  }
+
+  .config-icon {
+    width: 12px;
+  }
+}
+
+@media ( max-width: 680px ) {
+  .container-title h1 {
+    font-size: 22px;
+  }
+
+  .profile-settings h2, .security-settings h2  {
+    font-size: 14px;
+  }
+
+  .setting p {
+    font-size: 18px;
+  }
+
+  .icon {
+    width: 18px;
+  }
+
+  .config-icon {
+    width: 10px;
+  }
+}
+
+@media ( max-width: 620px ) {
+  .container-title h1 {
+    font-size: 20px;
+  }
+
+  .profile-settings h2, .security-settings h2  {
+    font-size: 12px;
+  }
+
+  .setting p {
+    font-size: 16px;
+  }
+
+  .icon {
+    width: 18px;
+  }
+
+  .config-icon {
+    width: 8px;
+  }
+}
+
+@media ( max-width: 560px ) {
+  .settings-container {
+    width: 40%;
   }
 }
 
@@ -219,10 +374,33 @@
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.25);
   }
 
-  .horizontal-line {
-    border-top: 1px solid #B3B3B3;
-    width: 240px;
-    margin-bottom: 22px;
+  .logo-container {
+    width: 70%;
+    margin: 35px 0
+  }
+
+  .logo-container img {
+    width: 100%;
+  }
+
+  .container-title h1 {
+    font-size: 26px;
+  }
+
+  .profile-settings h2, .security-settings h2  {
+    font-size: 16px;
+  }
+
+  .setting p {
+    font-size: 20px;
+  }
+
+  .icon {
+    width: 22px;
+  }
+
+  .config-icon {
+    width: 12px;
   }
 
   .content-container {
