@@ -12,8 +12,11 @@
  * 15/11/2024    Layla González     Se crearon los métodos para mostrar la
  *                                  gráfica de las estadísticas.
  *
- * 16/11/2024    Layla González y    Se modificaron los métodos.
+ * 16/11/2024    Layla González y   Se modificaron los métodos.
  *               Humberto Medina
+ *
+ * 21/11/2024    Layla González     Se modificaron las propiedades responsive y
+ *                                  maintainAspectRatio en las gráficas.
  * ---------------------------------------------------------------------------- */
 
 import { Component, inject, OnInit } from '@angular/core';
@@ -62,22 +65,6 @@ export class EstadisticasComponent implements OnInit {
     this.getTestsResults ();
   }
 
-  // * Método para cambiar el tamaño de fuente según el tamaño de la ventana
-  private getFontSize(): number {
-    const width = window.innerWidth;
-
-    if ( width <= 460 ) {
-      return 10;
-    }
-
-    if (width <= 768) {
-      return 11.5;
-    }
-
-    else
-        return 16;
-  }
-
   // * Método para crear y mostrar una gráfica
   grafica ( fechas: string [], data_numbers : number [], label : string, chart : Chart | null, chart_id : string, type : keyof ChartTypeRegistry ) {
 
@@ -97,14 +84,13 @@ export class EstadisticasComponent implements OnInit {
       } ]
     };
 
-    // * Tamaño de fuente
-    const fontSize = this.getFontSize();
-
     // * Estructura de la gráfica
     chart = new Chart ( chart_id, {
       type: type,
       data: data,
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: false
@@ -113,7 +99,7 @@ export class EstadisticasComponent implements OnInit {
             display: true,
             text: label,
             font: {
-              size: 25,
+              size: 20,
               family: 'Roboto'
             },
             color: '#50216E',
@@ -128,7 +114,7 @@ export class EstadisticasComponent implements OnInit {
             ticks: {
               color: '#50216E',
               font: {
-                size: fontSize
+                size: 15
               }
             },
             grid: {
@@ -139,7 +125,7 @@ export class EstadisticasComponent implements OnInit {
             ticks: {
               color: '#50216E',
               font: {
-                size: fontSize
+                size: 15
               }
             },
             grid: {

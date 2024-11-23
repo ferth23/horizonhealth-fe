@@ -13,20 +13,30 @@
  * 30/09/2024    Layla González     Se definieron las clases y se asignaron sus
  *                                  contenidos.
  *
- * 16/11/2024    Humberto Medina    Se eliminaron espacios innecesarios
+ * 18/11/2024    Humberto Medina    Se agregaron redireccionamientos a los iconos
+ *                                  de redes sociales del formulario. También los
+ *                                  verdaderos datos.
+ *
+ * 20/11/2024    Layla González     Se implementaron las expresiones regulares para
+ *                                  las validaciones de los datos ingresados en el
+ *                                  formulario.
  * ---------------------------------------------------------------------------- -->
 
- <!-- * Sección principal, contiene todo -->
+ <!-- * Fondo -->
  <div class="contacto-background">
 
-  <h1 class="contact-title"> ¡Contáctanos! </h1>
-  <p class="contact-subtitle"> Déjanos saber cómo podemos ayudarte </p>
+  <!-- * Contenedor principal -->
+  <div class="contact">
 
-  <!-- * Se agrupa contact-info-container y contact form para ordenarlos uno junto al otro -->
-  <div class="row">
+    <!-- * Encabezado de formulario -->
+    <h1 class="contact-title">¡Contáctanos!</h1>
+    <p class="contact-subtitle">Déjanos saber cómo podemos ayudarte</p>
 
-    <div class="col-md-6 contacto-info">
-      <h3> Información de Contacto </h3>
+    <!-- * Se agrupa contact-info-container y contact form para ordenarlos uno junto al otro -->
+    <div class="row">
+
+      <div class="col-md-6 contacto-info">
+        <h3>Información de Contacto</h3>
 
       <!-- * Lista de información sobre la empresa, con logos alusivos -->
       <ul class="contact-list">
@@ -50,39 +60,55 @@
       </div>
     </div>
 
-    <!-- * Formulario para los datos de los usuarios -->
-    <div class="col-md-6 contacto-form">
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3 name-container">
+      <!-- * Formulario para los datos de los usuarios -->
+      <div class="col-md-6 contacto-form">
+        <form class="form" [formGroup]="formContacto" (ngSubmit)="onSubmit()">
 
-          <div class="name-field">
-            <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Nombre(s)">
-            <label for="firstName" class="form-label"> Nombre </label>
+          <!-- * Nombre completo -->
+          <div class="mb-3 name-container">
+
+            <!-- * Etiqueta y campo para nombre(s) -->
+            <div class="name-field">
+              <input id="name" class="form-control" type="text" name="name"
+              placeholder="Nombre(s)" minlength="3" (input)="validateName($event)" formControlName="name">
+              <label for="name" class="form-label">Nombre</label>
+            </div>
+
+            <!-- * Etiqueta y campo para apellido(s) -->
+            <div class="name-field">
+              <input id="lastName" class="form-control" type="text" name="lastName"
+              placeholder="Apellido(s)" minlength="3" (input)="validateName($event)" formControlName="lastName">
+              <label for="lastName" class="form-label">Apellido</label>
+            </div>
+
           </div>
 
-          <div class="name-field">
-            <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Apellido(s)">
-            <label for="lastName" class="form-label"> Apellido </label>
+          <!-- * Etiqueta y campo para correo electrónico -->
+          <div class="mb-3">
+            <input id="correo" class="form-control" type="email" name="correo"
+            placeholder="Correo Electrónico" formControlName="mail">
+            <label for="correo" class="form-label">Correo</label>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <input type="email" class="form-control" id="correo" formControlName="correo"  placeholder="Correo Electrónico">
-          <label for="correo" class="form-label"> Correo </label>
-        </div>
+          <!-- * Etiqueta y campo para número de celular -->
+          <div class="mb-3">
+            <input id="celular" class="form-control" type="tel" name="celular"
+            placeholder="Número de Teléfono" maxlength="13" (input)="validatePhone($event)" formControlName="phone">
+            <label for="celular" class="form-label">Teléfono</label>
+          </div>
 
-        <div class="mb-3">
-          <input type="tel" class="form-control" id="celular" formControlName="celular"  placeholder="Número de Teléfono">
-          <label for="celular" class="form-label"> Teléfono </label>
-        </div>
-        <div class="mb-3">
-          <textarea class="form-control" id="mensaje" rows="3" formControlName="mensaje"  placeholder="Escribe tu mensaje"> </textarea>
-          <label for="mensaje" class="form-label"> Mensaje </label>
-        </div>
+          <!-- * Etiqueta y campo para el mensaje -->
+          <div class="mb-3">
+            <textarea id="mensaje" class="form-control" rows="3" name="mensaje"
+            placeholder="Escribe tu mensaje" maxlength="500" formControlName="message">
+            </textarea>
+            <label for="mensaje" class="form-label">Mensaje</label>
+          </div>
 
-        <!-- * Botón para mandar los datos una vez llenado el formulario -->
-        <button type="submit" class="btn btn-primary"> Enviar </button>
-      </form>
+          <!-- * Botón para mandar los datos una vez llenado el formulario -->
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
