@@ -88,7 +88,7 @@ export class UserService {
   }
 
   // * Método que manda una petición al backend para hacer premium a un usuario
-  updateUserToPremium ( user : number ) : Observable < UpgradeResponse > {
+  updateUserToPremium ( user : string | null ) : Observable < UpgradeResponse > {
     const url = `${ this.base_url }/api/usuarios/upgrade/${ user }`;
 
     return this.http.put < UpgradeResponse > ( url, {} )

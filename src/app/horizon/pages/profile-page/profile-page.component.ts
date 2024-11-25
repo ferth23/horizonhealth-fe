@@ -47,6 +47,8 @@ export class ProfilePageComponent {
   private user_id : string | null = "";
   private user !: UserResponse;
   private user_pass : string = "";
+  public is_premium : boolean = false;
+  private premium !: string | null;
 
   @ViewChild ( 'overlay' ) overlay !: ElementRef<HTMLDivElement>;
 
@@ -62,9 +64,6 @@ export class ProfilePageComponent {
     this.premium = localStorage.getItem ( 'premium' );
     if ( this.premium === "1" ) this.is_premium = true;
   }
-
-  public is_premium : boolean = false;
-  private premium !: string | null;
 
   // * Método que envía al usuario al Home Page
   goToHomePage () {

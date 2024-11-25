@@ -18,20 +18,23 @@
  *
  * 17/10/2024    Humberto Medina Santos    Se hicieron cambios pequeños en algunos
  *                                         estilos
+ *
+ * 22/11/2024    Humberto Medina Santos    Se agregaron algunos estilos extras para más
+ *                                         responsividad
  * ---------------------------------------------------------------------------- */
 
 /* * Estilos para Computadora y Generales */
 .container {
   margin: 0 30px 30px 30px;
   border-radius: 20px;
-  height: 967px;
+  height: auto;
   position: relative;
   display: grid;
   z-index: 1;
   background: linear-gradient(135deg, rgba(173,241,255,1) 0%, rgba(153,206,255,1) 100%);
 }
 
-.pop-up-container { z-index: 3; }
+.pop-up-container { z-index: 4; }
 .pop-up-container, .overlay { border-radius: 20px; }
 
 .pop-up-container, .overlay, .popup {
@@ -67,7 +70,7 @@
 .button {
   cursor: pointer;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   border-radius: 30px;
   border-style: none;
   padding: 1.2rem;
@@ -108,7 +111,7 @@
 }
 
 .progress-bar {
-  width: 500px;
+  width: 40vw;
   height: 48px;
   justify-self: center;
   appearance: none;
@@ -116,6 +119,7 @@
   border-radius: 100px;
   overflow: hidden;
   z-index: 2;
+  margin-top: 8%;
 }
 
 .progress-bar::-webkit-progress-bar { background-color: #eee; }
@@ -127,7 +131,7 @@
   display: grid;
   width: 571px;
   height: 571px;
-  margin-top: 7rem;
+  margin: 25% 0;
 }
 
 .circle-wave, .avatar {
@@ -158,41 +162,48 @@
   .wave-up, .wave-down { height: 200px; }
 
   .progress-bar {
-    width: 300px;
     height: 38px;
-    margin-top: 3rem;
+    margin-top: 9%;
+    margin-left: 30%;
   }
 
-  .meditation-animation { margin-top: 3rem; }
+  .meditation-animation {
+    margin: 10% 0 25% 0;
+    width: 90vw;
+  }
 
   .circle-wave {
-    width: 450px;
-    height: 450px;
+    width: 70vw;
+    height: 40vh;
   }
 
   .avatar {
-    width: 300px;
-    height: 300px;
+    width: 60vw;
+    height: 25vh;
   }
 }
 
 /* * Estilos para Celular */
 @media ( max-width: 460px ) {
-  .container { height: 700px; }
+  .container {
+    height: 86vh;
+    margin: 0 20px 20px 20px;
+  }
+
   .wave-up, .wave-down { height: 150px; }
 
   .progress-bar {
     width: 250px;
     height: 28px;
-    margin-top: 2rem;
+    margin-left: 0;
   }
 
   .meditation-content, .meditation-animation { width: 284px; }
-  .meditation-content { margin-bottom: 3rem; }
 
   .meditation-animation {
     margin-top: 3rem;
     height: 300px;
+    margin: 15% 0 10% 0;
   }
 
   .circle-wave {

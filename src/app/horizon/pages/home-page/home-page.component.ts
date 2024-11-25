@@ -36,6 +36,7 @@ import { UserService } from 'src/app/auth/services/user.service';
 import { UserResponse } from 'src/app/auth/interfaces/user-response.interface';
 import Swal from 'sweetalert2';
 import { TestService } from '../../services/test.service';
+import { DailyTestService } from '../../services/daily-test.service';
 
 @Component ( {
   selector : 'app-home-page',
@@ -48,31 +49,25 @@ export class HomePageComponent {
   // * del localStorage para saber si el usuario es premium o no
   constructor () {
     this.user_id = localStorage.getItem ( 'user' );
-
     this.premium = localStorage.getItem ( 'premium' );
-
-    if ( this.premium === "1" ) {
-      this.is_premium = true;
-      this.getCreationDate();
-    } else {
-      this.showDailyPopup = true;
-    }
+    this.getCreationDate();
   }
 
   // * Declaración de variables y dependencias
   private router = inject ( Router );
   private user_service = inject ( UserService );
   private test_service = inject ( TestService );
+  private daily_test_service = inject ( DailyTestService );
   private user !: UserResponse;
   public hidden : boolean = false;
   public test_hidden : boolean = false;
-  public is_premium : boolean = false;
   private premium !: string | null;
   private creation_date: Date | null = null;
   private user_id !: string | null;
   public showWeeklyPopup : boolean = false;
   public showDailyPopup : boolean = false;
-  private last_test_date : Date | null = null;
+  private last_weekly_test_date : Date | null = null;
+  private last_daily_test_date : Date | null = null;
 
   // * Obtiene la fecha de creación de la cuenta de usuario
   getCreationDate () {
@@ -80,50 +75,66 @@ export class HomePageComponent {
       next: ( user ) => {
         this.user = user[0];
         this.creation_date = this.user.fecha_de_creacion;
-        this.getLastWeeklyTestDate();
+        if ( this.premium === "1" ) this.getLastWeeklyTestDate();
+        this.getLastDailyTestDate();
       },
       error: ( message => Swal.fire ( 'Error', message, 'error' ) )
     } );
   }
 
-  // * Obtiene la fecha del último test que el usuario respondió
+  // * Obtiene la fecha del último test semanal que el usuario respondió
   getLastWeeklyTestDate () {
     this.test_service.obtenerPuntajes ( this.user_id ).subscribe ( {
       next: ( res ) => {
-        this.last_test_date = res[0].fecha_d;
-        this.checkPopUpVisibility();
+        this.last_weekly_test_date = res[0].fecha_d;
+        this.checkPopUpVisibility ( 'weekly' );
       },
-      error: ( message ) => { /*Swal.fire ( 'Error', message, 'error' )*/
-        this.last_test_date = null;
-        this.checkPopUpVisibility();
+      error: () => {
+        this.last_weekly_test_date = null;
+        this.checkPopUpVisibility ( 'weekly' );
       }
     } );
   }
 
-  // * Método que revisa si debe aparecer el Pop Up
-  checkPopUpVisibility () {
+  // * Obtiene la fecha del último test diario que el usuario respondió
+  getLastDailyTestDate () {
+    this.daily_test_service.obtenerFechaTest ( this.user_id ).subscribe ( {
+      next: ( { fechaTestDiario } ) => {
+        this.last_daily_test_date = fechaTestDiario;
+        this.checkPopUpVisibility ( 'daily' );
+      },
+      error: () => {
+        this.last_daily_test_date = null;
+        this.checkPopUpVisibility ( 'daily' );
+      }
+    } );
+  }
+
+  // * Método que revisa si debe aparecer el Pop Up del test semanal
+  checkPopUpVisibility ( test : string ) {
     const now = new Date();
 
     if ( this.creation_date ) {
       const creationDate = new Date ( this.creation_date );
-      const daysSinceCreation = Math.floor ( ( now.getTime() - creationDate.getTime () ) / ( 1000 * 60 * 60 * 24 ) );
 
-      if ( ( daysSinceCreation - 1 ) % 7 === 0 ) {
-        if ( this.last_test_date ) {
-          if ( this.last_test_date < now ) {
-            this.showDailyPopup = false;
-            this.showWeeklyPopup = true;
-          } else {
-            this.showDailyPopup = true;
-          }
+      if ( test === 'weekly' ) {
+        if ( this.last_weekly_test_date ) {
+          const lastTestDate = new Date ( this.last_weekly_test_date );
+          const daysSinceLastTest = Math.floor ( ( now.getTime() - lastTestDate.getTime () ) / ( 1000 * 60 * 60 * 24 ) );
+          this.showWeeklyPopup = daysSinceLastTest >= 7;
         } else {
-          this.showDailyPopup = false;
-          this.showWeeklyPopup = true;
+          const daysSinceCreation = Math.floor ( ( now.getTime() - creationDate.getTime () ) / ( 1000 * 60 * 60 * 24 ) );
+          this.showWeeklyPopup = daysSinceCreation >= 7;
         }
-      } else {
-        this.showDailyPopup = true;
+      } else if ( test === 'daily' ) {
+        if ( this.last_daily_test_date ) {
+          const lastTestDate = new Date ( this.last_daily_test_date );
+          const hoursSinceLastTest = Math.floor ( ( now.getTime() - lastTestDate.getTime () ) / ( 1000 * 60 * 60 ) );
+          this.showDailyPopup = hoursSinceLastTest >= 24;
+        } else this.showDailyPopup = true;
       }
     }
+
   }
 
   // * Arreglo que contiene la información de los items de las previews de las secciones

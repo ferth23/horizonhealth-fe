@@ -1,13 +1,13 @@
 <!-- ------------------------------------------------------------------------------
  * HorizonHealth
- * 
+ *
  * Archivo       : contacto.component.html
  * Autor         : Layla Vanessa González Martínez
  * Fecha         : 30/09/2024
- * Descripción   : Archivo html de la sección de contacto. Contiene el formulario 
- *                 para la información del cliente y la presentación de la 
+ * Descripción   : Archivo html de la sección de contacto. Contiene el formulario
+ *                 para la información del cliente y la presentación de la
  *                 información de contacto de la empresa.
- * 
+ *
  * Modificaciones:
  * Fecha         Modificado por     Descripción
  * 30/09/2024    Layla González     Se definieron las clases y se asignaron sus
@@ -15,7 +15,7 @@
  *
  * 18/11/2024    Humberto Medina    Se agregaron redireccionamientos a los iconos
  *                                  de redes sociales del formulario. También los
- *                                  verdaderos datos. 
+ *                                  verdaderos datos.
  *
  * 20/11/2024    Layla González     Se implementaron las expresiones regulares para
  *                                  las validaciones de los datos ingresados en el
@@ -24,7 +24,7 @@
 
  <!-- * Fondo -->
  <div class="contacto-background">
-  
+
   <!-- * Contenedor principal -->
   <div class="contact">
 
@@ -34,33 +34,31 @@
 
     <!-- * Se agrupa contact-info-container y contact form para ordenarlos uno junto al otro -->
     <div class="row">
-        
+
       <div class="col-md-6 contacto-info">
         <h3>Información de Contacto</h3>
 
-        <!-- * Lista de información sobre la empresa, con logos alusivos -->
-        <ul class="contact-list">
-          <li> <i class="fas fa-phone"> </i> 8715774512 </li>
-          <li> <i class="fas fa-envelope"> </i> csunset.wellness.hh&#64;gmail.com </li>
-          <li> <i class="fas fa-map-marker-alt"> </i> Av. Allende 892 Ote. Colonia Centro, CP 27000.</li>
-        </ul>
+      <!-- * Lista de información sobre la empresa, con logos alusivos -->
+      <ul class="contact-list">
+        <li> <i class="fas fa-phone"> </i> 8715774512 </li>
+        <li> <i class="fas fa-envelope"> </i> csunset.wellness.hh&#64;gmail.com </li>
+        <li> <i class="fas fa-map-marker-alt"> </i> Av. Allende 892 Ote. Colonia Centro, CP 27000. </li>
+      </ul>
+      <!-- * Logos de redes sociales -->
+      <div class="social-media">
+        <a target="_blank" class="social-network" href="https://www.facebook.com/share/189n6juMt7/">
+          <i class="fab fa-facebook-square"> </i>
+        </a>
 
-        <!-- * Logos de redes sociales -->
-        <div class="social-media">
-          <a target="_blank" class="social-network" href="https://www.facebook.com/share/189n6juMt7/">
-            <i class="fab fa-facebook-square"> </i>
-          </a>
-  
-          <a target="_blank" class="social-network" href="https://www.instagram.com/sunsetwellness.hh/profilecard/?igsh=MXdiZmNyZXh5N3g0cg==">
-            <i class="fab fa-instagram"> </i>
-          </a>
-  
-          <a target="_blank" class="social-network" href="#">
-            <i class="fab fa-twitter"> </i>
-          </a>
-        </div>
-        
+        <a target="_blank" class="social-network" href="https://www.instagram.com/sunsetwellness.hh/profilecard/?igsh=MXdiZmNyZXh5N3g0cg==">
+          <i class="fab fa-instagram"> </i>
+        </a>
+
+        <a target="_blank" class="social-network" href="https://x.com/wellness_sunset">
+          <i class="fab fa-twitter"> </i>
+        </a>
       </div>
+    </div>
 
       <!-- * Formulario para los datos de los usuarios -->
       <div class="col-md-6 contacto-form">
@@ -68,26 +66,26 @@
 
           <!-- * Nombre completo -->
           <div class="mb-3 name-container">
-            
+
             <!-- * Etiqueta y campo para nombre(s) -->
             <div class="name-field">
-              <input id="name" class="form-control" type="text" name="name" 
+              <input id="name" class="form-control" type="text" name="name"
               placeholder="Nombre(s)" minlength="3" (input)="validateName($event)" formControlName="name">
               <label for="name" class="form-label">Nombre</label>
             </div>
 
             <!-- * Etiqueta y campo para apellido(s) -->
             <div class="name-field">
-              <input id="lastName" class="form-control" type="text" name="lastName" 
+              <input id="lastName" class="form-control" type="text" name="lastName"
               placeholder="Apellido(s)" minlength="3" (input)="validateName($event)" formControlName="lastName">
               <label for="lastName" class="form-label">Apellido</label>
             </div>
-            
+
           </div>
-          
+
           <!-- * Etiqueta y campo para correo electrónico -->
           <div class="mb-3">
-            <input id="correo" class="form-control" type="email" name="correo" 
+            <input id="correo" class="form-control" type="email" name="correo"
             placeholder="Correo Electrónico" formControlName="mail">
             <label for="correo" class="form-label">Correo</label>
           </div>
@@ -101,7 +99,7 @@
 
           <!-- * Etiqueta y campo para el mensaje -->
           <div class="mb-3">
-            <textarea id="mensaje" class="form-control" rows="3" name="mensaje" 
+            <textarea id="mensaje" class="form-control" rows="3" name="mensaje"
             placeholder="Escribe tu mensaje" maxlength="500" formControlName="message">
             </textarea>
             <label for="mensaje" class="form-label">Mensaje</label>

@@ -26,7 +26,7 @@
  *                                         base de datos cada que se inicia una sesión
  * ---------------------------------------------------------------------------- */
 
-import { AfterViewInit, Component, ElementRef, inject, output, ViewChild } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { MeditacionService } from '../../services/meditacion.service';
 import Swal from 'sweetalert2';
 
@@ -58,14 +58,16 @@ export class MeditacionPopUpComponent {
   public start () : void {
     this.onStart.emit ( this.value_spinner );
 
-    this.meditacion_service.guardarMeditacion ( this.user_id, this.value_spinner )
-      .subscribe ( {
-        error: ( message => Swal.fire (
-          'Error al guardar la meditación',
-          message,
-          'error'
-        ) )
-      } );
+    if ( this.premium === "1" ) {
+      this.meditacion_service.guardarMeditacion ( this.user_id, this.value_spinner )
+        .subscribe ( {
+          error: ( message => Swal.fire (
+            'Error al guardar la meditación',
+            message,
+            'error'
+          ) )
+        } );
+    }
   }
 
   // * Método que emite el evento onCancel con un valor dado

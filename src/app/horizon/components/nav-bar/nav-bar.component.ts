@@ -16,6 +16,10 @@
  *                                         la página de Log In
  *
  * 12/10/2024    Humberto Medina Santos    Se añadieron espaciados
+ *
+ * 22/11/2024    Humberto Medina Santos    Se eliminaron métodos que ya no eran
+ *                                         necesarios y se modificó el método
+ *                                         toggleNavBar()
  * ---------------------------------------------------------------------------- */
 
 import { Component, HostListener, inject, signal } from '@angular/core';
@@ -37,8 +41,6 @@ export class NavBarComponent {
     this.current_width = window.innerWidth;
     this.previous_width = window.innerWidth;
     this.toggleNavBar ();
-    this.toggleNavLogIn ();
-    this.toggleLogIn ();
     this.user_id = localStorage.getItem ( 'user' );
     this.getUserById ();
   }
@@ -49,13 +51,7 @@ export class NavBarComponent {
   onResize ( event : any ) {
     this.previous_width = this.current_width;
     this.current_width = event.target.innerWidth;
-
-    if ( this.current_width !== this.previous_width ) {
-      this.toggleNavBar ();
-      this.toggleNavLogIn ();
-    }
-
-    this.toggleLogIn ();
+    if ( this.current_width !== this.previous_width ) this.toggleNavBar ();
   }
 
   // * Arreglo que guarda las propiedades de cada sección para iterarlas en el html
@@ -100,24 +96,8 @@ export class NavBarComponent {
   // * boleana 'hidden' cuyo valor esta ligado a la aparición o desaparición de ciertos
   // * elementos del html
   public toggleNavBar () : void {
-    if ( window.innerWidth >= 768 || this.hidden ) this.hidden = false;
-    else if ( window.innerWidth <= 768 || !this.hidden ) this.hidden = true;
-  }
-
-  // * Método que, dependiendo del ancho de la pantalla, cambia el valor de la variable
-  // * boleana 'login_hidden' cuyo valor esta ligado a la aparición o desaparición del
-  // * botón de Log In que NO esta dentro de los links
-  public toggleLogIn () : void {
-    if ( window.innerWidth >= 768 ) this.login_hidden = false;
-    else if ( window.innerWidth <= 768 ) this.login_hidden = true;
-  }
-
-  // * Método que, dependiendo del ancho de la pantalla, cambia el valor de la variable
-  // * boleana 'nav_login_hidden' cuyo valor esta ligado a la aparición o desaparición del
-  // * botón de Log In que esta dentro de los links
-  public toggleNavLogIn () : void {
-    if ( window.innerWidth >= 768 && !this.nav_login_hidden ) this.nav_login_hidden = true;
-    else if ( window.innerWidth <= 768 && this.nav_login_hidden ) this.nav_login_hidden = false;
+    if ( window.innerWidth >= 1110 || this.hidden ) this.hidden = false;
+    else if ( window.innerWidth <= 1110 || !this.hidden ) this.hidden = true;
   }
 
   // * Método que asigna la imagen que se mostrará como foto de perfil del usuario

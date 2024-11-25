@@ -55,12 +55,12 @@
                     <div class="lab_icon">
                         <label for="card_number" class="input_label">Número de Tarjeta</label>
                         <div class="card-icons">
-                            <img src="logo-visa.png" alt="visa" class="icon">
-                            <img src="logo-mastercard.png" alt="mastercard" class="icon">
+                            <img src="logo-visa.jpg" alt="visa" class="icon">
+                            <img src="logo-mastercard.jpg" alt="mastercard" class="icon">
                         </div>
                     </div>
 
-                    <input id="card_number" class="input_field" type="text" 
+                    <input id="card_number" class="input_field" type="text"
                     placeholder="0000 0000 0000 0000" maxlength="19" (input)="validateNumber($event)"
                     formControlName="cardNumber">
                 </div>
@@ -72,7 +72,7 @@
                         <!-- * Fecha de expiración -->
                         <div class="campo">
                             <label for="expiry_date" class="input_label">Fecha de Expiración</label>
-                            <input id="expiry_date" class="input_field" type="text" name="expiry-date" 
+                            <input id="expiry_date" class="input_field" type="text" name="expiry-date"
                             placeholder="MM/YY" maxlength="5" (input)="validateDate($event)"
                             formControlName="expiryDate">
                         </div>
@@ -80,7 +80,7 @@
                         <!-- * Código de seguridad -->
                         <div class="campo">
                             <label for="cvv" class="input_label">CVV</label>
-                            <input id="cvv" class="input_field" type="number" name="cvv" 
+                            <input id="cvv" class="input_field" type="number" name="cvv"
                             placeholder="123"  maxlength="3" (input)="validateCVV($event)"
                             formControlName="cvv">
                         </div>
@@ -96,7 +96,7 @@
 
                 <!-- * Botón para cancelar el pago -->
                 <button class="suscription" (click)="close()">Cancelar</button>
-            </div>            
+            </div>
 
         </form>
     </div>

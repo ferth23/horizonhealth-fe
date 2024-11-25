@@ -15,6 +15,9 @@
  *
  * 17/10/2024    Humberto Medina Santos    Se hicieron cambios pequeños en algunos
  *                                         estilos
+ *
+ * 22/11/2024    Humberto Medina Santos    Se agregaron algunos estilos extras para más
+ *                                         responsividad
  * ---------------------------------------------------------------------------- */
 
 /* * Estilos para Computadora y Generales */
@@ -25,14 +28,16 @@
   transform: translate(-50%, -50%);
   background: linear-gradient(45deg, rgba(255,246,144,1) 0%, rgba(253,205,121,1) 24%, rgba(249,180,139,1) 48%, rgba(244,151,170,1) 73%, rgba(221,134,185,1) 100%);
   border-radius: 20px;
-  width: 952px;
+  width: 90%;
   height: 628px;
+  display: flex;
+  justify-content: center;
 }
 
 .content {
-  width: 885px;
+  width: 94%;
   height: 563px;
-  margin: 34px;
+  margin: 34px 0;
   border-radius: 20px;
   background-color: white;
   display: flex;
@@ -55,6 +60,7 @@
 .spinner-content {
   display: flex;
   place-content: center;
+  align-items: center;
   width: 100%;
   margin: 3rem 0;
   height: 5rem;
@@ -95,13 +101,13 @@
 .buttons {
   display: flex;
   flex-direction: row;
-  gap: 5rem;
+  gap: 1vw;
 }
 
 .button {
   cursor: pointer;
-  width: 330px;
-  height: 90px;
+  width: 30vw;
+  height: 10vh;
   color: white;
   background-color: #6E214E;
   font-size: 36px;
@@ -113,20 +119,31 @@
 /* * Estilos para Tablet */
 @media ( max-width: 768px ) {
   .container {
-    width: 630px;
-    height: 430px;
+    height: 70vh;
   }
 
   .content {
-    width: 584px;
-    height: 384px;
-    margin: 25px;
+    height: 91%;
+    margin: 25px 0;
   }
 
   .text { font-size: 40px; }
   .spinner { font-size: 30px; }
-  .spinner-text { font-size: 30px; }
-  .spinner-content { height: 3rem; }
+
+  .spinner-text {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .spinner-item {
+    width: 10vw;
+  }
+
+  .spinner-content {
+    flex-wrap: wrap;
+    margin: 5vh 0;
+    height: 3rem;
+  }
 
   .spinner-button {
     font-size: 30px;
@@ -137,32 +154,34 @@
   .buttons { gap: 1rem; }
 
   .button {
-    width: 250px;
-    height: 70px;
+    height: 8vh;
     font-size: 25px;
   }
 }
 
 /* * Estilos para Celular */
-@media ( max-width: 460px ) {
+@media ( max-width: 640px ) {
   .container {
-    width: 315px;
     height: 545px;
   }
 
   .content {
-    width: 284px;
     height: 514px;
-    margin: 15px;
+    margin: 15px 0;
   }
 
-  .text { font-size: 30px; }
+  .text {
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+
   .spinner { font-size: 20px; }
 
   .spinner-text {
     font-size: 20px;
     margin: 1rem 0 0 0;
     text-align: center;
+    width: 100%;
   }
 
   .spinner-content {

@@ -14,6 +14,8 @@
  *                                         automático a una sección
  *
  * 12/10/2024    Humberto Medina Santos    Se añadieron espaciados
+ *
+ * 22/11/2024    Humberto Medina Santos    Cambios en el método toggleNavBar()
  * ---------------------------------------------------------------------------- */
 
 import { Component, HostListener, output, signal } from '@angular/core';
@@ -60,8 +62,8 @@ export class NavBarComponent {
   // * boleana 'hidden' cuyo valor esta ligado a la aparición o desaparición de ciertos
   // * elementos del html
   public toggleNavBar () : void {
-    if ( window.innerWidth > 460 || this.hidden ) this.hidden = false;
-    else if ( window.innerWidth < 460 || !this.hidden ) this.hidden = true;
+    if ( window.innerWidth > 595 || this.hidden ) this.hidden = false;
+    else if ( window.innerWidth < 595 || !this.hidden ) this.hidden = true;
   }
 
   // * Método que emite un evento para hacer scroll automático a la sección especificada
